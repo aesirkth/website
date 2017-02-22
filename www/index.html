@@ -60,6 +60,70 @@
     </section>
     <section class="" id="recruitment">
       <header>Join us</header>
+      <div>
+        ÆSIR was created by students for students to learn. We are always looking into new talent and skills. If you are interested in joining us, let us know in the form below. We'll contact you in the future.
+      </div>
+      <form action="/recruitment" method="POST">
+        <div class="form--row">
+          <div class="form--half">
+            <input autocomplete="off" id="name" type="text" name="name" required>
+            <label for="name">Your name</label>
+            <paper-ripple></paper-ripple>
+          </div>
+          <div class="form--half">
+            <!-- 
+              if you can see this, you have to know that the mail is validated on server-side as well 
+              if it happens that you really want to join us with a KTH-mail that does not pass our super advanced regex, send us a message on Facebook :)
+            -->
+            <input autocomplete="off" id="email" type="email" name="email" pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@(?:[a-zA-Z0-9-]+\.)*(?:kth\.se)" required>
+            <label for="email">Your KTH email</label>
+            <paper-ripple></paper-ripple>
+          </div>
+        </div>
+        <div class="form--row">
+          <div class="form--flex">
+            <input autocomplete="off" id="yearsleft" min="0" type="number" name="yearsleft" required>
+            <label for="yearsleft">Years left at KTH</label>
+            <paper-ripple></paper-ripple>
+          </div>
+          <div class="form--third">
+            <input autocomplete="off" id="program" type="text" name="program" required>
+            <label for="program">Program of study (or current courses)</label>
+            <paper-ripple></paper-ripple>
+          </div>
+          <div class="form--flex" style="min-width: 280px">
+            <div class="form--grid">
+              <div class="form--grid--entry">
+                <input id="bachelor-level" type="radio" value="bachelor" name="level">
+                <label for="bachelor-level">bachelor</label>
+                <paper-ripple></paper-ripple>
+              </div>
+              <div class="form--grid--entry">
+                <input id="master-level" type="radio" value="master" name="level">
+                <label for="master-level">master</label>
+                <paper-ripple></paper-ripple>
+              </div>
+              <div class="form--grid--entry">
+                <input id="phd-level" type="radio" value="phd" name="level">
+                <label for="phd-level">PhD</label>
+                <paper-ripple></paper-ripple>
+              </div>
+              <div class="form--grid--entry">
+                <input id="other-level" type="radio" value="other" name="level">
+                <label for="other-level">other</label>
+                <paper-ripple></paper-ripple>
+              </div>
+            </div>
+            <label for="name">Level of study</label>
+          </div>
+        </div>
+        <div class="form--submit">
+          <button type="submit">
+            submit
+            <paper-ripple></paper-ripple>
+          </button>
+        </div>
+      </form>
     </section>
   </body>
 </html>

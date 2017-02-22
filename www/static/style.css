@@ -1,6 +1,7 @@
 @import "style/masthead.css";
 @import "style/socialnav.css";
 @import "style/ribbon.css";
+@import "style/form.css";
 
 html, body {
   margin: 0; padding: 0;
@@ -8,9 +9,11 @@ html, body {
   min-height: 100%;
 }
 
-html {
+html, form input, form button { 
   font-family: 'Source Sans Pro',sans-serif;
-  font-size: 18px;
+  font-size: 16px;
+}
+html {
   background: #0b042c;
   color: white;
 }
