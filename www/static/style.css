@@ -9,7 +9,7 @@ html, body {
   min-height: 100%;
 }
 
-html, form input { 
+html, form input, form button { 
   font-family: 'Source Sans Pro',sans-serif;
   font-size: 16px;
 }
