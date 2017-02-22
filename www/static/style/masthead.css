@@ -1,0 +1,46 @@
+.masthead {
+  min-height: 50vh;
+
+  width: 100%;
+}
+
+.masthead .blur--1,
+.masthead .blur--2 {
+  position: relative;
+}
+
+.masthead .blur--1::before,
+.masthead .blur--2::before { 
+  content: "";
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+
+  z-index: -1;
+
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  
+  opacity: 0.65;
+}
+
+.masthead .blur--1::before {
+  background-image: url("/static/bg1.jpg");
+}
+.masthead .blur--2::before {
+  background-image: url("/static/bg2.jpg");
+}
+
+.masthead header.logo {
+  padding-top: 100px;
+}
+.masthead header.logo img {
+  height: 100px;
+  width: auto;
+}
+
+.masthead .punchline {
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 50px;
+}

@@ -1,0 +1,32 @@
+@import "style/masthead.css";
+@import "style/socialnav.css";
+@import "style/ribbon.css";
+
+html, body {
+  margin: 0; padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+html {
+  font-family: 'Source Sans Pro',sans-serif;
+  font-size: 18px;
+  background: #0b042c;
+  color: white;
+}
+
+section {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+section header {
+  font-size: 32px;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+section img {
+  width: 100%;
+  margin: 10px 0;
+}
