@@ -21,3 +21,7 @@
 .ribbon a + a {
   margin-left: 10px;
 }
+
+.ribbon-button {
+  position: relative;
+}

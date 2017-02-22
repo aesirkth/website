@@ -1,0 +1,48 @@
+.teams {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -5px;
+}
+
+.team {
+  margin: 5px;
+  display: flex;
+  flex-basis: 400px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  position: relative;
+  height: 250px;
+}
+
+.team .bg {
+  position: absolute;
+  top: 0; right: 0; left: 0; bottom: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.team header {
+  position: absolute;
+  top: 0; right: 0; left: 0;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.team header::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0; left: 0;
+  bottom: -10px;
+  background: linear-gradient(rgba(0,0,0,0.5), transparent);
+  z-index: -1;
+}
+
+.team .text {
+  position: absolute;
+  top: 0; right: 0; left: 0; bottom: 0;
+  padding: 50px 10px 10px 10px;
+  box-sizing: border-box;
+}

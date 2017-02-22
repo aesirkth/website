@@ -2,6 +2,8 @@
 @import "style/socialnav.css";
 @import "style/ribbon.css";
 @import "style/form.css";
+@import "style/projects.css";
+@import "style/teams.css";
 
 html, body {
   margin: 0; padding: 0;
@@ -34,6 +36,6 @@ section img {
   margin: 10px 0;
 }
 
-section div {
+section > div {
   padding-bottom: 20px;
 }

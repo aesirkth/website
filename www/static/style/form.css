@@ -38,6 +38,8 @@ form {
   -ms-flex-wrap: wrap;
       -webkit-flex-wrap: wrap;
           flex-wrap: wrap;
+
+  align-items: flex-start;
 }
 .form--half {
   -ms-flex-preferred-size: 50%;
