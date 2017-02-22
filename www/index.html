@@ -5,6 +5,8 @@
     <title>ÆSIR</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,900" rel="stylesheet">
     <link href="/static/style.css" rel="stylesheet">
+    <link rel="import" href="/bower_components/paper-ripple/paper-ripple.html">
+    <link rel="import" href="/static/components/aesir-rocket-viewer.html">
   </head>
   <body>
     <nav class="social">
@@ -57,6 +59,10 @@
     </section>
     <section class="" id="supportus">
       <header>Why support us</header>
+      <div>
+        By sponsoring ÆSIR, you get the chance to both get your name out there through logo placement on our rockets and to support a group of students in breaking the European record of altitude for student rocketry. We gladly accept any kind of sponsoring - funding, equipment or knowledge - anything helps our cause.
+      </div>
+      <aesir-rocket-viewer differential-factor="0.15" placeholder="/static/sponsor/placeholder.png" frames="300" framerate="30" srcset='[{"src":"/static/sponsor/anim.mp4","type":"video/mp4"},{"src":"/static/sponsor/anim.webm","type":"video/webm"}]' unresolved></aesir-rocket-viewer>
     </section>
     <section class="" id="recruitment">
       <header>Join us</header>
@@ -125,5 +131,20 @@
         </div>
       </form>
     </section>
+    <script>
+      (function() {
+        if ('registerElement' in document
+            && 'import' in document.createElement('link')
+            && 'content' in document.createElement('template')) {
+          // platform is good!
+        } else {
+          // polyfill the platform!
+          var e = document.createElement('script');
+          e.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
+          e.defer = true;
+          document.body.appendChild(e);
+        }
+      })();
+    </script>
   </body>
 </html>
