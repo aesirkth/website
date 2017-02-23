@@ -29,15 +29,18 @@
   line-height: 40px;
   padding: 0 10px;
   box-sizing: border-box;
+
+  z-index: 1;
 }
 
 .team header::before {
   content: "";
   position: absolute;
   top: 0; right: 0; left: 0;
-  bottom: -10px;
-  background: linear-gradient(rgba(0,0,0,0.5), transparent);
+  bottom: -20px;
+  background: linear-gradient(rgba(0,0,0,0.75), transparent);
   z-index: -1;
+  opacity: 1;
 }
 
 .team .text {
@@ -45,4 +48,31 @@
   top: 0; right: 0; left: 0; bottom: 0;
   padding: 50px 10px 10px 10px;
   box-sizing: border-box;
+
+  transition: transform 225ms, opacity 225ms;
+  transform: translate3d(-10px, 0, 0);
+  opacity: 0;
+
+  pointer-events: none;
+}
+.team .text::before {
+  content: "";
+  background: rgba(0,0,0,0.5);
+  position: absolute;
+  top: 0; right: 0; left: 0; bottom: 0;
+  opacity: 0;
+  z-index: -1;
+}
+
+.team .text::before {
+  transition: opacity 225ms;
+}
+
+.team:hover .text::before { 
+  opacity: 1;
+}
+
+.team:hover .text {
+  transform: none;
+  opacity: 1;
 }
