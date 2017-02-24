@@ -102,9 +102,10 @@
 
         this.currentFrame = 0;
 
+        this.viewportElement = document.querySelector(".viewport");
         this.listen(window, "resize", "onResize");
-        this.listen(window, "scroll", "onScroll");
-        this.listen(window, "touchmove", "onScroll");
+        this.listen(this.viewportElement, "scroll", "onScroll");
+        this.listen(this.viewportElement, "touchmove", "onScroll");
 
         this.listen(this.$.video, "canplaythrough", "hidePlaceholder");
         this.canseek = false;
@@ -115,8 +116,9 @@
       detached: function() {
         this.rocketViewer.stopRender();
         this.unlisten(window, "resize", "onResize");
-        this.unlisten(window, "scroll", "onScroll");
-        this.unlisten(window, "touchmove", "onScroll");
+        this.unlisten(this.viewportElement, "scroll", "onScroll");
+        this.unlisten(this.viewportElement, "touchmove", "onScroll");
+        this.viewportElement = null;
       },
 
       hidePlaceholder: function() {
@@ -138,8 +140,9 @@
       onResize: function() {
         var windowHeight = window.innerHeight;
         var wrapperHeight = this.offsetHeight;
-        this.scrollEnd = Math.min(document.body.offsetHeight, this.offsetTop - (windowHeight/3));
-        this.scrollStart = this.offsetTop - (windowHeight) + wrapperHeight*1.25;
+
+        this.scrollStart = this.offsetTop + this.offsetHeight;
+        this.scrollEnd = Math.min(this.viewportElement.scrollHeight - this.viewportElement.offsetHeight, this.offsetTop + this.viewportElement.offsetHeight);
 
         this.scrollDistance = this.scrollEnd - this.scrollStart;
 
@@ -159,7 +162,7 @@
       useSlowerScroll: navigator && navigator.platform && navigator.platform.toUpperCase().indexOf('MAC')>=0,
 
       move: function() {
-        var delta = Math.min(1, Math.max(0, window.scrollY - this.scrollStart) / this.scrollDistance);
+        var delta = Math.min(1, Math.max(0, this.viewportElement.scrollTop - this.scrollStart) / this.scrollDistance);
         if(delta > 0.9) {
           this.$.yourname.classList.add("active");
         } else {
@@ -179,7 +182,7 @@
       frame: function(t) {
         if(this.rendering) requestAnimationFrame(this._boundFrame);
 
-        if(this.useSlowerScroll && ++this.currentFrame % 2 !== 0) return;
+        if(++this.currentFrame % 2 !== 0) return;
         
         this.currentDelta -= (this.currentDelta - this.targetDelta) * this._differentialFactor;
         

@@ -18,6 +18,15 @@
     <meta name="application-name" content="&AElig;SIR">
     <meta name="msapplication-config" content="/static/icons/browserconfig.xml?v=WGa7XeyelR">
     <meta name="theme-color" content="#3a179e">
+    <style>
+      .viewport {
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: relative;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
   </head>
   <body>
     <nav class="social">
@@ -56,10 +65,10 @@
         </a>
       </section>
     </nav>
-    <div class="masthead">
-      <div class="blur--1">
-        <div class="bg"></div>
-        <section class="">
+    <div class="viewport">
+      <div class="masthead">
+        <div parallax="0.3" class="bg blur--1"></div>
+        <section class="masthead--top--section">
           <header class="logo">
             <img src="/static/logo.svg" alt="The logo of ÆSIR">
           </header>
@@ -69,220 +78,221 @@
             in Stockholm, Sweden.
           </div>
         </section>
+        <div class="lighten">
+          <section class="">
+            <header>Who we are</header>
+            <div>
+              ÆSIR consists of 33 students from KTH Royal Institute of Technology, in Stockholm. We are spread over several programmes and degrees - including Engineering Physics, Electrical Engineering and Aerospace Engineering.
+              Our team is multicultural, with over 12 nations represented.
+            </div>
+            <img src="/static/team.jpg" alt="The team of ÆSIR">
+          </section>
+        </div>
       </div>
-      <div class="blur--2">
-        <div class="bg"></div>
+      <div class="ribbon">
         <section class="">
-          <header>Who we are</header>
-          <div>
-            ÆSIR consists of 33 students from KTH Royal Institute of Technology, in Stockholm. We are spread over several programmes and degrees - including Engineering Physics, Electrical Engineering and Aerospace Engineering.
-            Our team is multicultural, with over 12 nations represented.
-          </div>
-          <img src="/static/team.jpg" alt="The team of ÆSIR">
+          <a class="ribbon-button" href="#recruitment">
+            <paper-ripple></paper-ripple>
+            join us
+          </a>
+          <a class="ribbon-button" href="#supportus">
+            <paper-ripple></paper-ripple>
+            support us
+          </a>
+          <a class="ribbon-button" href="mailto:admin@aesir.se">
+            <paper-ripple></paper-ripple>
+            contact us
+          </a>
         </section>
       </div>
-    </div>
-    <div class="ribbon">
-      <section class="">
-        <a class="ribbon-button" href="#recruitment">
-          <paper-ripple></paper-ripple>
-          join us
-        </a>
-        <a class="ribbon-button" href="#supportus">
-          <paper-ripple></paper-ripple>
-          support us
-        </a>
-        <a class="ribbon-button" href="mailto:admin@aesir.se">
-          <paper-ripple></paper-ripple>
-          contact us
-        </a>
-      </section>
-    </div>
-    <section class="">
-      <header>What we are working on</header>
-      <div class="projects">
-        <div class="project">
-          <paper-ripple>
-            <div id="background" class="style-scope paper-ripple"></div>
-            <div id="waves" class="style-scope paper-ripple"></div>
-          </paper-ripple>
-          <header>
-            <span>Test rig</span>
-          </header>
-          <div class="project__img" style="background-image: url('/static/projects/testrig.jpg')"></div>
-          <div class="project__description">
-            The design and construction of a test rig for a 6kN rocket motor.
+      <div class="background">
+        <section class="">
+          <header>What we are working on</header>
+          <div class="projects">
+            <div class="project">
+              <paper-ripple>
+                <div id="background" class="style-scope paper-ripple"></div>
+                <div id="waves" class="style-scope paper-ripple"></div>
+              </paper-ripple>
+              <header>
+                <span>Test rig</span>
+              </header>
+              <div class="project__img" style="background-image: url('/static/projects/testrig.jpg')"></div>
+              <div class="project__description">
+                The design and construction of a test rig for a 6kN rocket motor.
+              </div>
+            </div>
+            <div class="project">
+              <paper-ripple>
+                <div id="background" class="style-scope paper-ripple"></div>
+                <div id="waves" class="style-scope paper-ripple"></div>
+              </paper-ripple>
+              <header>
+                <span>Propulsion integration</span>
+              </header>
+              <div class="project__img" style="background-image: url('/static/projects/launch.jpg')"></div>
+              <div class="project__description">
+                Integration and assembly of fuel tankage and loading components with an off the shelf hybrid rocket motor.
+              </div>
+            </div>
+            <div class="project">
+              <paper-ripple>
+                <div id="background" class="style-scope paper-ripple"></div>
+                <div id="waves" class="style-scope paper-ripple"></div>
+              </paper-ripple>
+              <header>
+                <span>Conceptual rocket</span>
+              </header>
+              <div class="project__img" style="background-image: url('/static/projects/launch2.jpg')"></div>
+              <div class="project__description">
+                To boldly go where none of us have gone before.
+              </div>
+            </div>
+            <div class="project dummy"></div>
+            <div class="project dummy"></div>
+            <div class="project dummy"></div>
           </div>
-        </div>
-        <div class="project">
-          <paper-ripple>
-            <div id="background" class="style-scope paper-ripple"></div>
-            <div id="waves" class="style-scope paper-ripple"></div>
-          </paper-ripple>
-          <header>
-            <span>Propulsion integration</span>
-          </header>
-          <div class="project__img" style="background-image: url('/static/projects/launch.jpg')"></div>
-          <div class="project__description">
-            Integration and assembly of fuel tankage and loading components with an off the shelf hybrid rocket motor.
+        </section>
+        <section class="">
+          <header>Our teams</header>
+          <div class="teams">
+            <div class="team">
+              <div class="bg" style="background-image: url('/static/teams/aerodynamics.jpg')"></div>
+              <header>Aerodynamics</header>
+              <div class="text">
+                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, veritatis, perferendis suscipit earum similique fuga quae quidem nesciunt tempore voluptate. Nihil minima ipsa, voluptates. Quos minus aspernatur in quis accusantium.</div>
+                <div>Quibusdam deserunt, nisi doloremque totam aperiam id saepe rem blanditiis, quaerat fugiat veritatis optio quidem nihil dolore atque. Facilis unde rem consequuntur earum veniam, id. Magni beatae nostrum, id consequuntur.</div>
+              </div>
+            </div>
+            <div class="team">
+              <div class="bg" style="background-image: url('/static/teams/mechanical.jpg')"></div>
+              <header>Mechanical</header>
+              <div class="text">
+                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, veritatis, perferendis suscipit earum similique fuga quae quidem nesciunt tempore voluptate. Nihil minima ipsa, voluptates. Quos minus aspernatur in quis accusantium.</div>
+                <div>Quibusdam deserunt, nisi doloremque totam aperiam id saepe rem blanditiis, quaerat fugiat veritatis optio quidem nihil dolore atque. Facilis unde rem consequuntur earum veniam, id. Magni beatae nostrum, id consequuntur.</div>
+              </div>
+            </div>
+            <div class="team">
+              <div class="bg" style="background-image: url('/static/teams/propulsion.jpg')"></div>
+              <header>Propulsion</header>
+              <div class="text">
+                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, veritatis, perferendis suscipit earum similique fuga quae quidem nesciunt tempore voluptate. Nihil minima ipsa, voluptates. Quos minus aspernatur in quis accusantium.</div>
+                <div>Quibusdam deserunt, nisi doloremque totam aperiam id saepe rem blanditiis, quaerat fugiat veritatis optio quidem nihil dolore atque. Facilis unde rem consequuntur earum veniam, id. Magni beatae nostrum, id consequuntur.</div>
+              </div>
+            </div>
+            <div class="team">
+              <div class="bg" style="background-image: url('/static/teams/systems.jpg')"></div>
+              <header>Systems</header>
+              <div class="text">
+                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, veritatis, perferendis suscipit earum similique fuga quae quidem nesciunt tempore voluptate. Nihil minima ipsa, voluptates. Quos minus aspernatur in quis accusantium.</div>
+                <div>Quibusdam deserunt, nisi doloremque totam aperiam id saepe rem blanditiis, quaerat fugiat veritatis optio quidem nihil dolore atque. Facilis unde rem consequuntur earum veniam, id. Magni beatae nostrum, id consequuntur.</div>
+              </div>
+            </div>
+            <div class="team">
+              <div class="bg" style="background-image: url('/static/teams/PR.jpg')"></div>
+              <header>PR</header>
+              <div class="text">
+                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, veritatis, perferendis suscipit earum similique fuga quae quidem nesciunt tempore voluptate. Nihil minima ipsa, voluptates. Quos minus aspernatur in quis accusantium.</div>
+                <div>Quibusdam deserunt, nisi doloremque totam aperiam id saepe rem blanditiis, quaerat fugiat veritatis optio quidem nihil dolore atque. Facilis unde rem consequuntur earum veniam, id. Magni beatae nostrum, id consequuntur.</div>
+              </div>
+            </div>
+            <div class="team">
+              <div class="bg" style="background-image: url('/static/teams/events.jpg')"></div>
+              <header>Events</header>
+              <div class="text">
+                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, veritatis, perferendis suscipit earum similique fuga quae quidem nesciunt tempore voluptate. Nihil minima ipsa, voluptates. Quos minus aspernatur in quis accusantium.</div>
+                <div>Quibusdam deserunt, nisi doloremque totam aperiam id saepe rem blanditiis, quaerat fugiat veritatis optio quidem nihil dolore atque. Facilis unde rem consequuntur earum veniam, id. Magni beatae nostrum, id consequuntur.</div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="project">
-          <paper-ripple>
-            <div id="background" class="style-scope paper-ripple"></div>
-            <div id="waves" class="style-scope paper-ripple"></div>
-          </paper-ripple>
-          <header>
-            <span>Conceptual rocket</span>
-          </header>
-          <div class="project__img" style="background-image: url('/static/projects/launch2.jpg')"></div>
-          <div class="project__description">
-            To boldly go where none of us have gone before.
-          </div>
-        </div>
-        <div class="project dummy"></div>
-        <div class="project dummy"></div>
-        <div class="project dummy"></div>
-      </div>
-    </section>
-    <section class="">
-      <header>Our teams</header>
-      <div class="teams">
-        <div class="team">
-          <div class="bg" style="background-image: url('/static/teams/aerodynamics.jpg')"></div>
-          <header>Aerodynamics</header>
-          <div class="text">
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, veritatis, perferendis suscipit earum similique fuga quae quidem nesciunt tempore voluptate. Nihil minima ipsa, voluptates. Quos minus aspernatur in quis accusantium.</div>
-            <div>Quibusdam deserunt, nisi doloremque totam aperiam id saepe rem blanditiis, quaerat fugiat veritatis optio quidem nihil dolore atque. Facilis unde rem consequuntur earum veniam, id. Magni beatae nostrum, id consequuntur.</div>
-          </div>
-        </div>
-        <div class="team">
-          <div class="bg" style="background-image: url('/static/teams/mechanical.jpg')"></div>
-          <header>Mechanical</header>
-          <div class="text">
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, veritatis, perferendis suscipit earum similique fuga quae quidem nesciunt tempore voluptate. Nihil minima ipsa, voluptates. Quos minus aspernatur in quis accusantium.</div>
-            <div>Quibusdam deserunt, nisi doloremque totam aperiam id saepe rem blanditiis, quaerat fugiat veritatis optio quidem nihil dolore atque. Facilis unde rem consequuntur earum veniam, id. Magni beatae nostrum, id consequuntur.</div>
-          </div>
-        </div>
-        <div class="team">
-          <div class="bg" style="background-image: url('/static/teams/propulsion.jpg')"></div>
-          <header>Propulsion</header>
-          <div class="text">
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, veritatis, perferendis suscipit earum similique fuga quae quidem nesciunt tempore voluptate. Nihil minima ipsa, voluptates. Quos minus aspernatur in quis accusantium.</div>
-            <div>Quibusdam deserunt, nisi doloremque totam aperiam id saepe rem blanditiis, quaerat fugiat veritatis optio quidem nihil dolore atque. Facilis unde rem consequuntur earum veniam, id. Magni beatae nostrum, id consequuntur.</div>
-          </div>
-        </div>
-        <div class="team">
-          <div class="bg" style="background-image: url('/static/teams/systems.jpg')"></div>
-          <header>Systems</header>
-          <div class="text">
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, veritatis, perferendis suscipit earum similique fuga quae quidem nesciunt tempore voluptate. Nihil minima ipsa, voluptates. Quos minus aspernatur in quis accusantium.</div>
-            <div>Quibusdam deserunt, nisi doloremque totam aperiam id saepe rem blanditiis, quaerat fugiat veritatis optio quidem nihil dolore atque. Facilis unde rem consequuntur earum veniam, id. Magni beatae nostrum, id consequuntur.</div>
-          </div>
-        </div>
-        <div class="team">
-          <div class="bg" style="background-image: url('/static/teams/PR.jpg')"></div>
-          <header>PR</header>
-          <div class="text">
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, veritatis, perferendis suscipit earum similique fuga quae quidem nesciunt tempore voluptate. Nihil minima ipsa, voluptates. Quos minus aspernatur in quis accusantium.</div>
-            <div>Quibusdam deserunt, nisi doloremque totam aperiam id saepe rem blanditiis, quaerat fugiat veritatis optio quidem nihil dolore atque. Facilis unde rem consequuntur earum veniam, id. Magni beatae nostrum, id consequuntur.</div>
-          </div>
-        </div>
-        <div class="team">
-          <div class="bg" style="background-image: url('/static/teams/events.jpg')"></div>
-          <header>Events</header>
-          <div class="text">
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, veritatis, perferendis suscipit earum similique fuga quae quidem nesciunt tempore voluptate. Nihil minima ipsa, voluptates. Quos minus aspernatur in quis accusantium.</div>
-            <div>Quibusdam deserunt, nisi doloremque totam aperiam id saepe rem blanditiis, quaerat fugiat veritatis optio quidem nihil dolore atque. Facilis unde rem consequuntur earum veniam, id. Magni beatae nostrum, id consequuntur.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="">
-      <img src="/static/ambitions.svg"></section>
-    </section>
-    <section class="">
-      <header>Our mission</header>
-      <div>
-        ÆSIR was created to provide a forum for students with an interest in rocket propulsion, where they can develop their passion. The activities of the association will further strengthen KTH position as a leading Aerospace University. 
+        </section>
+        <section class="">
+          <img src="/static/ambitions.svg"></section>
+        </section>
+        <section class="">
+          <header>Our mission</header>
+          <div>
+            ÆSIR was created to provide a forum for students with an interest in rocket propulsion, where they can develop their passion. The activities of the association will further strengthen KTH position as a leading Aerospace University. 
 
-        Our mission is to become one of the top student organizations for rocket building in the world, by breaking and holding the student altitude records (which is currently 21.5 kilometers). Ultimately, we intend to break the worldwide altitude record and reach altitudes beyond the 120 kilometer mark.
-      </div>
-    </section>
-    <section class="" id="supportus">
-      <header>Why support us</header>
-      <div>
-        By sponsoring ÆSIR, you get the chance to both get your name out there through logo placement on our rockets and to support a group of students in breaking the European record of altitude for student rocketry. We gladly accept any kind of sponsoring - funding, equipment or knowledge - anything helps our cause.
-      </div>
-      <aesir-rocket-viewer differential-factor="0.15" placeholder="/static/sponsor/placeholder.png" frames="300" framerate="30" srcset='[{"src":"/static/sponsor/anim.mp4","type":"video/mp4"},{"src":"/static/sponsor/anim.webm","type":"video/webm"}]' unresolved></aesir-rocket-viewer>
-    </section>
-    <section class="" id="recruitment">
-      <header>Join us</header>
-      <div>
-        ÆSIR was created by students for students to learn. We are always looking into new talent and skills. If you are interested in joining us, let us know in the form below. We'll contact you in the future.
-      </div>
-      <form action="/recruitment" method="POST">
-        <div class="form--row">
-          <div class="form--half">
-            <input autocomplete="off" id="name" type="text" name="name" required>
-            <label for="name">Your name</label>
-            <paper-ripple></paper-ripple>
+            Our mission is to become one of the top student organizations for rocket building in the world, by breaking and holding the student altitude records (which is currently 21.5 kilometers). Ultimately, we intend to break the worldwide altitude record and reach altitudes beyond the 120 kilometer mark.
           </div>
-          <div class="form--half">
-            <!-- 
-              if you can see this, you have to know that the mail is validated on server-side as well 
-              if it happens that you really want to join us with a KTH-mail that does not pass our super advanced regex, send us a message on Facebook :)
-            -->
-            <input autocomplete="off" id="email" type="email" name="email" pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@(?:[a-zA-Z0-9-]+\.)*(?:kth\.se)" required>
-            <label for="email">Your KTH email</label>
-            <paper-ripple></paper-ripple>
+        </section>
+        <section class="" id="supportus">
+          <header>Why support us</header>
+          <div>
+            By sponsoring ÆSIR, you get the chance to both get your name out there through logo placement on our rockets and to support a group of students in breaking the European record of altitude for student rocketry. We gladly accept any kind of sponsoring - funding, equipment or knowledge - anything helps our cause.
           </div>
-        </div>
-        <div class="form--row">
-          <div class="form--flex">
-            <input autocomplete="off" id="yearsleft" min="0" type="number" name="yearsleft" required>
-            <label for="yearsleft">Years left at KTH</label>
-            <paper-ripple></paper-ripple>
+          <aesir-rocket-viewer differential-factor="0.15" placeholder="/static/sponsor/placeholder.png" frames="300" framerate="30" srcset='[{"src":"/static/sponsor/anim.mp4","type":"video/mp4"},{"src":"/static/sponsor/anim.webm","type":"video/webm"}]' unresolved></aesir-rocket-viewer>
+        </section>
+        <section class="" id="recruitment">
+          <header>Join us</header>
+          <div>
+            ÆSIR was created by students for students to learn. We are always looking into new talent and skills. If you are interested in joining us, let us know in the form below. We'll contact you in the future.
           </div>
-          <div class="form--third">
-            <input autocomplete="off" id="program" type="text" name="program" required>
-            <label for="program">Program of study (or current courses)</label>
-            <paper-ripple></paper-ripple>
-          </div>
-          <div class="form--flex" style="min-width: 280px">
-            <div class="form--grid">
-              <div class="form--grid--entry">
-                <input id="bachelor-level" type="radio" value="bachelor" name="level">
-                <label for="bachelor-level">bachelor</label>
+          <form action="/recruitment" method="POST">
+            <div class="form--row">
+              <div class="form--half">
+                <input autocomplete="off" id="name" type="text" name="name" required>
+                <label for="name">Your name</label>
                 <paper-ripple></paper-ripple>
               </div>
-              <div class="form--grid--entry">
-                <input id="master-level" type="radio" value="master" name="level">
-                <label for="master-level">master</label>
-                <paper-ripple></paper-ripple>
-              </div>
-              <div class="form--grid--entry">
-                <input id="phd-level" type="radio" value="phd" name="level">
-                <label for="phd-level">PhD</label>
-                <paper-ripple></paper-ripple>
-              </div>
-              <div class="form--grid--entry">
-                <input id="other-level" type="radio" value="other" name="level">
-                <label for="other-level">other</label>
+              <div class="form--half">
+                <!-- 
+                  if you can see this, you have to know that the mail is validated on server-side as well 
+                  if it happens that you really want to join us with a KTH-mail that does not pass our super advanced regex, send us a message on Facebook :)
+                -->
+                <input autocomplete="off" id="email" type="email" name="email" pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@(?:[a-zA-Z0-9-]+\.)*(?:kth\.se)" required>
+                <label for="email">Your KTH email</label>
                 <paper-ripple></paper-ripple>
               </div>
             </div>
-            <label for="name">Level of study</label>
-          </div>
-        </div>
-        <div class="form--submit">
-          <button type="submit">
-            submit
-            <paper-ripple></paper-ripple>
-          </button>
-        </div>
-      </form>
-    </section>
+            <div class="form--row">
+              <div class="form--flex">
+                <input autocomplete="off" id="yearsleft" min="0" type="number" name="yearsleft" required>
+                <label for="yearsleft">Years left at KTH</label>
+                <paper-ripple></paper-ripple>
+              </div>
+              <div class="form--third">
+                <input autocomplete="off" id="program" type="text" name="program" required>
+                <label for="program">Program of study (or current courses)</label>
+                <paper-ripple></paper-ripple>
+              </div>
+              <div class="form--flex" style="min-width: 280px">
+                <div class="form--grid">
+                  <div class="form--grid--entry">
+                    <input id="bachelor-level" type="radio" value="bachelor" name="level">
+                    <label for="bachelor-level">bachelor</label>
+                    <paper-ripple></paper-ripple>
+                  </div>
+                  <div class="form--grid--entry">
+                    <input id="master-level" type="radio" value="master" name="level">
+                    <label for="master-level">master</label>
+                    <paper-ripple></paper-ripple>
+                  </div>
+                  <div class="form--grid--entry">
+                    <input id="phd-level" type="radio" value="phd" name="level">
+                    <label for="phd-level">PhD</label>
+                    <paper-ripple></paper-ripple>
+                  </div>
+                  <div class="form--grid--entry">
+                    <input id="other-level" type="radio" value="other" name="level">
+                    <label for="other-level">other</label>
+                    <paper-ripple></paper-ripple>
+                  </div>
+                </div>
+                <label for="name">Level of study</label>
+              </div>
+            </div>
+            <div class="form--submit">
+              <button type="submit">
+                submit
+                <paper-ripple></paper-ripple>
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
     <script>
       (function() {
         if ('registerElement' in document
@@ -298,6 +308,7 @@
         }
       })();
     </script>
+    <script src="/static/parallaxHelper.js" defer></script>
     <script src="/static/parallax.js" defer></script>
   </body>
 </html>

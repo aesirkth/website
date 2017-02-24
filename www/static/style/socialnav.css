@@ -9,7 +9,7 @@ nav.social {
 .bg {
   position: absolute;
   top: 0; right: 0; left: 0; bottom: -40px;
-  background: linear-gradient(rgba(0,0,0,0.95), transparent);
+  background: linear-gradient(rgba(0,0,0,0.7), transparent);
   z-index: -1;
 }
 
