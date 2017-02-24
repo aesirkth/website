@@ -1,7 +1,38 @@
 nav.social {
   position: fixed;
   top: 0; left: 0; right: 0;
-  height: 32px;
+  height: 48px;
 
-  background: rgba(0,0,0,0.24);
+  background: rgba(0,0,0,0.56);
+
+  z-index: 10;
+}
+
+nav.social section {
+  display: flex;
+
+  height: 100%;
+
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav.social div {
+  padding: 0;
+}
+
+nav.social a {
+  color: white;
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 4px;
+  position: relative;
+  border-radius: 50%;
+}
+nav.social a svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
