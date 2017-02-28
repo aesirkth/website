@@ -74,13 +74,16 @@ form label {
 }
 
 form input,
-form .form--input {
+form .form--input,
+form textarea {
   width: 100%;
   box-sizing: border-box;
   height: 48px;
   margin: 0;
   line-height: 48px;
   position: relative;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
 }
 
 form input ~ paper-ripple {
@@ -90,6 +93,12 @@ form input ~ paper-ripple {
   bottom: 8px;
 }
 
+form textarea ~ paper-ripple {
+  top: 32px;
+  right: 8px;
+  left: 8px;
+  bottom: 12px;
+}
 form input {
   border: 2px solid white;
   background: transparent;
@@ -114,6 +123,41 @@ form input + label::before {
   background: white;
 }
 form input:focus + label::before {
+  opacity: 0.12;
+}
+
+form textarea {
+  resize: none;
+
+  height: auto;
+  height: 96px;
+  line-height: 24px;
+  box-sizing: border-box;
+
+  border: 2px solid white;
+  background: transparent;
+  border-radius: 0;
+
+  color: white;
+  outline: none;
+  padding: 0 8px;
+  width: 100%;
+}
+
+form textarea + label::before {
+  content: "";
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  height: 96px;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+form textarea + label::before {
+  background: white;
+}
+form textarea:focus + label::before {
   opacity: 0.12;
 }
 
