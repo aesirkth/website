@@ -85,3 +85,7 @@
     opacity: 1;
   }
 }
+
+.team .text div + div {
+  margin-top: 10px;
+}
