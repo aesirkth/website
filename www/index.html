@@ -108,49 +108,91 @@
       <div class="background">
         <section class="">
           <header>What we are working on</header>
-          <div class="projects">
-            <div class="project">
-              <paper-ripple>
-                <div id="background" class="style-scope paper-ripple"></div>
-                <div id="waves" class="style-scope paper-ripple"></div>
-              </paper-ripple>
-              <header>
-                <span>Test rig</span>
-              </header>
-              <div class="project__img" style="background-image: url('/static/projects/testrig.jpg')"></div>
-              <div class="project__description">
-                The design and construction of a test rig for a 6kN rocket motor.
+
+          <div class="expando">
+            <input id="close" name="expando" checked type="radio">
+
+            <input id="panel1" name="expando" type="radio">
+            <div class="panel">
+              <div class="inner">
+                <div class="image" style="background-image: url('/static/projects/testrig.jpg')"></div>
+                <header>Test rig</header>
+                <section>
+                  <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos officia blanditiis ipsum repellat quo similique assumenda consectetur, quis dolore quae, at deleniti, numquam nisi perferendis hic sapiente delectus explicabo! Tempore.</div>
+                  <div>Hic dicta unde ad quis aliquam, dolores nisi, quaerat. Animi modi nesciunt at tenetur dicta laudantium tempora repellat neque, porro praesentium dolor autem laboriosam, vero, explicabo. Error omnis laborum quaerat!</div>
+                  <div>Ex corporis, dolores explicabo ipsum neque iure ipsam porro earum. Obcaecati repellat, perferendis doloribus similique, reiciendis dolorem nemo unde eveniet vel delectus consequatur cupiditate fugit dolore soluta blanditiis tempora maiores.</div>
+                  <div>Similique, corporis at eius molestiae animi odit eligendi blanditiis quia commodi voluptas, et adipisci. Reiciendis magnam quos modi minima. Aspernatur aliquam voluptatum enim accusamus quo temporibus, praesentium soluta fuga. Qui!</div>
+                  <div>Quis reprehenderit voluptate eaque cumque dignissimos dicta repellat tempore laudantium perspiciatis autem in eum, voluptas fugit iusto vel officiis ipsa quibusdam necessitatibus nesciunt nostrum voluptatem? Pariatur cum quia molestiae hic.</div>
+                  <div>Facere, ex. Magnam amet necessitatibus dolor, in autem totam fugiat temporibus deleniti provident unde voluptate excepturi quod, vero voluptatibus eaque officiis aperiam dicta molestiae quo, harum mollitia sapiente odio doloribus!</div>
+                  <div>Ad illum ipsa quos, odit sapiente doloribus quam, saepe iste laborum reprehenderit id unde incidunt eveniet magnam officia harum est explicabo ducimus! Ad atque deserunt quos aperiam labore cum temporibus.</div>
+                  <div>Veritatis dolorem deserunt, asperiores soluta saepe sapiente! Atque fuga esse nihil quibusdam doloremque sit laborum est aperiam delectus ad, qui accusamus vero, quod quaerat, voluptates similique laudantium impedit in eum.</div>
+                </section>
+                <div class="closer">
+                  <label class="circle-button" for="close">
+                    X
+                    <paper-ripple></paper-ripple>
+                  </label>
+                </div>
               </div>
+              <label class="opener" for="panel1"></label>
+              <paper-ripple class="opener"></paper-ripple>
             </div>
-            <div class="project">
-              <paper-ripple>
-                <div id="background" class="style-scope paper-ripple"></div>
-                <div id="waves" class="style-scope paper-ripple"></div>
-              </paper-ripple>
-              <header>
-                <span>Propulsion integration</span>
-              </header>
-              <div class="project__img" style="background-image: url('/static/projects/launch.jpg')"></div>
-              <div class="project__description">
-                Integration and assembly of fuel tankage and loading components with an off the shelf hybrid rocket motor.
+
+            <input id="panel2" name="expando" type="radio">
+            <div class="panel">
+              <div class="inner">
+                <div class="image" style="background-image: url('/static/projects/launch.jpg')"></div>
+                <header>Propulsion integration</header>
+                <section>
+                  <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos officia blanditiis ipsum repellat quo similique assumenda consectetur, quis dolore quae, at deleniti, numquam nisi perferendis hic sapiente delectus explicabo! Tempore.</div>
+                  <div>Hic dicta unde ad quis aliquam, dolores nisi, quaerat. Animi modi nesciunt at tenetur dicta laudantium tempora repellat neque, porro praesentium dolor autem laboriosam, vero, explicabo. Error omnis laborum quaerat!</div>
+                  <div>Ex corporis, dolores explicabo ipsum neque iure ipsam porro earum. Obcaecati repellat, perferendis doloribus similique, reiciendis dolorem nemo unde eveniet vel delectus consequatur cupiditate fugit dolore soluta blanditiis tempora maiores.</div>
+                  <div>Similique, corporis at eius molestiae animi odit eligendi blanditiis quia commodi voluptas, et adipisci. Reiciendis magnam quos modi minima. Aspernatur aliquam voluptatum enim accusamus quo temporibus, praesentium soluta fuga. Qui!</div>
+                  <div>Quis reprehenderit voluptate eaque cumque dignissimos dicta repellat tempore laudantium perspiciatis autem in eum, voluptas fugit iusto vel officiis ipsa quibusdam necessitatibus nesciunt nostrum voluptatem? Pariatur cum quia molestiae hic.</div>
+                  <div>Facere, ex. Magnam amet necessitatibus dolor, in autem totam fugiat temporibus deleniti provident unde voluptate excepturi quod, vero voluptatibus eaque officiis aperiam dicta molestiae quo, harum mollitia sapiente odio doloribus!</div>
+                  <div>Ad illum ipsa quos, odit sapiente doloribus quam, saepe iste laborum reprehenderit id unde incidunt eveniet magnam officia harum est explicabo ducimus! Ad atque deserunt quos aperiam labore cum temporibus.</div>
+                  <div>Veritatis dolorem deserunt, asperiores soluta saepe sapiente! Atque fuga esse nihil quibusdam doloremque sit laborum est aperiam delectus ad, qui accusamus vero, quod quaerat, voluptates similique laudantium impedit in eum.</div>
+                </section>
+                <div class="closer">
+                  <label class="circle-button" for="close">
+                    X
+                    <paper-ripple></paper-ripple>
+                  </label>
+                </div>
               </div>
+              <label class="opener" for="panel2"></label>
+              <paper-ripple class="opener"></paper-ripple>
             </div>
-            <div class="project">
-              <paper-ripple>
-                <div id="background" class="style-scope paper-ripple"></div>
-                <div id="waves" class="style-scope paper-ripple"></div>
-              </paper-ripple>
-              <header>
-                <span>Conceptual rocket</span>
-              </header>
-              <div class="project__img" style="background-image: url('/static/projects/launch2.jpg')"></div>
-              <div class="project__description">
-                To boldly go where none of us have gone before.
+
+            <input id="panel3" name="expando" type="radio">
+            <div class="panel">
+              <div class="inner">
+                <div class="image" style="background-image: url('/static/projects/launch2.jpg')"></div>
+                <header>Launch/header>
+                <section>
+                  <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos officia blanditiis ipsum repellat quo similique assumenda consectetur, quis dolore quae, at deleniti, numquam nisi perferendis hic sapiente delectus explicabo! Tempore.</div>
+                  <div>Hic dicta unde ad quis aliquam, dolores nisi, quaerat. Animi modi nesciunt at tenetur dicta laudantium tempora repellat neque, porro praesentium dolor autem laboriosam, vero, explicabo. Error omnis laborum quaerat!</div>
+                  <div>Ex corporis, dolores explicabo ipsum neque iure ipsam porro earum. Obcaecati repellat, perferendis doloribus similique, reiciendis dolorem nemo unde eveniet vel delectus consequatur cupiditate fugit dolore soluta blanditiis tempora maiores.</div>
+                  <div>Similique, corporis at eius molestiae animi odit eligendi blanditiis quia commodi voluptas, et adipisci. Reiciendis magnam quos modi minima. Aspernatur aliquam voluptatum enim accusamus quo temporibus, praesentium soluta fuga. Qui!</div>
+                  <div>Quis reprehenderit voluptate eaque cumque dignissimos dicta repellat tempore laudantium perspiciatis autem in eum, voluptas fugit iusto vel officiis ipsa quibusdam necessitatibus nesciunt nostrum voluptatem? Pariatur cum quia molestiae hic.</div>
+                  <div>Facere, ex. Magnam amet necessitatibus dolor, in autem totam fugiat temporibus deleniti provident unde voluptate excepturi quod, vero voluptatibus eaque officiis aperiam dicta molestiae quo, harum mollitia sapiente odio doloribus!</div>
+                  <div>Ad illum ipsa quos, odit sapiente doloribus quam, saepe iste laborum reprehenderit id unde incidunt eveniet magnam officia harum est explicabo ducimus! Ad atque deserunt quos aperiam labore cum temporibus.</div>
+                  <div>Veritatis dolorem deserunt, asperiores soluta saepe sapiente! Atque fuga esse nihil quibusdam doloremque sit laborum est aperiam delectus ad, qui accusamus vero, quod quaerat, voluptates similique laudantium impedit in eum.</div>
+                </section>
+                <div class="closer">
+                  <label class="circle-button" for="close">
+                    X
+                    <paper-ripple></paper-ripple>
+                  </label>
+                </div>
               </div>
+              <label class="opener" for="panel3"></label>
+              <paper-ripple class="opener"></paper-ripple>
             </div>
-            <div class="project dummy"></div>
-            <div class="project dummy"></div>
-            <div class="project dummy"></div>
+
+            <div class="dummy"></div>
+            <div class="dummy"></div>
+            <div class="dummy"></div>
           </div>
         </section>
         <section class="">
