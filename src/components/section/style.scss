@@ -1,0 +1,19 @@
+.section {
+  font-size: 16px;
+}
+
+.header {
+  font-size: 28px;
+  font-weight: bold;
+  padding: 24px 0 5px 0;
+}
+
+.markdown {
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}

@@ -1,4 +1,4 @@
 export default {
-  author: "Test Author",
+  author: "PERSEUS Student Experiment",
   content: require("./text.md")
 };

@@ -32,8 +32,8 @@ const socialLinks = [
 ];
 
 const SocialLink = ({ alt, link, path }) => (
-  <a class={style.socialLink} title={alt} target="_blank" rel="noopener noreferrer" href={link}>
-    <svg class={style.socialIcon} viewBox="0 0 24 24">
+  <a className={style.socialLink} title={alt} target="_blank" rel="noopener noreferrer" href={link}>
+    <svg className={style.socialIcon} viewBox="0 0 24 24">
       <path d={path} />
     </svg>
   </a>
@@ -42,11 +42,11 @@ const SocialLink = ({ alt, link, path }) => (
 export default class SocialHeader extends Component {
   render() {
     return (
-      <header class={style.header}>
-        <div class={style.gradientBackground} />
+      <header className={style.header}>
+        <div className={style.gradientBackground} />
         <Column>
-          <nav class={style.links}>
-            <p class={style.followUs}>Follow us</p>
+          <nav className={style.links}>
+            <p className={style.followUs}>Follow us</p>
             {
               socialLinks.map(el => <SocialLink {...el} />)
             }

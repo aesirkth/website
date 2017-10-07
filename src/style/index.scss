@@ -5,7 +5,6 @@ html, body {
   width: 100%;
   padding: 0;
   margin: 0;
-  background: $page-background;
   color: $page-color;
   font-family: $font;
   font-weight: 400;
@@ -15,6 +14,12 @@ html, body {
 
 html {
   overflow-y: scroll;
+  
+  background-color: $page-background;
+  background-position: center;
+  background-size: cover;
+  background-image: url("./bg.jpg");
+  background-attachment: fixed;
 }
 
 * {

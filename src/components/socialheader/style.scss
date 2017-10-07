@@ -1,5 +1,5 @@
 $headerHeight: 48px;
-$gradientHeight: $headerHeight * 1.5;
+$gradientHeight: floor($headerHeight * 1.75);
 
 .header {
   position: fixed;
@@ -39,6 +39,7 @@ $socialLinkHoverTransitionEasingOut: cubic-bezier(0.4, 0.0, 1, 1);
 $socialLinkHoverInitialScale: 0.9;
 
 .followUs {
+  margin: 0;
   margin-right: 8px;
 }
 .socialLink {
