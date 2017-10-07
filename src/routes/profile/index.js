@@ -1,5 +1,5 @@
-import { h, Component } from 'preact';
-import style from './style';
+import { h, Component } from "preact";
+import style from "./style";
 
 export default class Profile extends Component {
 	state = {
@@ -38,7 +38,7 @@ export default class Profile extends Component {
 
 				<p>
 					<button onClick={this.increment}>Click Me</button>
-					{' '}
+					{" "}
 					Clicked {count} times.
 				</p>
 			</div>
