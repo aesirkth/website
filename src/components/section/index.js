@@ -7,7 +7,12 @@ import style from "./style";
 const renderer = new marked.Renderer({
   sanitize: true
 });
+
 renderer.link = function(href, title, text) {
+  if (typeof document === "undefined") {
+    return `<a href="${href}" rel="noopener noreferrer" title="${title}">${text}</a>`;
+  }
+  
   const a = document.createElement("a");
   a.href = href;
   a.title = title;
