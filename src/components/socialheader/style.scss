@@ -1,0 +1,99 @@
+$headerHeight: 48px;
+$gradientHeight: $headerHeight * 1.5;
+
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  
+  height: $headerHeight;
+  z-index: 1000;
+}
+
+.gradientBackground {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $gradientHeight;
+  background: linear-gradient(rgba(0,0,0,0.7), transparent);
+}
+
+.links {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+$socialLinkSize: 40px;
+$socialIconSize: 24px;
+
+$socialLinkHoverTransitionTime: 125ms;
+$socialLinkHoverTransitionEasingIn: cubic-bezier(0.0, 0.0, 0.2, 1);
+$socialLinkHoverTransitionEasingOut: cubic-bezier(0.4, 0.0, 1, 1);
+$socialLinkHoverInitialScale: 0.9;
+
+.followUs {
+  margin-right: 8px;
+}
+.socialLink {
+  width: $socialLinkSize;
+  height: $socialLinkSize;
+  
+  margin: ($headerHeight - $socialLinkSize) / 2;
+  padding: ($socialLinkSize - $socialIconSize) / 2;
+
+  border-radius: $socialLinkSize / 2;
+  color: inherit;
+
+  .socialIcon {
+    width: $socialIconSize;
+    height: $socialIconSize;
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  position: relative;
+
+  &::after {
+    position: absolute;
+
+    content: "";
+    display: block;
+    background: white;
+    
+    $initialSize: $socialLinkHoverInitialScale * $socialLinkSize;
+    width: $initialSize;
+    height: $initialSize;
+    border-radius: $initialSize / 2;
+
+    left: ($socialLinkSize - $initialSize) / 2;
+    top: ($socialLinkSize - $initialSize) / 2;
+
+    transition: opacity $socialLinkHoverTransitionTime, 
+                transform $socialLinkHoverTransitionTime;
+    transition-timing-function: $socialLinkHoverTransitionEasingOut;
+
+    opacity: 0;
+    transform: none;
+  }
+  
+  &:hover::after {
+    $s: 1 / $socialLinkHoverInitialScale;
+
+    opacity: 0.2;
+    transform: scale3d($s,$s,$s);
+    transition-timing-function: $socialLinkHoverTransitionEasingIn;
+  }
+  &:active::after {
+    opacity: 0.3;
+    transition-timing-function: $socialLinkHoverTransitionEasingIn;
+  }
+}

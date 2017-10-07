@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "eslint src && preact test",
-    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
+    "start": "preact serve",
     "build": "preact build --prerenderUrls src/prerender-urls.json --template src/template.html",
-    "serve": "preact build && preact serve",
     "dev": "preact watch --template src/template.html"
   },
   "keywords": [],
