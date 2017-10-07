@@ -1,0 +1,23 @@
+@mixin initial() {
+  opacity: 0;
+  transform: translate3d(0, 4px, 0);
+}
+
+@mixin final() {
+  opacity: 1;
+  transform: none;
+}
+
+.animated {
+  @include initial();
+  animation: enter 250ms forwards;
+}
+
+@keyframes enter {
+  from {
+    @include initial();
+  }
+  to {
+    @include final();
+  }
+}

@@ -3,6 +3,7 @@ import classnames from "classnames";
 
 import style from "./style";
 
+import Animated from "../../components/animated";
 import { Column } from "../../components/layout";
 import Masthead from "../../components/masthead";
 import Section, { Markdown } from "../../components/section";
@@ -59,42 +60,44 @@ const Sponsor = ({ title, content, image, images }) => (
 export default class Home extends Component {
   render() {
     return (
-      <Column className={style.home}>
-        <Masthead>
-          <Section name="Who we are">
-            <Markdown markdown={textWhoWeAre} />
-            <img className={style.teamPicture} src={urlTeamPicture} alt="The team of ÆSIR" />
-          </Section>
-        </Masthead>
-        <Section name="Our projects">
-          { projects.map(project => (
-            <Project {...project} />
-          )) }
-        </Section>
-        <Section name="Our activities">
-          { activities.map(activity => (
-            <Activity {...activity} />
-          )) }
-        </Section>
-        <img className={style.ambitionsPicture} src={urlAmbitionsPicture} alt="The team of ÆSIR" />
-        <Section name="Our mission">
-          <Markdown markdown={textMission} />
-        </Section>
-        <Section name="Our sponsors">
-          <Markdown markdown={textOurSponsors} />
-          <div className={style.sponsors}>
-            { sponsors.map(sponsor => (
-              <Sponsor {...sponsor} />
+      <Animated>
+        <Column className={style.home}>
+          <Masthead>
+            <Section name="Who we are">
+              <Markdown markdown={textWhoWeAre} />
+              <img className={style.teamPicture} src={urlTeamPicture} alt="The team of ÆSIR" />
+            </Section>
+          </Masthead>
+          <Section name="Our projects">
+            { projects.map(project => (
+              <Project {...project} />
             )) }
-          </div>
-        </Section>
-        <Section name="Why support us">
-          <Markdown markdown={textWhySupportUs} />
-        </Section>
-        <Section name="Join us">
-          <Markdown markdown={textJoinUs} />
-        </Section>
-      </Column>
+          </Section>
+          <Section name="Our activities">
+            { activities.map(activity => (
+              <Activity {...activity} />
+            )) }
+          </Section>
+          <img className={style.ambitionsPicture} src={urlAmbitionsPicture} alt="The team of ÆSIR" />
+          <Section name="Our mission">
+            <Markdown markdown={textMission} />
+          </Section>
+          <Section name="Our sponsors">
+            <Markdown markdown={textOurSponsors} />
+            <div className={style.sponsors}>
+              { sponsors.map(sponsor => (
+                <Sponsor {...sponsor} />
+              )) }
+            </div>
+          </Section>
+          <Section name="Why support us">
+            <Markdown markdown={textWhySupportUs} />
+          </Section>
+          <Section name="Join us">
+            <Markdown markdown={textJoinUs} />
+          </Section>
+        </Column>
+      </Animated>
     );
   }
 }
