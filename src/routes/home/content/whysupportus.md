@@ -1,1 +1,2 @@
-By sponsoring ÆSIR, you get the chance to both get your name out there through logo placement on our rockets and to support a group of students in breaking the European record of altitude for student rocketry. We gladly accept any kind of sponsoring - funding, equipment or knowledge - anything helps our cause.
+By supporting ÆSIR, you get the chance to both get your name out there through logo placement on our rockets and to support a group of students in breaking the European record of altitude for student rocketry. 
+We gladly accept any kind of support - funding, equipment or knowledge - anything helps our cause.

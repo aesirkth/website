@@ -6,3 +6,75 @@
   margin-top: 16px;
   box-shadow: 0px 3px 32px rgba(0,0,0,0.15);
 }
+
+.ambitionsPicture {
+  margin-top: 48px;
+}
+
+
+.gridEntry {
+  display: flex;
+  width: 100%;
+
+  .gridEntryHeader {
+    font-size: 22px;
+    line-height: 20px;
+    font-weight: bold;
+    font-style: italic;
+    padding-bottom: 4px;
+  }
+
+  .gridEntryImages {
+    flex-shrink: 0;
+    display: block;
+  }
+
+  .gridEntryImage {
+    display: block;
+    height: 150px;
+  }
+  .gridEntryImage + .gridEntryImage {
+    margin-top: 8px;
+  }
+
+  .gridEntryImages + .gridEntryText {
+    padding-left: 16px;
+  }
+}
+
+.gridEntry + .gridEntry {
+  margin-top: 32px;
+}
+
+.sponsors {
+  $spacing: 16px;
+  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  margin: $spacing / -2;
+  margin-top: 16px;
+  
+  .gridEntry {
+    flex-basis: 300px;
+    min-width: 300px;
+
+    align-items: center;
+    justify-content: flex-end;
+    margin: $spacing / 2;
+    flex-direction: column;
+
+    .gridEntryImage {
+      width: auto;
+      max-width: 100%;
+      height: 150px;
+    }
+
+    .gridEntryText {
+      padding: 0;
+      margin-top: 16px;
+      text-align: center;
+    }
+  }
+}
