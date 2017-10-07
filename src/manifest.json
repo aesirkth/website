@@ -1,19 +1,19 @@
 {
-  "name": "Preact PWA",
-  "short_name": "Preact PWA",
+  "name": "ÆSIR",
+  "short_name": "ÆSIR",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#fff",
-  "theme_color": "#673ab8",
+  "theme_color": "#37109F",
   "icons": [{
-    "src": "/assets/icons/android-chrome-192x192.png",
+    "src": "/assets/icons/aesir_square_dark_500px.png",
     "type": "image/png",
-    "sizes": "192x192"
+    "sizes": "500x500"
   },
   {
-    "src": "/assets/icons/android-chrome-512x512.png",
+    "src": "/assets/icons/aesir_square_dark_250px.png",
     "type": "image/png",
-    "sizes": "512x512"
+    "sizes": "250x250"
   }]
 }
