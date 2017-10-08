@@ -1,5 +1,4 @@
 import { h, Component } from "preact";
-import classnames from "classnames";
 
 import style from "./style";
 
@@ -7,6 +6,7 @@ import Animated from "../../components/animated";
 import { Column } from "../../components/layout";
 import Masthead from "../../components/masthead";
 import Section, { Markdown } from "../../components/section";
+import RecruitmentForm from "../../components/forms/recruitment";
 
 const projectsContext = require.context("./content/projects", true, /index\.js$/);
 const projects = Array.from(projectsContext.keys()).map(projectsContext).map(el => el.default);
@@ -95,6 +95,7 @@ export default class Home extends Component {
           </Section>
           <Section name="Join us">
             <Markdown markdown={textJoinUs} />
+            <RecruitmentForm />
           </Section>
         </Column>
       </Animated>
