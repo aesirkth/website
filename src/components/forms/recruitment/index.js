@@ -20,7 +20,7 @@ export default class RecruitmentForm extends Component {
       <form method="post">
         <input type="hidden" name="form-name" value="contact" />
         <div className={style.hidden}>
-          <label>Don’t fill this out: <input name="bot-field" /></label>
+          <label>Don’t fill this out: <input name="very-pot" /></label>
         </div>
         <div className={style.container}>
           <div className={style.row}>
