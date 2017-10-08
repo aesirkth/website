@@ -1,6 +1,7 @@
 import { h, Component } from "preact";
 import Field from "../field";
 import Button from "../button";
+import Radio from "../radio";
 
 import style from "./style.scss";
 
@@ -42,8 +43,15 @@ export default class RecruitmentForm extends Component {
             <div className={style.third}>
               <Field lines="single" type="text" name="program of study">Program of study</Field>
             </div>
-            <div className={style.flex}>
-              <Field options={LevelOfStudyChoices} type="text" name="level of study">Level of study</Field>
+            <div className={style.grid}>
+              <span className={style.gridLabel}>Level of study</span>
+              <div className={style.gridEntries}>
+                {
+                  LevelOfStudyChoices.map(choice => (
+                    <Radio name="level of study" value={choice} className={style.gridEntry}>{choice}</Radio>
+                  ))
+                }
+              </div>
             </div>
           </div>
           <div className={style.row}>
