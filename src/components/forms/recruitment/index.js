@@ -4,7 +4,7 @@ import { h, Component } from "preact";
 export default class RecruitmentForm extends Component {
   render() {
     return (
-      <form name="contact" action="thank-you" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+      <form name="contact" action="/" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
         <p class="hidden">
           <label>Don’t fill this out: <input name="bot-field" /></label>
         </p>
