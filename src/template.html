@@ -37,19 +37,11 @@
       url: '/'
     }) %>
 
-    <form name="contact2" netlify-honeypot="bot-field" action="thank-you" netlify>
-      <p class="hidden">
-        <label>Don’t fill this out: <input name="bot-field"></label>
-      </p>
-      <p>
-        <label>Email: <input type="text" name="name"></label>
-      </p>
-      <p>
-        <label>Message: <textarea name="message"></textarea></label>
-      </p>
-      <p>
-        <button type=”submit”>Send</button>
-      </p>
+    <form name="contact" netlify netlify-honeypot="bot-field">
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
     </form>
     <script defer src="<%= htmlWebpackPlugin.files.chunks['bundle'].entry %>"></script>
     <script>window.fetch||document.write('<script src="<%= htmlWebpackPlugin.files.chunks["polyfills"].entry %>"><\/script>')</script>
