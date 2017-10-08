@@ -8,3 +8,10 @@
     border-radius: 2px;
   }
 }
+
+@media(max-width: 1064px) {
+  .column {
+    width: 1032px;
+    padding: 0 16px;
+  }
+}

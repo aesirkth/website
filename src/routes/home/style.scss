@@ -11,7 +11,6 @@
   margin-top: 48px;
 }
 
-
 .gridEntry {
   display: flex;
   width: 100%;
@@ -40,6 +39,30 @@
   .gridEntryImages + .gridEntryText {
     padding-left: 16px;
   }
+  
+  @media(max-width: 900px) {
+    & {
+      flex-direction: column;
+      .gridEntryImages + .gridEntryText {
+        padding-left: 0;
+      }
+
+      .gridEntryImages {
+        flex-direction: row;
+        display: flex;
+
+        margin: -4px;
+
+        padding-bottom: 16px;
+
+        flex-wrap: wrap;
+
+        .gridEntryImage {
+          margin: 4px;
+        }
+      }
+    }
+  }
 }
 
 .gridEntry + .gridEntry {
@@ -55,7 +78,7 @@
   
   margin: $spacing / -2;
   margin-top: 16px;
-  
+
   .gridEntry {
     flex-basis: 300px;
     min-width: 300px;
