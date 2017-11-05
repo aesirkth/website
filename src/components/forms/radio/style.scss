@@ -1,0 +1,43 @@
+@import "../../../style/theme.scss";
+
+$size: 20px;
+
+.formField {
+  flex: 1;
+  flex-shrink: 0;
+  .labelContainer {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+  }
+
+  .label {
+  }
+
+  .input {
+    border: 2px solid white;
+    background: transparent;
+    border-radius: 0;
+    color: white;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    margin-right: 8px;
+
+    height: $size;
+    width: $size;
+    
+    font-size: 16px;
+    font-family: $font;
+
+    &:focus {
+      background: rgba(255,255,255,0.1);
+    }
+
+    -webkit-appearance: none;
+
+    &:checked {
+      background: white;
+    }
+  }
+}

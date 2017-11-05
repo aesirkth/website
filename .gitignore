@@ -1,3 +1,6 @@
 .DS_store
-www/bower_components
 debug.log
+
+bower_components
+node_modules
+build/
