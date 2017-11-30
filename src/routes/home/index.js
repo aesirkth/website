@@ -82,14 +82,6 @@ export default class Home extends Component {
           <Section name="Our mission">
             <Markdown markdown={textMission} />
           </Section>
-          <Section name="Our sponsors">
-            <Markdown markdown={textOurSponsors} />
-            <div className={style.sponsors}>
-              { sponsors.map(sponsor => (
-                <Sponsor {...sponsor} />
-              )) }
-            </div>
-          </Section>
           <Section name="Why support us">
             <Markdown markdown={textWhySupportUs} />
           </Section>
@@ -102,3 +94,14 @@ export default class Home extends Component {
     );
   }
 }
+
+/*
+<Section name="Our sponsors">
+  <Markdown markdown={textOurSponsors} />
+  <div className={style.sponsors}>
+    { sponsors.map(sponsor => (
+      <Sponsor {...sponsor} />
+    )) }
+  </div>
+</Section>
+*/
