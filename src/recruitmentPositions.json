@@ -1,0 +1,43 @@
+{
+  "specific": {
+    "treasurer": {
+      "recruitmentTitle": "treasurer",
+      "title": "Treasurer",
+      "description": "We are looking for a treasurer for the whole association. The role does not include managing the economy of our bigger projects.",
+      "requirements": [
+        "Have some knowledge (and want to learn more) with budgets and book-keeping."
+      ],
+      "shouldLike": [
+        "Make a budget for 2019.",
+        "Keep track of expenses during 2018."
+      ]
+    }
+  },
+  "generic": {
+    "electronics": {
+      "recruitmentTitle": "electronics engineer",
+      "title": "Electronics engineers",
+      "description": "We constantly need more people who have practical experience with electronics. You would work with both on-board systems intended for our Odin rocket as well as ground systems and eventually work with bigger projects.",
+      "requirements": [
+        "Have practical experience with electronics.",
+        "Have some experience with programming intended for embedded systems."
+      ],
+      "shouldLike": [
+        "budget",
+        "keeping track of expenses"
+      ]
+    },
+    "mechanical": {
+      "recruitmentTitle": "construction engineer",
+      "title": "Construction engineers",
+      "description": "We need people who can make drawings and CAD files into real objects. You will have access to a workshop with all sorts of tools and machines, a literal rocket factory.",
+      "requirements": [
+        "Have done something mechanical.",
+        "Have used a lathe or CNC router."
+      ],
+      "shouldLike": [
+        "Making things out of thin air."
+      ]
+    }
+  }
+}

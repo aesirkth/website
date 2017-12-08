@@ -15,10 +15,17 @@ const LevelOfStudyChoices = [
 ];
 
 export default class RecruitmentForm extends Component {
-  render() {
+  componentDidUpdate() {
+    if (typeof window !== "undefined" && window.location.hash === "#recruitment") {
+      history.replaceState({}, document.title, ".");
+    }
+  }
+
+  render({ applyingForRole }) {
     return (
-      <form method="post">
+      <form id="recruitment" method="post">
         <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="applying for" value={applyingForRole} />
         <div hidden className={style.hidden}>
           <label>resistance is futile: <input name="very-pot" /></label>
         </div>
