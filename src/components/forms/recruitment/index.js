@@ -23,7 +23,7 @@ export default class RecruitmentForm extends Component {
 
   render({ applyingForRole }) {
     return (
-      <form id="recruitment" method="post">
+      <form id="recruitment" method="post" className={style.recruitmentForm}>
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="applying for" value={applyingForRole} />
         <div hidden className={style.hidden}>
@@ -40,7 +40,7 @@ export default class RecruitmentForm extends Component {
           </div>
           <div className={style.row}>
             <div className={style.flex}>
-              <Field lines="multiple" type="text" name="describe yourself">Describe yourself and your experience</Field>
+              <Field lines="multiple" type="text" name="describe yourself">Describe what you could help out with at ÆSIR</Field>
             </div>
           </div>
           <div className={style.row}>
