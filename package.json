@@ -19,16 +19,17 @@
     "eslint": "^4.7.2",
     "eslint-config-synacor": "^2.0.0",
     "if-env": "^1.0.0",
-    "node-sass": "^4.5.3",
-    "preact-cli": "^1.4.1",
+    "node-sass": "^4.7.2",
+    "postcss": "^6.0.14",
+    "preact-cli": "^2.1.0",
     "sass-loader": "^6.0.6"
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "marked": "^0.3.6",
-    "preact": "^8.2.5",
+    "marked": "^0.3.7",
+    "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
-    "preact-markdown": "^0.3.2",
-    "preact-router": "^2.5.7"
+    "preact-markdown": "^0.4.0",
+    "preact-router": "^2.6.0"
   }
 }

@@ -7,6 +7,8 @@ import { Column } from "../../components/layout";
 import Masthead from "../../components/masthead";
 import Section, { Markdown } from "../../components/section";
 import RecruitmentForm from "../../components/forms/recruitment";
+import Recruitment from "../../components/recruitment";
+
 
 const projectsContext = require.context("./content/projects", true, /index\.js$/);
 const projects = Array.from(projectsContext.keys()).map(projectsContext).map(el => el.default);
@@ -25,6 +27,8 @@ import textMission from "./content/mission.md";
 import textOurSponsors from "./content/oursponsors.md";
 import textWhySupportUs from "./content/whysupportus.md";
 import textJoinUs from "./content/joinus.md";
+
+import recruitmentData from "../../recruitmentPositions.json";
 
 const GridImages = ({ title, images }) => {
   if (!Array.isArray(images)) images = [ images ];
@@ -58,6 +62,13 @@ const Sponsor = ({ title, content, image, images }) => (
 );
 
 export default class Home extends Component {
+  onApplyForRole = (name) => {
+    if (typeof window !== "undefined") window.location.hash = "recruitment";
+    this.setState({
+      applyingForRole: name
+    });
+  };
+
   render() {
     return (
       <Animated>
@@ -85,9 +96,12 @@ export default class Home extends Component {
           <Section name="Why support us">
             <Markdown markdown={textWhySupportUs} />
           </Section>
+          <Section name="Who we are looking for">
+            <Recruitment onApplyForRole={this.onApplyForRole} specificRoles={recruitmentData.specific} genericRoles={recruitmentData.generic} />
+          </Section>
           <Section name="Join us">
             <Markdown markdown={textJoinUs} />
-            <RecruitmentForm />
+            <RecruitmentForm applyingForRole={this.state.applyingForRole} />
           </Section>
         </Column>
       </Animated>

@@ -1,0 +1,62 @@
+.roles {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  
+  & > header {
+    font-size: 24px;
+    font-weight: bold;
+    flex-basis: 100%;
+    margin-top: 8px;
+  }
+  
+  @mixin spacing($spacing) {
+    margin-left: -($spacing / 2);
+    margin-right: -($spacing / 2);
+    & > header,
+    .role {
+      padding-left: ($spacing / 2);
+      padding-right: ($spacing / 2);
+    }
+  }
+  @include spacing(24px);
+
+  .role {
+    flex-basis: 300px;
+    max-width: 500px;
+    flex-grow: 1;
+    margin: 16px 0;
+
+    & > header {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 24px;
+    }
+
+    & > p {
+      margin: 0;
+      text-align: justify;
+    }
+    
+    & > footer {
+      header {
+        margin-top: 16px;
+        font-weight: bold;
+        font-style: italic;
+      }
+
+      ul {
+        margin: 4px 0;
+      }
+    }
+  }
+
+  .actions {
+    display: block;
+    margin-top: 16px;
+
+    & > * {
+      display: inline-block;
+    }
+  }
+}

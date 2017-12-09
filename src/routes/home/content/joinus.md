@@ -1,1 +1,1 @@
-ÆSIR was created by students for students to learn. We are always looking into new talent and skills. If you are interested in joining us, let us know in the form below. We'll contact you in the future.
+ÆSIR was created by students for students to learn. We are always in need of new talent and skills. If you are interested in joining us, let us know in the form below. We'll contact you in the future.

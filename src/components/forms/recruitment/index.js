@@ -15,10 +15,17 @@ const LevelOfStudyChoices = [
 ];
 
 export default class RecruitmentForm extends Component {
-  render() {
+  componentDidUpdate() {
+    if (typeof window !== "undefined" && window.location.hash === "#recruitment") {
+      history.replaceState({}, document.title, ".");
+    }
+  }
+
+  render({ applyingForRole }) {
     return (
-      <form method="post">
+      <form id="recruitment" method="post" className={style.recruitmentForm}>
         <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="applying for" value={applyingForRole} />
         <div hidden className={style.hidden}>
           <label>resistance is futile: <input name="very-pot" /></label>
         </div>
@@ -33,7 +40,7 @@ export default class RecruitmentForm extends Component {
           </div>
           <div className={style.row}>
             <div className={style.flex}>
-              <Field lines="multiple" type="text" name="describe yourself">Describe yourself and your experience</Field>
+              <Field lines="multiple" type="text" name="describe yourself">Describe what you could help out with at ÆSIR</Field>
             </div>
           </div>
           <div className={style.row}>
