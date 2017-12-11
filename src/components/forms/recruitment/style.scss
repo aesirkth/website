@@ -34,6 +34,12 @@ $spacing: 16px;
     flex: 1;
   }
 
+  .button {
+    @extend .base;
+    flex-shrink: 0;
+    padding-top: 32px;
+  }
+
   .grid {
     $checkboxSize: 20px;
     $targetSize: $formInputHeight * 0.5;

@@ -4,9 +4,9 @@ import classnames from "classnames";
 
 import style from "./style.scss";
 
-const Button = ({ className, children, ...props }) => (
+const Button = ({ disabled, className, children, ...props }) => (
   <div className={classnames(className, style.formField)}>
-    <button className={classnames(style.input, style.button)} {...props}>{children}</button>
+    <button disabled={disabled} className={classnames(style.input, style.button)} {...props}>{children}</button>
   </div>
 );
 export default Button;

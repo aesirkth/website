@@ -70,6 +70,12 @@ export default class Home extends Component {
     });
   };
 
+  onClearRole = (e) => {
+    this.setState({
+      applyingForRole: null
+    });
+  };
+
   render() {
     return (
       <Animated>
@@ -98,11 +104,11 @@ export default class Home extends Component {
             <Markdown markdown={textWhySupportUs} />
           </Section>
           <Section name="Who we are looking for">
-            <Recruitment onApplyForRole={this.onApplyForRole} specificRoles={recruitmentData.specific} genericRoles={recruitmentData.generic} />
+            <Recruitment applyingForRole={this.state.applyingForRole} onApplyForRole={this.onApplyForRole} specificRoles={recruitmentData.specific} genericRoles={recruitmentData.generic} />
           </Section>
           <Section name="Join us">
             <Markdown markdown={textJoinUs} />
-            <RecruitmentForm applyingForRole={this.state.applyingForRole} />
+            <RecruitmentForm onClearRole={this.onClearRole} applyingForRole={this.state.applyingForRole} />
           </Section>
           <Footer/>
         </Column>

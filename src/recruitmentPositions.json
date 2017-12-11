@@ -1,21 +1,61 @@
 {
   "specific": {
     "treasurer": {
-      "recruitmentTitle": "treasurer",
+      "recruitmentTitle": "Treasurer",
       "title": "Treasurer",
       "description": "We are looking for a treasurer for the whole association. The role does not include managing the economy of our bigger projects.",
       "requirements": [
-        "Have some knowledge (and want to learn more) with budgets and book-keeping."
+        "Have some knowledge (and want to learn more) with budgets and bookkeeping."
       ],
       "shouldLike": [
         "Make a budget for 2019.",
         "Keep track of expenses during 2018."
       ]
+    },
+    "odinProjectManager": {
+      "recruitmentTitle": "Odin project/vice project manager",
+      "title": "Project/vice project manager for Odin",
+      "description": "We are looking for two persons with an interest in project management, who are willing to try to apply fresh ideas to a rocketry project.",
+      "requirements": [
+        "Have previous experience with project management and/or leadership.",
+        "Have previous experience with rocketry."
+      ],
+      "shouldLike": [
+        "Lead a group of 10-15 people.",
+        "Organise work within the Odin project."
+      ]
+    },
+    "odinEconomicallyResponsible": {
+      "recruitmentTitle": "Odin economically responsible",
+      "title": "Economy responsible for Odin",
+      "description": "We are looking for a person responsible for the economy of our Odin project by making purchases and doing bookkeeping.",
+      "requirements": [
+        "Have some knowledge (and want to learn more) with bookkeeping.",
+        "Have some experience with purchasing things internationally."
+      ],
+      "shouldLike": [
+        "Purchase things for the Odin project.",
+        "Keep track of expenses for the Odin project.",
+        "Do bookkeeping for the Odin project."
+      ]
+    },
+    "prResponsible": {
+      "recruitmentTitle": "PR responsible",
+      "title": "PR responsible",
+      "description": "We are looking for a person to be responsible for our PR and help us with brand development.",
+      "requirements": [
+        "Have some knowledge with graphical design.",
+        "Strive to be consistent with your writing."
+      ],
+      "shouldLike": [
+        "To stay up to date with the goings on at ÆSIR.",
+        "Create content for social media."
+      ]
     }
   },
   "generic": {
     "electronics": {
-      "recruitmentTitle": "electronics engineer",
+      "recruitmentTitle": "Electronics engineer",
       "title": "Electronics engineers",
       "description": "We constantly need more people who have practical experience with electronics. You would work with both on-board systems intended for our Odin rocket as well as ground systems and eventually work with bigger projects.",
       "requirements": [
@@ -28,7 +68,7 @@
       ]
     },
     "mechanical": {
-      "recruitmentTitle": "construction engineer",
+      "recruitmentTitle": "Construction engineer",
       "title": "Construction engineers",
       "description": "We need people who can make drawings and CAD files into real objects. You will have access to a workshop with all sorts of tools and machines, a literal rocket factory.",
       "requirements": [
