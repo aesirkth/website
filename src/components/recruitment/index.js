@@ -7,7 +7,7 @@ class Role extends Component {
     this.props.onApplyForRole && this.props.onApplyForRole(this.props.recruitmentTitle);
   };
 
-  render({ onApplyForRole, title, description, shouldLike, requirements }) {
+  render({ selected, onApplyForRole, title, description, shouldLike, requirements }) {
     if (!title) throw new Error("Expected description");
     if (!description) throw new Error("Expected description");
     
@@ -34,7 +34,9 @@ class Role extends Component {
             </div>
           ) }
           <div className={style.actions}>
-            <Button onClick={this.onApplyFor}>Apply for this role</Button>
+            <Button disabled={selected} onClick={this.onApplyFor}>
+              { selected ? "Applying for this role" : "Apply for this role"}
+            </Button>
           </div>
         </footer>
       </div>
@@ -43,19 +45,19 @@ class Role extends Component {
 }
 
 export default class Recruitment extends Component {
-  render({ onApplyForRole, specificRoles, genericRoles }) {
+  render({ applyingForRole, onApplyForRole, specificRoles, genericRoles }) {
     return (
       <div className={style.roles}>
         <header>Specific positions</header>
         {
           Object.keys(specificRoles).map(key => (
-            <Role onApplyForRole={onApplyForRole} key={key} {...specificRoles[key]} />
+            <Role selected={specificRoles[key].recruitmentTitle===applyingForRole} onApplyForRole={onApplyForRole} key={key} {...specificRoles[key]} />
           ))
         }
         <header>Other roles</header>
         {
           Object.keys(genericRoles).map(key => (
-            <Role onApplyForRole={onApplyForRole} key={key} {...genericRoles[key]} />
+            <Role selected={genericRoles[key].recruitmentTitle===applyingForRole} onApplyForRole={onApplyForRole} key={key} {...genericRoles[key]} />
           ))
         }
       </div>

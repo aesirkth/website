@@ -21,7 +21,7 @@ export default class RecruitmentForm extends Component {
     }
   }
 
-  render({ applyingForRole }) {
+  render({ applyingForRole, onClearRole }) {
     return (
       <form id="recruitment" method="post" className={style.recruitmentForm}>
         <input type="hidden" name="form-name" value="contact" />
@@ -31,13 +31,25 @@ export default class RecruitmentForm extends Component {
         </div>
         <div className={style.container}>
           <div className={style.row}>
-            <div className={style.half}>
+            <div className={style.flex}>
               <Field lines="single" type="text" name="name">Your name</Field>
             </div>
-            <div className={style.half}>
+            <div className={style.flex}>
               <Field lines="single" type="email" name="email" pattern={KTHMailRegexPattern}>Your KTH email</Field>
             </div>
           </div>
+          {
+            applyingForRole && (
+              <div className={style.row}>
+                <div className={style.flex}>
+                  <Field lines="single" value={applyingForRole} disabled type="text">Applying for role</Field>
+                </div>
+                <div className={style.button}>
+                  <Button onClick={onClearRole} type="button">Clear role</Button>
+                </div>
+              </div>
+            )
+          }
           <div className={style.row}>
             <div className={style.flex}>
               <Field lines="multiple" type="text" name="describe yourself">Describe what you could help out with at ÆSIR</Field>
