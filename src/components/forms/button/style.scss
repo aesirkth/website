@@ -4,4 +4,11 @@
   cursor: pointer;
   width: 100%;
   font-weight: bold;
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+    background: rgba(255,255,255,0.1);
+    user-select: none;
+  }
 }
