@@ -3,6 +3,7 @@ import { Router } from "preact-router";
 
 import SocialHeader from "./socialheader";
 import Home from "../routes/home";
+import Footer from "./footer";
 
 export default class App extends Component {
 
@@ -21,6 +22,7 @@ export default class App extends Component {
         <Router onChange={this.handleRoute}>
           <Home path="/" />
         </Router>
+        <Footer/>
       </div>
     );
   }
