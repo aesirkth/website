@@ -35,5 +35,12 @@ $formInputHeight: 48px;
     &:focus {
       background: rgba(255,255,255,0.1);
     }
+
+    &:disabled {
+      cursor: default;
+      pointer-events: none;
+      background: rgba(255,255,255,0.1);
+      user-select: none;
+    }
   }
 }

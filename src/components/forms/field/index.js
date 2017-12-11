@@ -4,7 +4,7 @@ import classnames from "classnames";
 
 import style from "./style.scss";
 
-const Field = ({ className, lines, type, name, value, pattern, children, ...props }) => {
+const Field = ({ disabled, className, lines, type, name, value, pattern, children, ...props }) => {
   let Component;
   if (lines === "single") Component = "input";
   else if (lines === "multiple") Component = "textarea";
@@ -14,6 +14,7 @@ const Field = ({ className, lines, type, name, value, pattern, children, ...prop
       <label className={style.labelContainer}>
         <span className={style.label}>{children}</span>
         <Component
+          disabled={disabled}
           className={style.input}
           name={name}
           value={value}
