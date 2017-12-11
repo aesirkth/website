@@ -9,6 +9,7 @@ import Section, { Markdown } from "../../components/section";
 import RecruitmentForm from "../../components/forms/recruitment";
 import Recruitment from "../../components/recruitment";
 
+import Footer from "../../components/footer";
 
 const projectsContext = require.context("./content/projects", true, /index\.js$/);
 const projects = Array.from(projectsContext.keys()).map(projectsContext).map(el => el.default);
@@ -109,6 +110,7 @@ export default class Home extends Component {
             <Markdown markdown={textJoinUs} />
             <RecruitmentForm onClearRole={this.onClearRole} applyingForRole={this.state.applyingForRole} />
           </Section>
+          <Footer/>
         </Column>
       </Animated>
     );

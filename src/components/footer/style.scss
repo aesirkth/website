@@ -1,0 +1,20 @@
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 64px 0;
+  
+  & > div {
+    flex: 1;
+    min-width: 250px;
+
+    text-align: center;
+    header {
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+}
