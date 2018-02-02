@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src",
-    "test": "npm run lint",
+    "test": "npm run lint && npm run build",
     "start": "preact serve",
     "precommit": "npm run lint -- --cache",
     "build": "preact build --prerenderUrls src/prerender-urls.json --template src/template.html",
