@@ -26,8 +26,12 @@ renderer.link = function(href, title, text) {
 
 export const Markdown = (props) => {
   const html = marked(props.markdown, { renderer });
+  /* eslint react/no-danger: 0 */
   return (
-    <div dangerouslySetInnerHTML={ {__html: html} } className={classnames(style.markdown, props.className, props.class)} />
+    <div
+      dangerouslySetInnerHTML={{ __html: html }}
+      className={classnames(style.markdown, props.className, props.class)}
+    />
   );
 };
 

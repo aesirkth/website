@@ -4,3 +4,5 @@ debug.log
 bower_components
 node_modules
 build/
+
+\.eslintcache

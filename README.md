@@ -1,4 +1,6 @@
 # ÆSIR Website
+![Build status](https://travis-ci.org/aesirkth/website.svg?branch=master)
+
 This website use [preact-cli](https://github.com/developit/preact-cli).
 
 To do development & building, you need [nodejs](https://nodejs.org/en/) installed.
