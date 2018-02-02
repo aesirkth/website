@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "eslint src && preact test",
+    "lint": "eslint src",
+    "test": "npm run lint",
     "start": "preact serve",
+    "precommit": "npm run lint -- --cache",
     "build": "preact build --prerenderUrls src/prerender-urls.json --template src/template.html",
     "dev": "preact watch --template src/template.html"
   },
@@ -21,9 +23,13 @@
     "if-env": "^1.0.4",
     "node-sass": "^4.7.2",
     "postcss": "^6.0.17",
+    "pre-commit": "^1.2.2",
     "preact-cli": "^2.1.1",
     "sass-loader": "^6.0.6"
   },
+  "pre-commit": [
+    "precommit"
+  ],
   "dependencies": {
     "classnames": "^2.2.5",
     "marked": "^0.3.12",
