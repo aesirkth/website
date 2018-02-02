@@ -1,5 +1,4 @@
 import { h, Component } from "preact";
-import "autotrack/lib/plugins/outbound-form-tracker";
 import Field from "../field";
 import Button from "../button";
 import Radio from "../radio";
