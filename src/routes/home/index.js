@@ -17,15 +17,15 @@ const projects = Array.from(projectsContext.keys()).map(projectsContext).map(el 
 const activitiesContext = require.context("./content/activities", true, /index\.js$/);
 const activities = Array.from(activitiesContext.keys()).map(activitiesContext).map(el => el.default);
 
-//const sponsorsContext = require.context("./content/sponsors", true, /index\.js$/);
-//const sponsors = Array.from(sponsorsContext.keys()).map(sponsorsContext).map(el => el.default);
+const sponsorsContext = require.context("./content/sponsors", true, /index\.js$/);
+const sponsors = Array.from(sponsorsContext.keys()).map(sponsorsContext).map(el => el.default);
 
 import urlTeamPicture from "./content/team.jpg";
 import urlAmbitionsPicture from "./content/ambitions.svg";
 
 import textWhoWeAre from "./content/whoweare.md";
 import textMission from "./content/mission.md";
-//import textOurSponsors from "./content/oursponsors.md";
+import textOurSponsors from "./content/oursponsors.md";
 import textWhySupportUs from "./content/whysupportus.md";
 import textJoinUs from "./content/joinus.md";
 
@@ -58,21 +58,9 @@ const Activity = ({ title, content, image, images }) => (
   <GridEntry title={title} markdown={content} images={images || image} />
 );
 
-//const Sponsor = ({ title, content, image, images }) => (
-//  <GridEntry title={title} markdown={content} images={images || image} />
-//);
-
-/*
-<Section name="Our sponsors">
-  <Markdown markdown={textOurSponsors} />
-  <div className={style.sponsors}>
-    { sponsors.map(sponsor => (
-      <Sponsor {...sponsor} />
-    )) }
-  </div>
-</Section>
-*/
-
+const Sponsor = ({ title, content, image, images }) => (
+  <GridEntry title={title} markdown={content} images={images || image} />
+);
 
 export default class Home extends Component {
   onApplyForRole = (name) => {
@@ -111,6 +99,14 @@ export default class Home extends Component {
           <img className={style.ambitionsPicture} src={urlAmbitionsPicture} alt="The team of ÆSIR" />
           <Section name="Our mission">
             <Markdown markdown={textMission} />
+          </Section>
+          <Section name="Our sponsors">
+            <Markdown markdown={textOurSponsors} />
+            <div className={style.sponsors}>
+              { sponsors.map(sponsor => (
+                <Sponsor {...sponsor} />
+              )) }
+            </div>
           </Section>
           <Section name="Why support us">
             <Markdown markdown={textWhySupportUs} />
