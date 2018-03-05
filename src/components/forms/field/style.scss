@@ -16,7 +16,8 @@ $formInputHeight: 48px;
   
   textarea.input {
     padding-top: 8px;
-    height: $formInputHeight * 2;
+    min-height: $formInputHeight * 3;
+    resize: vertical;
   }
 
   .input {
