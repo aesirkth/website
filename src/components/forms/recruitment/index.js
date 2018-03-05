@@ -11,8 +11,8 @@ const KTHMailRegexPattern = "[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@(?:[a-zA-Z0-9-]+
 
 const LevelOfStudyChoices = [
   "bachelor",
-  "civil engineer",
   "master",
+  "civilingenjör",
   "other"
 ];
 
