@@ -23,7 +23,17 @@ export default class RecruitmentForm extends Component {
 
   render({ applyingForRole, onClearRole }) {
     return (
-      <form id="recruitment" method="post" className={style.recruitmentForm}>
+      <form
+        id="recruitment"
+        method="post"
+        className={style.recruitmentForm}
+
+        netlify={typeof window === "undefined" ? "very-pot" : null}
+        netlify-honeypot={typeof window === "undefined" ? "very-pot" : null}
+
+        action="thank-you"
+        name="contact-dev"
+      >
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="applying for" value={applyingForRole} />
         <div hidden className={style.hidden}>
