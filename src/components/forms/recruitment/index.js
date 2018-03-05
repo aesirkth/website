@@ -15,12 +15,6 @@ const LevelOfStudyChoices = [
 ];
 
 export default class RecruitmentForm extends Component {
-  componentDidUpdate() {
-    if (typeof window !== "undefined" && window.location.hash === "#recruitment") {
-      history.replaceState({}, document.title, ".");
-    }
-  }
-
   render({ applyingForRole, onClearRole }) {
     return (
       <form id="recruitment" method="post" className={style.recruitmentForm}>
