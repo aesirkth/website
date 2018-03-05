@@ -15,11 +15,15 @@ const LevelOfStudyChoices = [
 ];
 
 export default class RecruitmentForm extends Component {
+  static potName = "backend-id";
+  static potDefaultValue = "go-for-launch";
+
   componentDidUpdate() {
     if (typeof window !== "undefined" && window.location.hash === "#recruitment") {
       history.replaceState({}, document.title, ".");
     }
   }
+
 
   render({ applyingForRole, onClearRole }) {
     return (
@@ -28,8 +32,8 @@ export default class RecruitmentForm extends Component {
         method="post"
         className={style.recruitmentForm}
 
-        netlify={typeof window === "undefined" ? "very-pot" : null}
-        netlify-honeypot={typeof window === "undefined" ? "very-pot" : null}
+        netlify={typeof window === "undefined" ? RecruitmentForm.potName : null}
+        netlify-honeypot={typeof window === "undefined" ? RecruitmentForm.potName : null}
 
         action="thank-you"
         name="contact-dev"
@@ -37,7 +41,7 @@ export default class RecruitmentForm extends Component {
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="applying for" value={applyingForRole} />
         <div hidden className={style.hidden}>
-          <label>resistance is futile: <input name="very-pot" /></label>
+          <label>resistance is futile: <input name={RecruitmentForm.potName} value={typeof window === "undefined" ? RecruitmentForm.potDefaultValue : null} /></label>
         </div>
         <div className={style.container}>
           <div className={style.row}>
