@@ -5,6 +5,11 @@ $formInputHeight: 48px;
 .formField {
   flex: 1;
   flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
   .labelContainer {
     display: flex;
     flex-direction: column;
