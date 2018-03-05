@@ -17,6 +17,7 @@ const LevelOfStudyChoices = [
 export default class RecruitmentForm extends Component {
   static potName = "backend-id";
   static potDefaultValue = "go-for-launch";
+  static formName = "contact-dev";
 
   componentDidUpdate() {
     if (typeof window !== "undefined" && window.location.hash === "#recruitment") {
@@ -36,9 +37,9 @@ export default class RecruitmentForm extends Component {
         netlify-honeypot={typeof window === "undefined" ? RecruitmentForm.potName : null}
 
         action="thank-you"
-        name="contact-dev"
+        name={RecruitmentForm.formName}
       >
-        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="form-name" value={RecruitmentForm.formName} />
         <input type="hidden" name="applying for" value={applyingForRole} />
         <div hidden className={style.hidden}>
           <label>resistance is futile: <input name={RecruitmentForm.potName} value={typeof window === "undefined" ? RecruitmentForm.potDefaultValue : null} /></label>
