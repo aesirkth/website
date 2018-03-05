@@ -1,4 +1,6 @@
 import { h, Component } from "preact";
+import linkState from "linkstate";
+
 import Field from "../field";
 import Button from "../button";
 import Radio from "../radio";
@@ -17,7 +19,25 @@ const LevelOfStudyChoices = [
 export default class RecruitmentForm extends Component {
   static potName = "backend-id";
   static potDefaultValue = "go-for-launch";
-  static formName = "contact-dev";
+
+  static formName = "contact";
+
+  static maxYears = 10;
+
+  static validate = (state) => {
+    if (typeof state.name !== "string" || state.name.length === 0) return false;
+    if (typeof state.mail !== "string" || state.mail.length === 0) return false;
+    if (!/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@(?:[a-zA-Z0-9-]+\.)*(?:kth\.se)$/.test(state.mail.trim())) return false;
+    if (typeof state.describeYourself !== "string" || state.describeYourself.length === 0) return false;
+    if (typeof state.programOfStudy !== "string" || state.programOfStudy.length === 0) return false;
+    if (typeof state.levelOfStudy !== "string" || state.levelOfStudy.length === 0) return false;
+
+    const yearsLeft = parseInt(state.yearsLeft, 10);
+    if (isNaN(yearsLeft)) return false;
+    if (yearsLeft < 0 || yearsLeft > RecruitmentForm.maxYears) return false;
+
+    return true;
+  };
 
   componentDidUpdate() {
     if (typeof window !== "undefined" && window.location.hash === "#recruitment") {
@@ -25,8 +45,8 @@ export default class RecruitmentForm extends Component {
     }
   }
 
-
-  render({ applyingForRole, onClearRole }) {
+  render({ applyingForRole, onClearRole }, state) {
+    console.log(state);
     return (
       <form
         id="recruitment"
@@ -47,10 +67,10 @@ export default class RecruitmentForm extends Component {
         <div className={style.container}>
           <div className={style.row}>
             <div className={style.flex}>
-              <Field lines="single" type="text" name="name">Your name</Field>
+              <Field lines="single" type="text" name="name" value={state.name} onInput={linkState(this, "name")}>Your name</Field>
             </div>
             <div className={style.flex}>
-              <Field lines="single" type="email" name="email" pattern={KTHMailRegexPattern}>Your KTH email</Field>
+              <Field lines="single" type="email" name="email" pattern={KTHMailRegexPattern} value={state.mail} onInput={linkState(this, "mail")}>Your KTH email</Field>
             </div>
           </div>
           {
@@ -67,22 +87,49 @@ export default class RecruitmentForm extends Component {
           }
           <div className={style.row}>
             <div className={style.flex}>
-              <Field lines="multiple" type="text" name="describe yourself">Describe what you could help out with at ÆSIR</Field>
+              <Field lines="multiple" type="text" name="describe yourself" value={state.describeYourself} onInput={linkState(this, "describeYourself")}>Describe what you could help out with at ÆSIR</Field>
             </div>
           </div>
           <div className={style.row}>
             <div className={style.flex}>
-              <Field lines="single" min={0} max={7} step={1} type="number" name="years left at KTH">Years left at KTH</Field>
+              <Field
+                lines="single"
+                min={0}
+                max={RecruitmentForm.maxYears}
+                step={1}
+                type="number"
+                name="years left at KTH"
+                value={state.yearsLeft}
+                onInput={linkState(this, "yearsLeft")}
+              >
+                Whole years left at KTH
+              </Field>
             </div>
             <div className={style.third}>
-              <Field lines="single" type="text" name="program of study">Program of study</Field>
+              <Field
+                lines="single"
+                type="text"
+                name="program of study"
+                value={state.programOfStudy}
+                onInput={linkState(this, "programOfStudy")}
+              >
+                Program of study
+              </Field>
             </div>
             <div className={style.grid}>
               <span className={style.gridLabel}>Level of study</span>
               <div className={style.gridEntries}>
                 {
                   LevelOfStudyChoices.map(choice => (
-                    <Radio name="level of study" value={choice} className={style.gridEntry}>{choice}</Radio>
+                    <Radio
+                      name="level of study"
+                      value={choice}
+                      className={style.gridEntry}
+                      checked={state.levelOfStudy === choice}
+                      onChange={(linkState(this, "levelOfStudy", "target.value"))}
+                    >
+                      {choice}
+                    </Radio>
                   ))
                 }
               </div>
@@ -90,7 +137,7 @@ export default class RecruitmentForm extends Component {
           </div>
           <div className={style.row}>
             <div className={style.flex}>
-              <Button type="submit">Submit</Button>
+              <Button disabled={!RecruitmentForm.validate(state)} type="submit">Submit</Button>
             </div>
           </div>
         </div>
