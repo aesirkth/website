@@ -30,6 +30,7 @@ import textWhySupportUs from "./content/whysupportus.md";
 import textJoinUs from "./content/joinus.md";
 
 import recruitmentData from "../../recruitmentPositions.json";
+import { RecruitmentBanner } from "../../components/recruitmentBanner";
 
 const GridImages = ({ title, images }) => {
   if (!Array.isArray(images)) images = [ images ];
@@ -73,7 +74,6 @@ const Activity = ({ title, content, image, images }) => (
 </Section>
 */
 
-
 export default class Home extends Component {
   onApplyForRole = (name) => {
     if (typeof window !== "undefined") window.location.hash = "recruitment";
@@ -93,6 +93,7 @@ export default class Home extends Component {
       <Animated>
         <Column className={style.home}>
           <Masthead>
+            <RecruitmentBanner />
             <Section name="Who we are">
               <Markdown markdown={textWhoWeAre} />
               <img className={style.teamPicture} src={urlTeamPicture} alt="The team of ÆSIR" />

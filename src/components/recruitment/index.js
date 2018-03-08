@@ -47,7 +47,7 @@ class Role extends Component {
 export default class Recruitment extends Component {
   render({ applyingForRole, onApplyForRole, specificRoles, genericRoles }) {
     return (
-      <div className={style.roles}>
+      <div id="positions" className={style.roles}>
         <header>Specific positions</header>
         {
           Object.keys(specificRoles).map(key => (

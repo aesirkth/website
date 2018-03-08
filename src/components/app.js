@@ -6,19 +6,39 @@ import Home from "../routes/home";
 
 export default class App extends Component {
 
-  /** Gets fired when the route changes.
-   *  @param {Object} event    "change" event from [preact-router](http://git.io/preact-router)
-   *  @param {string} event.url  The newly routed URL
+
+  /*
+   * Defines what window.location.hash we automatically clear
    */
-  handleRoute = e => {
-    this.currentUrl = e.url;
+  static clearHashes = [
+    "#recruitment",
+    "#positions"
+  ];
+
+  onHashChange = (e) => {
+    if (App.clearHashes.indexOf(window.location.hash) >= 0) {
+      history.replaceState({}, document.title, ".");
+    }
   };
+
+  componentDidMount() {
+    if (typeof window !== "undefined") {
+      window.addEventListener("hashchange", this.onHashChange, false);
+      this.onHashChange();
+    }
+  }
+
+  componentWillUnmount() {
+    if (typeof window !== "undefined") {
+      window.removeEventListener("hashchange", this.onHashChange, false);
+    }
+  }
 
   render() {
     return (
       <div id="app">
         <SocialHeader />
-        <Router onChange={this.handleRoute}>
+        <Router>
           <Home path="/" />
         </Router>
       </div>
