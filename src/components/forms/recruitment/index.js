@@ -46,7 +46,7 @@ export default class RecruitmentForm extends Component {
   }
 
   render({ applyingForRole, onClearRole }, state) {
-    console.log(state);
+    const stateIsValid = RecruitmentForm.validate(state);
     return (
       <form
         id="recruitment"
@@ -56,13 +56,13 @@ export default class RecruitmentForm extends Component {
         netlify={typeof window === "undefined" ? RecruitmentForm.potName : null}
         netlify-honeypot={typeof window === "undefined" ? RecruitmentForm.potName : null}
 
-        action="thank-you"
+        action={stateIsValid ? "thank-you" : null}
         name={RecruitmentForm.formName}
       >
         <input type="hidden" name="form-name" value={RecruitmentForm.formName} />
         <input type="hidden" name="applying for" value={applyingForRole} />
         <div hidden className={style.hidden}>
-          <label>resistance is futile: <input name={RecruitmentForm.potName} value={typeof window === "undefined" ? RecruitmentForm.potDefaultValue : null} /></label>
+          <label>resistance is futile: <input name={RecruitmentForm.potName} value={stateIsValid ? RecruitmentForm.potDefaultValue : null} /></label>
         </div>
         <div className={style.container}>
           <div className={style.row}>
@@ -137,7 +137,7 @@ export default class RecruitmentForm extends Component {
           </div>
           <div className={style.row}>
             <div className={style.flex}>
-              <Button disabled={!RecruitmentForm.validate(state)} type="submit">Submit</Button>
+              <Button disabled={!stateIsValid} type="submit">Submit</Button>
             </div>
           </div>
         </div>
