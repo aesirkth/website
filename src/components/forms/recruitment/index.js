@@ -40,13 +40,9 @@ export default class RecruitmentForm extends Component {
     return true;
   };
 
-  componentDidUpdate() {
-    if (typeof window !== "undefined" && window.location.hash === "#recruitment") {
-      history.replaceState({}, document.title, ".");
-    }
-  }
-
   render({ applyingForRole, onClearRole }, state) {
+    const isServerRender = typeof window === "undefined";
+
     const stateIsValid = RecruitmentForm.validate(state);
     return (
       <form
@@ -54,8 +50,8 @@ export default class RecruitmentForm extends Component {
         method="post"
         className={style.recruitmentForm}
 
-        netlify={typeof window === "undefined" ? RecruitmentForm.potName : null}
-        netlify-honeypot={typeof window === "undefined" ? RecruitmentForm.potName : null}
+        netlify
+        netlify-honeypot={isServerRender ? RecruitmentForm.potName : null}
 
         action={RecruitmentForm.formAction}
         name={RecruitmentForm.formName}
@@ -63,7 +59,7 @@ export default class RecruitmentForm extends Component {
         <input type="hidden" name="form-name" value={stateIsValid ? RecruitmentForm.formName : "invalid-forms"} />
         <input type="hidden" name="applying for" value={applyingForRole} />
         <div hidden className={style.hidden}>
-          <label>resistance is futile: <input name={RecruitmentForm.potName} value={stateIsValid ? RecruitmentForm.potDefaultValue : null} /></label>
+          <label>resistance is futile: <input name={RecruitmentForm.potName} value={!stateIsValid ? RecruitmentForm.potDefaultValue : null} /></label>
         </div>
         <div className={style.container}>
           <div className={style.row}>
