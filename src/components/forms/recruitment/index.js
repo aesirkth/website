@@ -19,7 +19,8 @@ const LevelOfStudyChoices = [
 export default class RecruitmentForm extends Component {
   static potName = "backend-id";
   static potDefaultValue = "go-for-launch";
-
+  
+  static formAction = "/thank-you";
   static formName = "contact";
 
   static maxYears = 10;
@@ -56,7 +57,7 @@ export default class RecruitmentForm extends Component {
         netlify={typeof window === "undefined" ? RecruitmentForm.potName : null}
         netlify-honeypot={typeof window === "undefined" ? RecruitmentForm.potName : null}
 
-        action={stateIsValid ? "thank-you" : null}
+        action={stateIsValid ? RecruitmentForm.formAction : null}
         name={RecruitmentForm.formName}
       >
         <input type="hidden" name="form-name" value={RecruitmentForm.formName} />
