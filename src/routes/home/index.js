@@ -99,7 +99,7 @@ export default class Home extends Component {
               <img className={style.teamPicture} src={urlTeamPicture} alt="The team of ÆSIR" />
             </Section>
           </Masthead>
-          <Section name="Our projects">
+          <Section name="What we are doing">
             <br />
             {projects.map(project => (
               <Project {...project} />
