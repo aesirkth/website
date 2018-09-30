@@ -41,28 +41,33 @@ $spacing: 16px;
   }
 
   .grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
     $checkboxSize: 20px;
     $targetSize: $formInputHeight * 0.5;
 
-    $spacing: $targetSize - $checkboxSize;
-    margin: -$spacing;
-    margin-right: 0;
-
     @extend .flex;
+    
+    $spacing: $targetSize - $checkboxSize;
+    margin-left: -$spacing;
+    margin-right: 0;
+    padding-bottom: $spacing;
+
     flex-shrink: 0;
     flex-direction: column;
 
     .gridLabel {
       padding: 0 $spacing;
       width: 100%;
-      margin-bottom: 4px;
     }
     
     .gridEntries {
       flex-wrap: wrap;
       min-width: 260px;
       display: flex;
-      flex-basis: 50%;
+      align-items: flex-end;
     }
     
     .gridEntry {

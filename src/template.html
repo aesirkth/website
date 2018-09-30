@@ -37,16 +37,6 @@
       url: '/'
     }) %>
 
-    <form hidden action="thank-you" name="contact" netlify netlify-honeypot="very-pot">
-      <input name="very-pot" />
-      <input type="text" name="applying for" />
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <textarea name="describe yourself"></textarea>
-      <input type="number" name="years left at KTH" />
-      <input type="text" name="program of study" />
-      <input type="text" name="level of study" />
-    </form>
     <script defer src="<%= htmlWebpackPlugin.files.chunks['bundle'].entry %>"></script>
     <script>window.fetch||document.write('<script src="<%= htmlWebpackPlugin.files.chunks["polyfills"].entry %>"><\/script>')</script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
