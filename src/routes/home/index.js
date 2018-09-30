@@ -100,6 +100,7 @@ export default class Home extends Component {
             </Section>
           </Masthead>
           <Section name="Our projects">
+            <br />
             {projects.map(project => (
               <Project {...project} />
             ))}

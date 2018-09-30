@@ -26,11 +26,14 @@
   .gridEntryImages {
     flex-shrink: 0;
     display: block;
+    margin-left: -250px;
+    margin-right: 24px;
   }
 
   .gridEntryImage {
     display: block;
-    height: 150px;
+    min-height: 150px;
+    max-width: 500px;
   }
   .gridEntryImage + .gridEntryImage {
     margin-top: 8px;
@@ -48,17 +51,13 @@
       }
 
       .gridEntryImages {
-        flex-direction: row;
-        display: flex;
-
         margin: -4px;
 
         padding-bottom: 16px;
 
-        flex-wrap: wrap;
-
         .gridEntryImage {
           margin: 4px;
+          max-width: 350px;
         }
       }
     }
