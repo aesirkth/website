@@ -1,3 +1,6 @@
+import perseusImage from "./perseus.jpg";
+import boardImage from "./board.jpg";
+
 export default {
   title: "International collaborations",
   content: `
@@ -8,5 +11,6 @@ export default {
 
   The project was finished on time and the whole team later participated in a seminar in Paris. 
   Unfortunatly the launch planned to be at Esrange in Kiruna, Sweden, was postponed until further notice due to problems with the rocket.
-  `
+  `,
+  images: [perseusImage, boardImage]
 };
