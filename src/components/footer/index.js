@@ -5,7 +5,7 @@ import { Column } from "../layout";
 
 const Data = {
   organisationNumber: "802506-0568",
-  home: "Stockholm, Sweden",
+  home: "Drottning Kristinas väg 15-19, 114 28 Stockholm, Sweden",
   contact: "contact@aesir.se"
 };
 
