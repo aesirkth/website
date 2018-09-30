@@ -1,0 +1,28 @@
+.terms {
+  a {
+    color: inherit;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #00000094;
+  z-index: 10000;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  section {
+    background: white;
+    color: #37109F;
+    max-width: 600px;
+    padding: 24px;
+    border-radius: 8px;
+  }
+}
