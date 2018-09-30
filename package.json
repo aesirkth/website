@@ -33,6 +33,7 @@
   "dependencies": {
     "autotrack": "^2.4.1",
     "classnames": "^2.2.5",
+    "linkstate": "^1.1.1",
     "marked": "^0.3.12",
     "preact": "^8.2.7",
     "preact-compat": "^3.18.0",
