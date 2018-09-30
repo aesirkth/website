@@ -8,7 +8,7 @@ export class RecruitmentBanner extends Component {
         We are recruiting!
         <nav>
           <a href="#positions">Open positions</a>
-          <a href="#recruitment">Join us</a>
+          <a className="noscript-hide" href="#recruitment">Join us</a>
         </nav>
       </div>
     );
