@@ -33,17 +33,17 @@ import recruitmentData from "../../recruitmentPositions.json";
 import { RecruitmentBanner } from "../../components/recruitmentBanner";
 
 const GridImages = ({ title, images }) => {
-  if (!Array.isArray(images)) images = [ images ];
+  if (!Array.isArray(images)) images = [images];
 
   return (
     <div className={style.gridEntryImages}>
-      { images.map(imageUrl => <img className={style.gridEntryImage} src={imageUrl} alt={`Image about ${title}`} /> ) }
+      {images.map(imageUrl => <img className={style.gridEntryImage} src={imageUrl} alt={`Image about ${title}`} />)}
     </div>
   );
 };
 const GridEntry = ({ title, markdown, images }) => markdown && (
   <div className={style.gridEntry}>
-    { images && <GridImages title={title} images={images} /> }
+    {images && <GridImages title={title} images={images} />}
     <div className={style.gridEntryText}>
       <header className={style.gridEntryHeader}>{title}</header>
       <Markdown markdown={markdown} />
@@ -100,14 +100,14 @@ export default class Home extends Component {
             </Section>
           </Masthead>
           <Section name="Our projects">
-            { projects.map(project => (
+            {projects.map(project => (
               <Project {...project} />
-            )) }
+            ))}
           </Section>
           <Section name="Our activities">
-            { activities.map(activity => (
+            {activities.map(activity => (
               <Activity {...activity} />
-            )) }
+            ))}
           </Section>
           <img className={style.ambitionsPicture} src={urlAmbitionsPicture} alt="The team of ÆSIR" />
           <Section name="Our mission">
@@ -119,10 +119,12 @@ export default class Home extends Component {
           <Section name="Who we are looking for">
             <Recruitment applyingForRole={this.state.applyingForRole} onApplyForRole={this.onApplyForRole} specificRoles={recruitmentData.specific} genericRoles={recruitmentData.generic} />
           </Section>
-          <Section name="Join us">
-            <Markdown markdown={textJoinUs} />
-            <RecruitmentForm onClearRole={this.onClearRole} applyingForRole={this.state.applyingForRole} />
-          </Section>
+          <div className="noscript-hide">
+            <Section name="Join us">
+              <Markdown markdown={textJoinUs} />
+              <RecruitmentForm onClearRole={this.onClearRole} applyingForRole={this.state.applyingForRole} />
+            </Section>
+          </div>
           <Footer />
         </Column>
       </Animated>

@@ -1,6 +1,7 @@
 import { h, Component } from "preact";
 import style from "./style";
 import Button from "../forms/button";
+import classnames from "classnames";
 
 class Role extends Component {
   onApplyFor = () => {
@@ -10,32 +11,32 @@ class Role extends Component {
   render({ selected, onApplyForRole, title, description, shouldLike, requirements }) {
     if (!title) throw new Error("Expected description");
     if (!description) throw new Error("Expected description");
-    
+
     return (
       <div className={style.role}>
         <header>{title}</header>
         <p>{description}</p>
-        
+
         <footer>
-          { Array.isArray(requirements) && (
+          {Array.isArray(requirements) && (
             <div className={style.requirements}>
               <header>It would be good if you:</header>
               <ul>
-                { requirements.map(el => <li key={el}>{el}</li> ) }
+                {requirements.map(el => <li key={el}>{el}</li>)}
               </ul>
             </div>
-          ) }
-          { Array.isArray(shouldLike) && (
+          )}
+          {Array.isArray(shouldLike) && (
             <div className={style.shouldLike}>
               <header>You should want to do the following:</header>
               <ul>
-                { shouldLike.map(el => <li key={el}>{el}</li> ) }
+                {shouldLike.map(el => <li key={el}>{el}</li>)}
               </ul>
             </div>
-          ) }
-          <div className={style.actions}>
+          )}
+          <div className={classnames(style.actions, "noscript-hide")}>
             <Button disabled={selected} onClick={this.onApplyFor}>
-              { selected ? "Applying for this role" : "Apply for this role"}
+              {selected ? "Applying for this role" : "Apply for this role"}
             </Button>
           </div>
         </footer>
@@ -51,13 +52,13 @@ export default class Recruitment extends Component {
         <header>Specific positions</header>
         {
           Object.keys(specificRoles).map(key => (
-            <Role selected={specificRoles[key].recruitmentTitle===applyingForRole} onApplyForRole={onApplyForRole} key={key} {...specificRoles[key]} />
+            <Role selected={specificRoles[key].recruitmentTitle === applyingForRole} onApplyForRole={onApplyForRole} key={key} {...specificRoles[key]} />
           ))
         }
         <header>Other roles</header>
         {
           Object.keys(genericRoles).map(key => (
-            <Role selected={genericRoles[key].recruitmentTitle===applyingForRole} onApplyForRole={onApplyForRole} key={key} {...genericRoles[key]} />
+            <Role selected={genericRoles[key].recruitmentTitle === applyingForRole} onApplyForRole={onApplyForRole} key={key} {...genericRoles[key]} />
           ))
         }
       </div>

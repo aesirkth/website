@@ -41,6 +41,14 @@ export default class App extends Component {
         <Router>
           <Home path="/" />
         </Router>
+        {typeof window === "undefined" && (
+          <noscript>
+            <style>{`
+            .noscript-hide { display: none !important; }
+            .noscript-show { display: block !important; }
+            `}</style>
+          </noscript>
+        )}
       </div>
     );
   }
