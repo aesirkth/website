@@ -6,6 +6,7 @@ import Button from "../button";
 import Radio from "../radio";
 
 import style from "./style.scss";
+import { Terms } from "../../recruitment/terms";
 
 const KTHMailRegexPattern = "[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@(?:[a-zA-Z0-9-]+\\.)*(?:kth\\.se)";
 
@@ -19,7 +20,7 @@ const LevelOfStudyChoices = [
 export default class RecruitmentForm extends Component {
   static potName = "backend-id";
   static potDefaultValue = "go-for-launch";
-  
+
   static formAction = "/thank-you";
   static formName = "contact";
 
@@ -130,6 +131,11 @@ export default class RecruitmentForm extends Component {
                   ))
                 }
               </div>
+            </div>
+          </div>
+          <div className={style.row}>
+            <div className={style.flex}>
+              <Terms />
             </div>
           </div>
           <div className={style.row}>
