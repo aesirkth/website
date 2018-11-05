@@ -6,10 +6,12 @@
 .header {
   font-size: 28px;
   font-weight: bold;
-  padding: 16px 0 5px 0;
+  padding: 16px 0 11px 0;
 }
 
 .markdown {
+  padding-top: 4px;
+  padding-bottom: 16px;
   img {
     margin: 8px 0;
   }
@@ -31,5 +33,24 @@
     &:active {
       opacity: 0.8;
     }
+  }
+
+  p {
+    margin: 8px 0 16px 0;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 16px;
+    margin: 0;
   }
 }

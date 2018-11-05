@@ -16,21 +16,24 @@
   width: 100%;
 
   .gridEntryHeader {
-    font-size: 22px;
+    font-size: 24px;
     line-height: 20px;
     font-weight: bold;
     font-style: italic;
-    padding-bottom: 4px;
+    padding-bottom: 8px;
   }
 
   .gridEntryImages {
     flex-shrink: 0;
     display: block;
+    margin-left: -250px;
+    margin-right: 24px;
   }
 
   .gridEntryImage {
     display: block;
-    height: 150px;
+    min-height: 150px;
+    max-width: 500px;
   }
   .gridEntryImage + .gridEntryImage {
     margin-top: 8px;
@@ -40,26 +43,34 @@
     padding-left: 16px;
   }
   
-  @media(max-width: 900px) {
+  @media(max-width: 1550px) {
     & {
       flex-direction: column;
       .gridEntryImages + .gridEntryText {
         padding-left: 0;
       }
-
       .gridEntryImages {
-        flex-direction: row;
-        display: flex;
-
-        margin: -4px;
-
+        margin: 0;
         padding-bottom: 16px;
-
+        display: flex;
         flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
 
         .gridEntryImage {
+          display: inline-block;
           margin: 4px;
+          flex: 1;
+          max-width: 45%;
         }
+      }
+    }
+  }
+  @media(max-width: 900px) {
+    .gridEntryImages {
+      .gridEntryImage {
+        max-width: 350px;
+        width: 100%;
       }
     }
   }
