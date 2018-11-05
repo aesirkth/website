@@ -43,22 +43,34 @@
     padding-left: 16px;
   }
   
-  @media(max-width: 900px) {
+  @media(max-width: 1550px) {
     & {
       flex-direction: column;
       .gridEntryImages + .gridEntryText {
         padding-left: 0;
       }
-
       .gridEntryImages {
-        margin: -4px;
-
+        margin: 0;
         padding-bottom: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
 
         .gridEntryImage {
+          display: inline-block;
           margin: 4px;
-          max-width: 350px;
+          flex: 1;
+          max-width: 45%;
         }
+      }
+    }
+  }
+  @media(max-width: 900px) {
+    .gridEntryImages {
+      .gridEntryImage {
+        max-width: 350px;
+        width: 100%;
       }
     }
   }
