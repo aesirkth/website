@@ -4,7 +4,7 @@ import boardImage from "./board.jpg";
 export default {
   title: "International collaborations",
   content: `
-  # PERSEUS
+  # Vidar
   During fall 2017/spring 2018 some of our members participated in a collaboration with the the French government space agency CNES as a part of their PERSEUS project.
   The project was to construct an experiment to fly on their rocket.
   Our team decided to build a device that would measure the vibrations of the rocket.
