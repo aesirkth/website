@@ -117,6 +117,11 @@ export default class Home extends Component {
             <Markdown markdown={textWhySupportUs} />
           </Section>
           <Section name="Who we are looking for">
+            <p>
+              These roles represent some of the roles that we'd like to see you
+              doing at ÆSIR. If you'd like to do something else, you're very
+              welcome to fill in the form below.
+            </p>
             <Recruitment applyingForRole={this.state.applyingForRole} onApplyForRole={this.onApplyForRole} specificRoles={recruitmentData.specific} genericRoles={recruitmentData.generic} />
           </Section>
           <div className="noscript-hide">
