@@ -1,17 +1,16 @@
 {
   "specific": {
-    "odinEconomicallyResponsible": {
-      "recruitmentTitle": "Odin economically responsible",
-      "title": "Economy responsible for Odin",
-      "description": "We are looking for a person responsible for the economy of our Odin project by making purchases and doing bookkeeping.",
+    "itResponsible": {
+      "recruitmentTitle": "IT responsible",
+      "title": "IT-responsible for ÆSIR",
+      "description": "We are looking for a person to manage G Suite (Google Drive & Gmail), Facebook Workplace and facilitate our growth in the digital space.",
       "requirements": [
-        "Have some knowledge (and want to learn more) with bookkeeping.",
-        "Have some experience with purchasing things internationally."
+        "Have knowledge with the requirements put on us by GDPR.",
+        "Are available to help our members when needed."
       ],
       "shouldLike": [
-        "Purchase things for the Odin project.",
-        "Keep track of expenses for the Odin project.",
-        "Do bookkeeping for the Odin project."
+        "Technical challenges.",
+        "Improving and sustaining internal communication."
       ]
     },
     "prResponsible": {
@@ -52,6 +51,20 @@
       ],
       "shouldLike": [
         "Making things out of thin air."
+      ]
+    },
+    "webDevelopers": {
+      "recruitmentTitle": "Web developer",
+      "title": "Web developers",
+      "description": "We are looking for persons who have experience with modern web development or web design.",
+      "requirements": [
+        "Have used Git and CI/CD workflows.",
+        "Have used ES6/2015 or newer and have experience with (P)react or similar, or:",
+        "Have done web design."
+      ],
+      "shouldLike": [
+        "Designing or programming websites.",
+        "Creating an informational first view of ÆSIR for potential members and sponsors."
       ]
     }
   }
