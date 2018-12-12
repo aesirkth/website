@@ -122,7 +122,7 @@ export default class Home extends Component {
               We are looking for you who have a burning passion for rockets to help build our next rocket!
               The roles we are mainly looking for at the moment are mainly <i>project managers</i>, <i>group managers</i> and <i>team members</i>.
               We are also looking to fill the roles of <i>media responsible</i>, <i>IT responsible</i> and <i>external relations responsible</i>.
-              <br/>
+              <br />
               If you'd like to do something else, you are very welcome to let us know in the below form! We are always open for as many people as possible to join us.
             </p>
             {false && <Recruitment applyingForRole={this.state.applyingForRole} onApplyForRole={this.onApplyForRole} specificRoles={recruitmentData.specific} genericRoles={recruitmentData.generic} />}
