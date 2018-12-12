@@ -6,9 +6,8 @@ export class RecruitmentBanner extends Component {
     return (
       <div className={style.banner}>
         We are recruiting!
-        <nav>
-          <a href="#positions">Open positions</a>
-          <a className="noscript-hide" href="#recruitment">Join us</a>
+        <nav className="noscript-hide">
+          <a href="#recruitment">Join us</a>
         </nav>
       </div>
     );
