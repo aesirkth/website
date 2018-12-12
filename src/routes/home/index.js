@@ -117,7 +117,7 @@ export default class Home extends Component {
           <Section name="Why support us">
             <Markdown markdown={textWhySupportUs} />
           </Section>
-{false && <Section name="Who we are looking for">
+          {false && <Section name="Who we are looking for">
             <p>
               These roles represent some of the roles that we'd like to see you
               doing at ÆSIR. If you'd like to do something else, you're very
