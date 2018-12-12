@@ -117,14 +117,16 @@ export default class Home extends Component {
           <Section name="Why support us">
             <Markdown markdown={textWhySupportUs} />
           </Section>
-          {false && <Section name="Who we are looking for">
+          <Section name="Who we are looking for">
             <p>
-              These roles represent some of the roles that we'd like to see you
-              doing at ÆSIR. If you'd like to do something else, you're very
-              welcome to fill in the form below.
+              We are looking for you who have a burning passion for rockets to help build our next rocket!
+              The roles we are mainly looking for at the moment are mainly <i>project managers</i>, <i>group managers</i> and <i>team members</i>.
+              We are also looking to fill the roles of <i>media responsible</i>, <i>IT responsible</i> and <i>external relations responsible</i>.
+              <br/>
+              If you'd like to do something else, you are very welcome to let us know in the below form! We are always open for as many people as possible to join us.
             </p>
-            <Recruitment applyingForRole={this.state.applyingForRole} onApplyForRole={this.onApplyForRole} specificRoles={recruitmentData.specific} genericRoles={recruitmentData.generic} />
-          </Section>}
+            {false && <Recruitment applyingForRole={this.state.applyingForRole} onApplyForRole={this.onApplyForRole} specificRoles={recruitmentData.specific} genericRoles={recruitmentData.generic} />}
+          </Section>
           <div className="noscript-hide">
             <Section name="Join us">
               <Markdown markdown={textJoinUs} />
