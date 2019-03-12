@@ -1,0 +1,14 @@
+.column {
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+@media (max-width: 600px) {
+  .column.collapse {
+    padding: 0 !important;
+  }
+}
+.column.relativePositioning {
+  position: relative;
+}
