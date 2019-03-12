@@ -7,6 +7,7 @@ import { useSpring, animated, config } from "react-spring";
 import styles from "./style.css";
 import { NavbarLink } from "@components/navbarLink";
 import { NavbarSocialIcons } from "./icons";
+import { Column } from "@components/column";
 
 const links = [
   {
@@ -40,14 +41,17 @@ export const Navbar: React.FC<{ location: WindowLocation }> = props => {
   const standardRowHeight = 48;
   const transformOffset = 24;
 
+  const isPersistentlyTransformed = props.location.pathname !== "/blog";
+
   const [{ offset }, set] = useSpring(() => ({
-    offset: props.location.pathname !== "/blog" ? 1 : 0,
+    offset: isPersistentlyTransformed ? 1 : 0,
     config: {
       ...config.stiff
     }
   }));
+
   useEffect(() => {
-    if (props.location.pathname !== "/blog") {
+    if (isPersistentlyTransformed) {
       set({ offset: 1 });
       return;
     }
@@ -61,7 +65,7 @@ export const Navbar: React.FC<{ location: WindowLocation }> = props => {
     window.addEventListener("scroll", listener);
 
     return () => window.removeEventListener("scroll", listener);
-  }, [props.location.pathname]);
+  }, [isPersistentlyTransformed]);
 
   const linksTransform = offset.interpolate(
     (value: number) => `translate3d(0, ${transformOffset * (1 - value)}px, 0)`
@@ -70,38 +74,50 @@ export const Navbar: React.FC<{ location: WindowLocation }> = props => {
   const helperTextOpacity = offset.interpolate((value: number) => Math.max(0.5, 1 - value));
 
   return (
-    <nav className={styles.navbar}>
-      <animated.div
-        className={styles.flex}
-        style={{
-          transform: linksTransform
-        }}
-      >
-        <div
-          className={clsx(styles.links, styles.socialMedia)}
-          style={{
-            height: standardRowHeight
-          }}
-        >
+    <>
+      <nav className={styles.navbar}>
+        <Column>
+          <animated.div
+            className={styles.flex}
+            style={{
+              transform: linksTransform
+            }}
+          >
+            <div
+              className={clsx(styles.links, styles.socialMedia)}
+              style={{
+                height: standardRowHeight
+              }}
+            >
+              <animated.div
+                style={{
+                  opacity: helperTextOpacity
+                }}
+                className={styles.followUs}
+              >
+                follow us
+              </animated.div>
+              {links.map(({ link, title, icon }) => (
+                <NavbarLink key={link} href={link} title={title} icon={icon} />
+              ))}
+            </div>
+          </animated.div>
           <animated.div
             style={{
-              opacity: helperTextOpacity
+              opacity: gradientOpacity
             }}
-            className={styles.followUs}
-          >
-            follow us
-          </animated.div>
-          {links.map(({ link, title, icon }) => (
-            <NavbarLink key={link} href={link} title={title} icon={icon} />
-          ))}
-        </div>
-      </animated.div>
-      <animated.div
+            className={styles.gradient}
+          />
+        </Column>
+      </nav>
+      <div
+        className={styles.navbarSpacer}
         style={{
-          opacity: gradientOpacity
+          height: isPersistentlyTransformed
+            ? standardRowHeight
+            : transformOffset + standardRowHeight
         }}
-        className={styles.gradient}
       />
-    </nav>
+    </>
   );
 };
