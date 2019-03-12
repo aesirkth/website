@@ -1,0 +1,58 @@
+{
+  "name": "@aesirkth/website",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "react-static start",
+    "stage": "react-static build --staging",
+    "build": "react-static build",
+    "bundle": "react-static bundle",
+    "export": "react-static export",
+    "serve": "serve dist -p 3000 -s"
+  },
+  "dependencies": {
+    "@reach/router": "1.2.1",
+    "axios": "0.18.0",
+    "clsx": "1.0.3",
+    "react": "16.8.4",
+    "react-dom": "16.8.4",
+    "react-hot-loader": "4.8.0",
+    "react-spring": "8.0.14",
+    "react-static": "6.3.6",
+    "react-static-plugin-css-modules": "^6.3.0",
+    "react-with-gesture": "^4.0.6"
+  },
+  "devDependencies": {
+    "@types/node": "^11.11.1",
+    "@types/reach__router": "^1.2.3",
+    "@types/react": "^16.8.7",
+    "@types/react-dom": "^16.8.2",
+    "@types/react-helmet": "5.0.8",
+    "@types/react-hot-loader": "^4.1.0",
+    "@types/webpack-env": "^1.13.9",
+    "@typescript-eslint/eslint-plugin": "1.4.2",
+    "@typescript-eslint/parser": "1.4.2",
+    "eslint": "5.15.1",
+    "eslint-config-prettier": "4.1.0",
+    "eslint-plugin-react": "7.12.4",
+    "eslint-plugin-react-hooks": "1.5.0",
+    "husky": "1.3.1",
+    "lint-staged": "8.1.5",
+    "prettier": "1.16.4",
+    "react-static-plugin-typescript": "3.1.1",
+    "serve": "10.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}

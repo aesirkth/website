@@ -6,3 +6,10 @@ node_modules
 build/
 
 \.eslintcache
+
+yarn-error\.log
+
+
+dist/
+artifacts/
+tmp/
