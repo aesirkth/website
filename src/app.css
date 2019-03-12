@@ -8,6 +8,8 @@ body {
 
 html {
   background: #37109f;
+
+  overflow-y: scroll;
 }
 
 a {
