@@ -1,0 +1,153 @@
+.markdown {
+  color: white;
+}
+
+.markdown > .header {
+  font-size: 32px;
+
+  font-weight: bold;
+
+  background: white;
+  color: #4704f7;
+  margin: 0.2em 0;
+  margin-top: 32px;
+  padding: 8px 32px;
+  margin-left: -32px;
+  display: inline-block;
+  border-radius: 16px;
+  box-shadow: 0px 2px 17px #0000001c;
+}
+
+.readingTime {
+  font-weight: bold;
+}
+
+.markdown :global(h1) {
+  margin: 1em 0 0.5em 0;
+  font-size: 30px;
+}
+
+.markdown :global(h2) {
+  margin: 1em 0 0.45em 0;
+  font-size: 26px;
+}
+
+.markdown :global(h3) {
+  margin: 1em 0 0.35em 0;
+  font-size: 23px;
+}
+
+.markdown :global(h4) {
+  margin: 1em 0 0.25em 0;
+  font-size: 21px;
+}
+
+.markdown :global(h5) {
+  margin: 1em 0 0.15em 0;
+  font-size: 19px;
+}
+
+.markdown :global(h6) {
+  margin: 1em 0 0.1em 0;
+  font-size: 16px;
+}
+
+.markdown :global(p) {
+  margin-block-start: 0.35em;
+  margin-block-end: 1.15em;
+  font-size: 16px;
+}
+
+.markdown :global(hr) {
+  border: 2px dashed #ffffff40;
+  margin: 0.75em 6em;
+}
+
+.markdown :global(blockquote) {
+  border-left: 4px solid #ffffff40;
+  margin-left: 0;
+  padding-left: 16px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.markdown :global(ul) {
+  padding-inline-start: 24px;
+}
+.markdown :global(ol) {
+  padding-inline-start: 40px;
+}
+.markdown :global(li) {
+  margin-bottom: 4px;
+}
+
+.markdown :global(pre) {
+  background: #0000006b;
+  padding: 16px;
+
+  border-radius: 8px;
+}
+
+.markdown :global(code) {
+  background: #0000006b;
+  padding: 0 4px;
+
+  border-radius: 4px;
+}
+
+.markdown :global(pre) :global(code) {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.markdown :global(table) {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 16px;
+  background: #ffffff0d;
+  border-radius: 8px;
+}
+
+.markdown :global(th) {
+  border-bottom: 2px solid #b19aef;
+  padding: 4px 8px;
+}
+
+.markdown :global(td) {
+  border-top: 1px solid #7f62ce;
+  border-bottom: 1px solid #7f62ce;
+  border-left: 1px solid #7f62ce;
+  border-right: 1px solid #7f62ce;
+  padding: 4px 8px;
+}
+
+.markdown :global(td:first-child) {
+  border-left: none;
+}
+
+.markdown :global(td:last-child) {
+  border-right: none;
+}
+.markdown :global(tr:last-child) :global(td) {
+  border-bottom: none;
+}
+.markdown :global(a) {
+  color: inherit;
+  text-decoration: underline;
+}
+.markdown :global(a:hover) {
+  opacity: 0.9;
+}
+
+.markdown :global(img) {
+  max-height: 350px;
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 8px auto;
+}
+
+.markdown :global(.images) {
+}

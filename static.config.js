@@ -25,6 +25,11 @@ export default {
     const { data: posts } = await axios.get("https://jsonplaceholder.typicode.com/posts");
     return [
       {
+        path: "/styling-test",
+        component: "src/pages/styling-test",
+        noindex: true
+      },
+      {
         path: "/blog",
         getData: () => ({
           posts
