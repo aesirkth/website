@@ -1,5 +1,5 @@
 import React from "react";
-import { withSiteData } from "react-static";
+import { withRouteData } from "react-static";
 import { Masthead } from "@components/masthead";
 
 import WhoWeAre, { frontMatter as whoWeAreData } from "@data/home/whoWeAre.mdx";
@@ -11,6 +11,38 @@ import { MarkdownWrapper } from "@components/markdown";
 import { Column } from "@components/column";
 import { Link } from "@reach/router";
 import { QuickLinks } from "@components/quickLinks";
+import { Project } from "src/types";
+
+const ProjectsList: React.FC<{ projects: Project[] }> = props => (
+  <>
+    {props.projects.map(project => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const { default: Route } = require("@data/projects/" + project.summary.fileInfo.path);
+      return (
+        <div key={project.summary.slug}>
+          <h1>
+            {project.summary.title}{" "}
+            {project.summary.completed === false && <>(since {project.summary.started})</>}
+            {project.summary.completed !== false &&
+              project.summary.completed === project.summary.started && (
+                <>(during {project.summary.started})</>
+              )}
+            {project.summary.completed !== false &&
+              project.summary.completed !== project.summary.started && (
+                <>
+                  ({project.summary.started} to {project.summary.completed})
+                </>
+              )}
+          </h1>
+          <Route />
+          <Link to={`/projects/${project.summary.slug}`}>
+            Read more about {project.summary.title}
+          </Link>
+        </div>
+      );
+    })}
+  </>
+);
 
 /**
  * The idea of the home page is to follow a certain flow of information.
@@ -27,34 +59,45 @@ import { QuickLinks } from "@components/quickLinks";
  * At last, we present actions. Here we want to capture potential new members or supporters to do something.
  */
 
-export default withSiteData(() => (
-  <>
-    <Masthead>
-      Association of Engineering Students in Rocketry,
-      <br />
-      by students from KTH Royal Institute of Technology,
-      <br />
-      in Stockholm, Sweden.
-    </Masthead>
-    <Column>
-      <QuickLinks>
-        <Link to={"#" + whoWeAreData.slug}>{whoWeAreData.title}</Link>
-        <Link to={"#" + ourMissionData.slug}>{ourMissionData.title}</Link>
-        <Link to={"#" + supportUsData.slug}>{supportUsData.title}</Link>
-        <Link to={"#" + lookingForData.slug}>{lookingForData.title}</Link>
-      </QuickLinks>
-      <MarkdownWrapper id={whoWeAreData.slug} title={whoWeAreData.title}>
-        <WhoWeAre />
-      </MarkdownWrapper>
-      <MarkdownWrapper id={ourMissionData.slug} title={ourMissionData.title}>
-        <OurMission />
-      </MarkdownWrapper>
-      <MarkdownWrapper id={supportUsData.slug} title={supportUsData.title}>
-        <SupportUs />
-      </MarkdownWrapper>
-      <MarkdownWrapper id={lookingForData.slug} title={lookingForData.title}>
-        <LookingFor />
-      </MarkdownWrapper>
-    </Column>
-  </>
-));
+export default withRouteData(
+  ({ pastProjects, currentProjects }: { pastProjects: Project[]; currentProjects: Project[] }) => (
+    <>
+      <Masthead>
+        Association of Engineering Students in Rocketry,
+        <br />
+        by students from KTH Royal Institute of Technology,
+        <br />
+        in Stockholm, Sweden.
+      </Masthead>
+      <Column>
+        <QuickLinks>
+          <Link to={"#" + whoWeAreData.slug}>{whoWeAreData.title}</Link>
+          <Link to={"#" + ourMissionData.slug}>{ourMissionData.title}</Link>
+          <Link to={"#" + supportUsData.slug}>{supportUsData.title}</Link>
+          <Link to={"#" + lookingForData.slug}>{lookingForData.title}</Link>
+        </QuickLinks>
+
+        <MarkdownWrapper id={whoWeAreData.slug} title={whoWeAreData.title}>
+          <WhoWeAre />
+        </MarkdownWrapper>
+        <MarkdownWrapper id={ourMissionData.slug} title={ourMissionData.title}>
+          <OurMission />
+        </MarkdownWrapper>
+        <MarkdownWrapper title="Ongoing projects">
+          <p>This is what we're working on</p>
+          <ProjectsList projects={currentProjects} />
+        </MarkdownWrapper>
+        <MarkdownWrapper title="Past projects">
+          <p>These are our accomplishments</p>
+          <ProjectsList projects={pastProjects} />
+        </MarkdownWrapper>
+        <MarkdownWrapper id={supportUsData.slug} title={supportUsData.title}>
+          <SupportUs />
+        </MarkdownWrapper>
+        <MarkdownWrapper id={lookingForData.slug} title={lookingForData.title}>
+          <LookingFor />
+        </MarkdownWrapper>
+      </Column>
+    </>
+  )
+);

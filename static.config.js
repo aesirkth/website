@@ -1,5 +1,6 @@
 import axios from "axios";
 import path from "path";
+import jdown from "jdown";
 
 export default {
   plugins: [
@@ -21,8 +22,48 @@ export default {
     metaDescription:
       "Association of Engineering Students in Rocketry, by students from KTH Royal Institute of Technology, in Stockholm, Sweden."
   }),
-  getRoutes: async () => {
-    const { data: posts } = await axios.get("https://jsonplaceholder.typicode.com/posts");
+  getRoutes: async data => {
+    const projectsMap = await jdown("./src/data/projects", {
+      parseMd: false,
+      fileInfo: true
+    });
+
+    const projects = Object.keys(projectsMap).map(key => {
+      const summary = projectsMap[key].summary;
+      const details = projectsMap[key].details;
+      return {
+        folder: key,
+        details: {
+          fileInfo: {
+            path: details.fileInfo.path.replace(/\\/g, "/"),
+            modifiedAt: details.fileInfo.modifiedAt
+          }
+        },
+        summary: {
+          title: summary.title,
+          slug: summary.slug,
+          started: summary.started,
+          completed: summary.completed,
+          fileInfo: {
+            path: summary.fileInfo.path.replace(/\\/g, "/"),
+            modifiedAt: summary.fileInfo.modifiedAt
+          }
+        },
+        sortBy: summary.sortBy || summary.started || summary.title
+      };
+    });
+    projects.sort((a, b) => b.sortBy.localeCompare(a.sortBy));
+
+    const currentProjects = projects.filter(el => el.summary.completed === false);
+    const pastProjects = projects.filter(el => typeof el.summary.completed === "number");
+
+    console.dir(
+      { projects, currentProjects, pastProjects },
+      {
+        depth: 10
+      }
+    );
+
     return [
       {
         path: "/styling-test",
@@ -30,15 +71,16 @@ export default {
         noindex: true
       },
       {
-        path: "/blog",
+        path: "/",
         getData: () => ({
-          posts
+          currentProjects,
+          pastProjects
         }),
-        children: posts.map(post => ({
-          path: `/post/${post.id}`,
-          component: "src/containers/post",
+        children: projects.map(project => ({
+          path: `/projects/${project.summary.slug}`,
+          component: "src/containers/project",
           getData: () => ({
-            post
+            project
           })
         }))
       }
