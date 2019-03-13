@@ -2,6 +2,10 @@ import React from "react";
 import { withSiteData } from "react-static";
 import { Masthead } from "@components/masthead";
 
+import WhoWeAre from "@data/home/whoWeAre.mdx";
+import { MarkdownWrapper } from "@components/markdown";
+import { Column } from "@components/column";
+
 export default withSiteData(() => (
   <>
     <Masthead>
@@ -11,5 +15,10 @@ export default withSiteData(() => (
       <br />
       in Stockholm, Sweden.
     </Masthead>
+    <Column>
+      <MarkdownWrapper title="Who we are">
+        <WhoWeAre />
+      </MarkdownWrapper>
+    </Column>
   </>
 ));
