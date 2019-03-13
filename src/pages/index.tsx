@@ -4,7 +4,7 @@ import { Masthead } from "@components/masthead";
 
 export default withSiteData(() => (
   <>
-    <Masthead image={"https://picsum.photos/200/300/?blur"}>
+    <Masthead>
       Association of Engineering Students in Rocketry,
       <br />
       by students from KTH Royal Institute of Technology,

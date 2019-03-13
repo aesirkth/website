@@ -8,9 +8,7 @@ import { useSpring } from "react-spring";
 import { Logo } from "@components/logo";
 import { MastheadPlanetBottom } from "./planet";
 
-export const Masthead: React.FC<{
-  image: string;
-}> = props => {
+export const Masthead: React.FC = props => {
   const height = 550;
 
   const [{ offset }, set] = useSpring(() => ({
@@ -41,8 +39,7 @@ export const Masthead: React.FC<{
         <animated.div
           className={styles.image}
           style={{
-            transform,
-            backgroundImage: `url('${props.image}')`
+            transform
           }}
         />
         <Column>

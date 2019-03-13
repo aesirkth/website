@@ -8,6 +8,12 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
+  background: radial-gradient(
+    ellipse at 50% 180%,
+    hsla(241, 65%, 65%, 1) 0%,
+    hsla(231, 55%, 40%, 1) 100%
+  );
 }
 
 .image {
