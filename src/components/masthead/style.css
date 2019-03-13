@@ -14,6 +14,41 @@
     hsla(241, 65%, 65%, 1) 0%,
     hsla(231, 55%, 40%, 1) 100%
   );
+
+  height: 45vh;
+  min-height: 340px;
+  max-height: 600px;
+}
+
+@media (max-width: 1200px) {
+  .masthead {
+    max-height: 500px;
+  }
+}
+@media (max-width: 1000px) {
+  .masthead {
+    max-height: 480px;
+  }
+}
+@media (max-width: 800px) {
+  .masthead {
+    max-height: 455px;
+  }
+}
+@media (max-width: 600px) {
+  .masthead {
+    max-height: 420px;
+  }
+}
+@media (max-width: 500px) {
+  .masthead {
+    max-height: 380px;
+  }
+}
+@media (max-width: 400px) {
+  .masthead {
+    max-height: 340px;
+  }
 }
 
 .image {
@@ -39,92 +74,79 @@
   font-size: 32px;
   font-weight: 700;
 }
-@media (max-width: 1000px) {
+
+.punchline p {
+  margin: 0;
+}
+
+.punchline p + p {
+  margin-top: 0.4em;
+}
+
+@media (max-width: 1400px) {
   .punchline {
     font-size: 28px;
   }
 }
-
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   .punchline {
     font-size: 24px;
   }
 }
-
-@media (max-width: 400px) {
+@media (max-width: 800px) {
   .punchline {
     font-size: 22px;
+  }
+}
+@media (max-width: 600px) {
+  .punchline {
+    font-size: 20px;
+  }
+}
+@media (max-width: 500px) {
+  .punchline {
+    font-size: 18px;
+  }
+}
+@media (max-width: 400px) {
+  .punchline {
+    font-size: 16px;
   }
 }
 
 .bottom {
   margin-top: 64px;
   position: relative;
+  height: 60px;
 }
 
-.bottom .bottomFlex {
-  position: absolute;
-  bottom: 64%;
-  left: 0;
-  right: 0;
-}
-
-.bottom .bottomFlexInner {
-  display: flex;
-}
-
-.bottomFlexInner > div {
-  flex: 1;
-  text-align: center;
-}
-
-.bottomCircle {
-  display: block;
-  width: 100%;
-  height: 64px;
-}
-
-@media (max-width: 1500px) {
-  .bottomCircle {
-    height: 50px;
+@media (max-width: 1000px) {
+  .bottom {
+    margin-top: 48px;
+    height: 60px;
   }
 }
-
-@media (max-width: 1200px) {
-  .bottomCircle {
-    height: 40px;
-  }
-}
-
-@media (max-width: 900px) {
-  .bottomCircle {
-    height: 30px;
-  }
-}
-@media (max-width: 700px) {
-  .bottomCircle {
-    height: 24px;
+@media (max-width: 800px) {
+  .bottom {
+    margin-top: 32px;
+    height: 60px;
   }
 }
 @media (max-width: 600px) {
-  .bottomCircle {
-    height: 20px;
+  .bottom {
+    margin-top: 16px;
+    height: 60px;
   }
 }
 @media (max-width: 500px) {
-  .bottomCircle {
-    height: 17px;
+  .bottom {
+    margin-top: 8px;
+    height: 60px;
   }
 }
-
 @media (max-width: 400px) {
-  .bottomCircle {
-    height: 14px;
-  }
-}
-
-@media (max-width: 300px) {
-  .bottomCircle {
-    height: 10px;
+  .bottom {
+    margin-top: 0px;
+    height: 60px;
   }
 }

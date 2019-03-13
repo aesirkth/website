@@ -9,8 +9,6 @@ import { Logo } from "@components/logo";
 import { MastheadPlanetBottom } from "./planet";
 
 export const Masthead: React.FC = props => {
-  const height = 550;
-
   const [{ offset }, set] = useSpring(() => ({
     offset: 0,
     config: {
@@ -21,7 +19,7 @@ export const Masthead: React.FC = props => {
   useEffect(() => {
     function listener() {
       set({
-        offset: Math.min(height, window.scrollY)
+        offset: Math.min(550, window.scrollY)
       });
     }
     listener();
@@ -30,12 +28,12 @@ export const Masthead: React.FC = props => {
     return () => window.removeEventListener("scroll", listener);
   }, []);
 
-  const transform = offset.interpolate((value: number) => `translate3d(0, ${value * 0.15}px, 0)`);
+  const transform = offset.interpolate((value: number) => `translate3d(0, ${value * 25}%, 0)`);
 
   return (
     <>
       <NavbarAntispace />
-      <section className={styles.masthead} style={{ height }}>
+      <section className={styles.masthead}>
         <animated.div
           className={styles.image}
           style={{

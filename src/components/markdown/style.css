@@ -1,18 +1,18 @@
 .markdown {
   color: white;
+  margin-bottom: 1em;
 }
 
 .markdown > .header {
-  font-size: 32px;
+  font-size: 30px;
 
   font-weight: bold;
 
   background: white;
   color: #4704f7;
   margin: 0.2em 0;
-  margin-top: 32px;
-  padding: 8px 32px;
-  margin-left: -32px;
+  padding: 0.25em 1em;
+  margin-left: -1em;
   display: inline-block;
   border-radius: 16px;
   box-shadow: 0px 2px 17px #0000001c;
@@ -147,4 +147,50 @@
   max-width: 100%;
   border-radius: 8px;
   margin: 8px auto;
+}
+
+@media (max-width: 600px) {
+  .markdown > .header {
+    font-size: 22px;
+  }
+
+  .markdown :global(h1) {
+    margin: 1em 0 0.5em 0;
+    font-size: 22px;
+  }
+
+  .markdown :global(h2) {
+    margin: 1em 0 0.45em 0;
+    font-size: 20px;
+  }
+
+  .markdown :global(h3) {
+    margin: 1em 0 0.35em 0;
+    font-size: 18px;
+  }
+
+  .markdown :global(h4) {
+    margin: 1em 0 0.25em 0;
+    font-size: 16px;
+  }
+
+  .markdown :global(h5) {
+    margin: 1em 0 0.15em 0;
+    font-size: 15px;
+  }
+
+  .markdown :global(h6) {
+    margin: 1em 0 0.1em 0;
+    font-size: 14px;
+  }
+
+  .markdown :global(p) {
+    margin-block-start: 0.35em;
+    margin-block-end: 1.15em;
+    font-size: 14px;
+  }
+
+  .markdown :global(table) {
+    font-size: 14px;
+  }
 }

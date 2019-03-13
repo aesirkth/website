@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { animated, useSpring, config } from "react-spring";
 
+import styles from "./style.css";
+
 export const Backdrop = () => {
   const height = 550;
   const [{ offset }, set] = useSpring(() => ({
@@ -29,14 +31,9 @@ export const Backdrop = () => {
   return (
     <>
       <animated.svg
+        className={styles.backdrop}
         style={{
-          transform,
-          display: "block",
-          position: "absolute",
-          left: "50%",
-          width: 1500,
-          minWidth: "100%",
-          bottom: 0
+          transform
         }}
         viewBox="0 0 2494 298"
         fill="none"
@@ -264,15 +261,7 @@ export const Backdrop = () => {
         </filter>
       </animated.svg>
       <svg
-        style={{
-          display: "block",
-          position: "absolute",
-          left: "50%",
-          width: 1500,
-          minWidth: "100%",
-          bottom: 0,
-          transform: "translate(-50%, 0)"
-        }}
+        className={styles.backdrop}
         viewBox="0 0 2494 298"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

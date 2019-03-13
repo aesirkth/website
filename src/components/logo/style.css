@@ -6,6 +6,7 @@
 .svg {
   height: 1em;
   fill: currentColor;
+  display: block;
 }
 
 .select {
@@ -20,4 +21,35 @@
   line-height: 1em;
   font-size: 1em;
   font-weight: bold;
+}
+
+@media (max-width: 1000px) {
+  .logo,
+  .svg {
+    height: 0.95em;
+  }
+}
+@media (max-width: 800px) {
+  .logo,
+  .svg {
+    height: 0.9em;
+  }
+}
+@media (max-width: 600px) {
+  .logo,
+  .svg {
+    height: 0.8em;
+  }
+}
+@media (max-width: 500px) {
+  .logo,
+  .svg {
+    height: 0.7em;
+  }
+}
+@media (max-width: 400px) {
+  .logo,
+  .svg {
+    height: 0.6em;
+  }
 }
