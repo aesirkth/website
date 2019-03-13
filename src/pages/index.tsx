@@ -10,6 +10,7 @@ import SupportUs, { frontMatter as supportUsData } from "@data/home/supportUs.md
 import { MarkdownWrapper } from "@components/markdown";
 import { Column } from "@components/column";
 import { Link } from "@reach/router";
+import { QuickLinks } from "@components/quickLinks";
 
 /**
  * The idea of the home page is to follow a certain flow of information.
@@ -36,19 +37,12 @@ export default withSiteData(() => (
       in Stockholm, Sweden.
     </Masthead>
     <Column>
-      <MarkdownWrapper>
-        <p>
-          Quick links:
-          {"  "}
-          <Link to={"#" + whoWeAreData.slug}>{whoWeAreData.title}</Link>
-          {"  |  "}
-          <Link to={"#" + ourMissionData.slug}>{ourMissionData.title}</Link>
-          {"  |  "}
-          <Link to={"#" + lookingForData.slug}>{lookingForData.title}</Link>
-          {"  |  "}
-          <Link to={"#" + supportUsData.slug}>{supportUsData.title}</Link>
-        </p>
-      </MarkdownWrapper>
+      <QuickLinks>
+        <Link to={"#" + whoWeAreData.slug}>{whoWeAreData.title}</Link>
+        <Link to={"#" + ourMissionData.slug}>{ourMissionData.title}</Link>
+        <Link to={"#" + supportUsData.slug}>{supportUsData.title}</Link>
+        <Link to={"#" + lookingForData.slug}>{lookingForData.title}</Link>
+      </QuickLinks>
       <MarkdownWrapper id={whoWeAreData.slug} title={whoWeAreData.title}>
         <WhoWeAre />
       </MarkdownWrapper>
