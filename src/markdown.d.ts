@@ -19,4 +19,7 @@ module "*.mdx" {
 
 module "*.md" {
   export * from "*.mdx";
+  import Component from "*.mdx";
+
+  export default Component;
 }

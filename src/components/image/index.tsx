@@ -59,6 +59,7 @@ export const Image: React.FC<{
         target="_blank"
       >
         <img
+          data-react-img
           className={styles.image}
           src={props.src}
           srcSet={props.srcSet}

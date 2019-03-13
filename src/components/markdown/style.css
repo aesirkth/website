@@ -142,12 +142,9 @@
   opacity: 0.9;
 }
 
-.markdown :global(img) {
+.markdown :global(img:not([data-react-img])) {
   max-height: 350px;
   max-width: 100%;
   border-radius: 8px;
   margin: 8px auto;
-}
-
-.markdown :global(.images) {
 }

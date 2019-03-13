@@ -8,6 +8,7 @@
   margin: 0 auto !important;
   display: block;
   box-shadow: 0px 2px 20px #0000001f;
+  border-radius: 8px;
 }
 
 .caption {
@@ -54,6 +55,11 @@
   flex-wrap: wrap;
   margin: -16px;
   padding: 8px;
+}
+
+.images img {
+  max-height: 350px;
+  max-width: 100%;
 }
 
 .images .float {
