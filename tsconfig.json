@@ -15,20 +15,9 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "src/components/*"
-      ]
+      "@components/*": ["src/components/*"]
     },
-    "lib": [
-      "dom",
-      "es2015",
-      "es2016"
-    ]
+    "lib": ["dom", "es2015", "es2016"]
   },
-  "exclude": [
-    "old/**/*",
-    "dist/**/*",
-    "public/**/*",
-    "node_modules"
-  ]
+  "exclude": ["old/**/*", "dist/**/*", "public/**/*", "node_modules"]
 }
