@@ -1,0 +1,23 @@
+.logo {
+  position: relative;
+  height: 1em;
+}
+
+.svg {
+  height: 1em;
+  fill: currentColor;
+}
+
+.select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  color: transparent;
+  opacity: 0.1;
+  line-height: 1em;
+  font-size: 1em;
+  font-weight: bold;
+}
