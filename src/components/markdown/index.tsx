@@ -3,6 +3,7 @@ import styles from "./style.css";
 import "!style-loader!css-loader!prismjs/themes/prism-tomorrow.css";
 
 export const MarkdownWrapper: React.FC<{
+  id?: string;
   title?: string;
   readingTime?: {
     text: string;
@@ -11,7 +12,7 @@ export const MarkdownWrapper: React.FC<{
     words: number;
   };
 }> = props => (
-  <section className={styles.markdown}>
+  <section id={props.id} className={styles.markdown}>
     {props.title && <header className={styles.header}>{props.title}</header>}
     {props.readingTime && <p className={styles.readingTime}>{props.readingTime.text}</p>}
     {props.children}
