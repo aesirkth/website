@@ -77,15 +77,13 @@ export const Navbar: React.FC<{ location: WindowLocation }> = props => {
   const gradientOpacity = offset.interpolate((value: number) => value * 0.35);
   const helperTextOpacity = offset.interpolate((value: number) => Math.max(0.5, 1 - value));
 
-  const height = isPersistentlyTransformed
-    ? standardRowHeight
-    : transformOffset + standardRowHeight;
+  const spaceHeight = transformOffset + standardRowHeight;
   return (
     <>
       <Head>
         <style
-          data-id={"height-" + height}
-        >{`.navbar-antispace { margin-top: ${-height}px } .navbar-space { height: ${height}px }`}</style>
+          data-id={"height-" + spaceHeight}
+        >{`.navbar-antispace { margin-top: ${-spaceHeight}px } .navbar-space { height: ${spaceHeight}px }`}</style>
       </Head>
       <nav className={styles.navbar}>
         <Column>
@@ -122,12 +120,7 @@ export const Navbar: React.FC<{ location: WindowLocation }> = props => {
           />
         </Column>
       </nav>
-      <div
-        className={styles.navbarSpacer}
-        style={{
-          height
-        }}
-      />
+      <NavbarSpace />
     </>
   );
 };
