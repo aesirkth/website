@@ -9,7 +9,6 @@ const trans = (x: number, y: number, s: number) =>
 export const Image: React.FC<{
   src: string;
   srcSet: string;
-  alt: string;
   images: { path: string; width: number; height: number }[];
   caption?: string;
 }> = props => {
@@ -63,7 +62,7 @@ export const Image: React.FC<{
           className={styles.image}
           src={props.src}
           srcSet={props.srcSet}
-          alt={props.alt || "An image"}
+          alt={props.caption || "An image"}
         />
         {props.caption && (
           <>
