@@ -8,6 +8,7 @@ import styles from "./style.css";
 import { NavbarLink } from "@components/navbarLink";
 import { NavbarSocialIcons } from "./icons";
 import { Column } from "@components/column";
+import { Head } from "react-static";
 
 const links = [
   {
@@ -37,11 +38,14 @@ const links = [
   }
 ];
 
+export const NavbarAntispace: React.FC = () => <div className="navbar-antispace" />;
+export const NavbarSpace: React.FC = () => <div className="navbar-space" />;
+
 export const Navbar: React.FC<{ location: WindowLocation }> = props => {
   const standardRowHeight = 48;
   const transformOffset = 24;
 
-  const isPersistentlyTransformed = props.location.pathname !== "/blog";
+  const isPersistentlyTransformed = props.location.pathname !== "/";
 
   const [{ offset }, set] = useSpring(() => ({
     offset: isPersistentlyTransformed ? 1 : 0,
@@ -62,7 +66,7 @@ export const Navbar: React.FC<{ location: WindowLocation }> = props => {
       });
     }
     listener();
-    window.addEventListener("scroll", listener);
+    window.addEventListener("scroll", listener, { passive: true });
 
     return () => window.removeEventListener("scroll", listener);
   }, [isPersistentlyTransformed]);
@@ -73,8 +77,16 @@ export const Navbar: React.FC<{ location: WindowLocation }> = props => {
   const gradientOpacity = offset.interpolate((value: number) => value * 0.35);
   const helperTextOpacity = offset.interpolate((value: number) => Math.max(0.5, 1 - value));
 
+  const height = isPersistentlyTransformed
+    ? standardRowHeight
+    : transformOffset + standardRowHeight;
   return (
     <>
+      <Head>
+        <style
+          data-id={"height-" + height}
+        >{`.navbar-antispace { margin-top: ${-height}px } .navbar-space { height: ${height}px }`}</style>
+      </Head>
       <nav className={styles.navbar}>
         <Column>
           <animated.div
@@ -113,9 +125,7 @@ export const Navbar: React.FC<{ location: WindowLocation }> = props => {
       <div
         className={styles.navbarSpacer}
         style={{
-          height: isPersistentlyTransformed
-            ? standardRowHeight
-            : transformOffset + standardRowHeight
+          height
         }}
       />
     </>

@@ -7,6 +7,7 @@
   right: 0;
   color: white;
   pointer-events: none;
+  z-index: 100;
 }
 
 .links :global(a) {
