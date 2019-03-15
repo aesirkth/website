@@ -3,6 +3,7 @@ import { Root, Routes, Head } from "react-static";
 import "./app.css";
 import { Navbar } from "@components/navbar";
 import { Location } from "@reach/router";
+import { Footer } from "@components/footer";
 
 export const App = () => {
   return (
@@ -15,6 +16,7 @@ export const App = () => {
       </Head>
       <Location>{props => <Navbar location={props.location} />}</Location>
       <Routes />
+      <Footer />
     </Root>
   );
 };
