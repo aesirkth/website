@@ -1,0 +1,22 @@
+.statistics {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.statisticsEntry {
+  text-align: center;
+  width: 220px;
+
+  padding: 8px;
+}
+
+.statisticsEntry .value {
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.statisticsEntry .title {
+  font-weight: 500;
+  font-size: 22px;
+}
