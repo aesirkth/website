@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 export function useWindowScroll(
   active: boolean,
-  callback: (scroll: number) => void,
+  callback: (scroll: number | null) => void,
   min: number = 0,
   max: number = Number.MAX_VALUE
 ) {
@@ -18,7 +18,7 @@ export function useWindowScroll(
 
   useEffect(() => {
     if (!active) {
-      return;
+      return callback(previousCallbackValue.current || 0);
     }
     function listener() {
       const value = Math.max(min, Math.min(max, window.scrollY));
