@@ -9,10 +9,12 @@ export const Footer: React.FC = () => {
       <footer className={styles.footer}>
         <div className={styles.flex}>
           <section>
-            <Link to="/">Home</Link>
-          </section>
-          <section>
-            <Link to="/about">About</Link>
+            <header>Useful links</header>
+            <div>
+              <Link to="/">Home</Link>
+              <br />
+              <Link to="/about">About</Link>
+            </div>
           </section>
         </div>
         <div className={styles.flex}>
