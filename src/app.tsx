@@ -14,8 +14,10 @@ export const App = () => {
           rel="stylesheet"
         />
       </Head>
-      <Location>{props => <Navbar location={props.location} />}</Location>
-      <Routes />
+      <main>
+        <Location>{props => <Navbar location={props.location} />}</Location>
+        <Routes />
+      </main>
       <Footer />
     </Root>
   );
