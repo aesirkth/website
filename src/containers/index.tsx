@@ -12,6 +12,7 @@ import { Column } from "@components/column";
 import { Link } from "@reach/router";
 import { QuickLinks } from "@components/quickLinks";
 import { Project } from "src/types";
+import { Statistics, StatisticsEntry } from "@components/statistics";
 
 const ProjectsList: React.FC<{ projects: Project[] }> = props => (
   <>
@@ -79,24 +80,34 @@ export default withRouteData(
           <Link to={"#" + lookingForData.slug}>{lookingForData.title}</Link>
         </QuickLinks>
 
-        <MarkdownWrapper id={whoWeAreData.slug} title={whoWeAreData.title}>
+        <Statistics>
+          <StatisticsEntry title="Members" value="~30" />
+          <StatisticsEntry title="Rockets launched" value="1" />
+          <StatisticsEntry title="Altitude reached" value="> 1 km" />
+          <StatisticsEntry title="Hours spent in the workshop" value="countless" />
+        </Statistics>
+
+        <MarkdownWrapper leftAlign id={whoWeAreData.slug} title={whoWeAreData.title}>
           <WhoWeAre />
+          <p>
+            <Link to="/about">Read more about us</Link>
+          </p>
         </MarkdownWrapper>
-        <MarkdownWrapper id={ourMissionData.slug} title={ourMissionData.title}>
+        <MarkdownWrapper leftAlign id={ourMissionData.slug} title={ourMissionData.title}>
           <OurMission />
         </MarkdownWrapper>
-        <MarkdownWrapper title="Ongoing projects">
+        <MarkdownWrapper leftAlign title="Ongoing projects">
           <p>This is what we're working on</p>
           <ProjectsList projects={currentProjects} />
         </MarkdownWrapper>
-        <MarkdownWrapper title="Past projects">
+        <MarkdownWrapper leftAlign title="Past projects">
           <p>These are our accomplishments</p>
           <ProjectsList projects={pastProjects} />
         </MarkdownWrapper>
-        <MarkdownWrapper id={supportUsData.slug} title={supportUsData.title}>
+        <MarkdownWrapper leftAlign id={supportUsData.slug} title={supportUsData.title}>
           <SupportUs />
         </MarkdownWrapper>
-        <MarkdownWrapper id={lookingForData.slug} title={lookingForData.title}>
+        <MarkdownWrapper leftAlign id={lookingForData.slug} title={lookingForData.title}>
           <LookingFor />
         </MarkdownWrapper>
       </Column>

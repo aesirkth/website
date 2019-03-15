@@ -60,12 +60,12 @@ export default {
 
     return [
       {
-        path: "/styling-test",
-        component: "src/pages/styling-test",
-        noindex: true
+        path: "/about",
+        component: "src/containers/about"
       },
       {
         path: "/",
+        component: "src/containers/index",
         getData: () => ({
           currentProjects,
           pastProjects
@@ -77,6 +77,11 @@ export default {
             project
           })
         }))
+      },
+      {
+        path: "/styling-test",
+        component: "src/containers/styling-test",
+        noindex: true
       }
     ];
   }
