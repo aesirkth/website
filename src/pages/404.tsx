@@ -11,7 +11,7 @@ const NotFoundPage: React.FC = () => (
     <VerticalCentering>
       <MarkdownWrapper>
         <h1>Oh no!</h1>
-        <h3>That page could not be found :(</h3>
+        <h3>Our team of highly skilled web ninjas are unable to find that page in orbit :(</h3>
         <Link to="/">Go to home</Link>
       </MarkdownWrapper>
     </VerticalCentering>
