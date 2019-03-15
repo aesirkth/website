@@ -1,45 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavbarAntispace, NavbarSpace } from "@components/navbar";
 
 import styles from "./style.css";
 import { Column } from "@components/column";
-import { animated, config } from "react-spring";
-import { useSpring } from "react-spring";
 import { Logo } from "@components/logo";
 import { MastheadPlanetBottom } from "./planet";
 
 export const Masthead: React.FC = props => {
-  const [{ offset }, set] = useSpring(() => ({
-    offset: 0,
-    config: {
-      ...config.stiff
-    }
-  }));
-
-  useEffect(() => {
-    function listener() {
-      set({
-        offset: Math.min(550, window.scrollY)
-      });
-    }
-    listener();
-    window.addEventListener("scroll", listener, { passive: true });
-
-    return () => window.removeEventListener("scroll", listener);
-  }, []);
-
-  const transform = offset.interpolate((value: number) => `translate3d(0, ${value * 25}%, 0)`);
-
   return (
     <>
       <NavbarAntispace />
       <section className={styles.masthead}>
-        <animated.div
-          className={styles.image}
-          style={{
-            transform
-          }}
-        />
         <Column>
           <NavbarSpace />
           <Logo height={100} />

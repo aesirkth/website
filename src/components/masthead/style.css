@@ -51,23 +51,6 @@
   }
 }
 
-.image {
-  pointer-events: none;
-  user-select: none;
-
-  position: absolute;
-  top: -100px;
-  left: 0;
-  right: 0;
-  bottom: -200px;
-  z-index: -1;
-
-  opacity: 0.6;
-
-  background-size: cover;
-  background-position: center top;
-}
-
 .punchline {
   margin: 0;
   margin-top: 1em;
@@ -115,38 +98,41 @@
 }
 
 .bottom {
-  margin-top: 64px;
+  padding-top: 164px;
+  margin-top: -100px;
+
   position: relative;
   height: 60px;
+  contain: strict;
 }
 
 @media (max-width: 1000px) {
   .bottom {
-    margin-top: 48px;
+    padding-top: 148px;
     height: 60px;
   }
 }
 @media (max-width: 800px) {
   .bottom {
-    margin-top: 32px;
+    padding-top: 132px;
     height: 60px;
   }
 }
 @media (max-width: 600px) {
   .bottom {
-    margin-top: 16px;
+    padding-top: 116px;
     height: 60px;
   }
 }
 @media (max-width: 500px) {
   .bottom {
-    margin-top: 8px;
+    padding-top: 108px;
     height: 60px;
   }
 }
 @media (max-width: 400px) {
   .bottom {
-    margin-top: 0px;
+    padding-top: 100px;
     height: 60px;
   }
 }

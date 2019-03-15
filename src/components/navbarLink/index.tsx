@@ -87,11 +87,18 @@ export const NavbarLink: React.FC<{ href: string; icon: string; title: string }>
     }
   }, [dragging, hovering]);
 
+  const transform = xy.interpolate(((x: number, y: number) => {
+    if (x === 0 && y === 0) {
+      return "none";
+    }
+    return `translate3d(${x}px,${y}px,0)`;
+  }) as any) as any;
+
   return (
     <animated.a
       {...bind()}
       style={{
-        transform: xy.interpolate(((x: number, y: number) => `translate3d(${x}px,${y}px,0)`) as any)
+        transform
       }}
       title={props.title}
       href={props.href}
@@ -119,7 +126,9 @@ export const NavbarLink: React.FC<{ href: string; icon: string; title: string }>
         className={styles.indicator}
         style={{
           opacity: indicatorProps.opacity,
-          transform: indicatorProps.scale.interpolate((v: number) => `scale3d(${v}, ${v}, ${v})`)
+          transform: indicatorProps.scale.interpolate((v: number) =>
+            v === 0.6 ? "none" : `scale3d(${v}, ${v}, ${v})`
+          )
         }}
       />
     </animated.a>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { WindowLocation } from "@reach/router";
 import clsx from "clsx";
 
@@ -8,6 +8,8 @@ import styles from "./style.css";
 import { NavbarLink } from "@components/navbarLink";
 import { NavbarSocialIcons } from "./icons";
 import { Column } from "@components/column";
+import { useResting } from "@hooks/useResting";
+import { useWindowScroll } from "@hooks/useWindowScroll";
 
 const links = [
   {
@@ -37,6 +39,8 @@ const links = [
   }
 ];
 
+const parallaxDistance = 100;
+
 const standardRowHeight = 48;
 const transformOffset = 24;
 const spaceHeight = transformOffset + standardRowHeight;
@@ -48,35 +52,41 @@ export const NavbarSpace: React.FC = () => (
   <div style={{ height: spaceHeight }} className="navbar-space" />
 );
 
+const MemoNavbarLink = React.memo(NavbarLink);
+
 export const Navbar: React.FC<{ location: WindowLocation }> = props => {
+  const { resting, onRest, onStart } = useResting();
+
   const isPersistentlyTransformed = props.location.pathname !== "/";
 
   const [{ offset }, set] = useSpring(() => ({
     offset: isPersistentlyTransformed ? 1 : 0,
     config: {
       ...config.stiff
-    }
+    },
+    onRest,
+    onStart
   }));
 
-  useEffect(() => {
-    if (isPersistentlyTransformed) {
-      set({ offset: 1 });
-      return;
-    }
-    function listener() {
-      const y = window.scrollY;
+  useWindowScroll(
+    !isPersistentlyTransformed,
+    scroll => {
+      if (isPersistentlyTransformed) {
+        set({ offset: 1 });
+        return;
+      }
       set({
-        offset: Math.max(0, Math.min(1, y / transformOffset))
+        offset: scroll / parallaxDistance
       });
-    }
-    listener();
-    window.addEventListener("scroll", listener, { passive: true });
+    },
+    0,
+    parallaxDistance
+  );
 
-    return () => window.removeEventListener("scroll", listener);
-  }, [isPersistentlyTransformed]);
-
-  const linksTransform = offset.interpolate(
-    (value: number) => `translate3d(0, ${transformOffset * (1 - value)}px, 0)`
+  const linksTransform = offset.interpolate((value: number) =>
+    resting
+      ? `translate(0, ${transformOffset * (1 - value)}px)`
+      : `translate3d(0, ${transformOffset * (1 - value)}px, 0)`
   );
   const gradientOpacity = offset.interpolate((value: number) => value * 0.35);
   const helperTextOpacity = offset.interpolate((value: number) => Math.max(0.5, 1 - value));
@@ -88,7 +98,8 @@ export const Navbar: React.FC<{ location: WindowLocation }> = props => {
           <animated.div
             className={styles.flex}
             style={{
-              transform: linksTransform
+              transform: linksTransform,
+              willChange: "transform"
             }}
           >
             <div
@@ -106,7 +117,7 @@ export const Navbar: React.FC<{ location: WindowLocation }> = props => {
                 follow us
               </animated.div>
               {links.map(({ link, title, icon }) => (
-                <NavbarLink key={link} href={link} title={title} icon={icon} />
+                <MemoNavbarLink key={link} href={link} title={title} icon={icon} />
               ))}
             </div>
           </animated.div>

@@ -8,6 +8,10 @@
   color: white;
   pointer-events: none;
   z-index: 100;
+  contain: strict;
+  height: 100px;
+
+  transform: translate3d(0, 0, 0);
 }
 
 .links :global(a) {
@@ -26,7 +30,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 100px;
+  height: 100%;
 
   opacity: 0.2;
   background: linear-gradient(
