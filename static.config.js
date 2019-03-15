@@ -9,7 +9,8 @@ export default {
       "react-static-plugin-css-modules",
       {
         modules: true, // set true by default
-        localIdentName: "[hash:base64:12]" // just an example
+        sourceMap: true,
+        localIdentName: "[local]-[hash:base64:12]" // just an example
         // any other options you wish from css-loader
         // want to use sass? you can track it down in your webpack build and add the loader
         // otherwise open an issue tagging @ScriptedAlchemy. He will enhance the options if required
@@ -56,13 +57,6 @@ export default {
 
     const currentProjects = projects.filter(el => el.summary.completed === false);
     const pastProjects = projects.filter(el => typeof el.summary.completed === "number");
-
-    console.dir(
-      { projects, currentProjects, pastProjects },
-      {
-        depth: 10
-      }
-    );
 
     return [
       {
