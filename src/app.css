@@ -8,7 +8,7 @@ body {
 }
 
 html {
-  background: #37109f;
+  background: linear-gradient(to bottom, #37109f, #37109f 100vh, hsla(256, 100%, 25%, 1));
   color: white;
 
   overflow-x: hidden;
