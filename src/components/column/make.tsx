@@ -9,6 +9,8 @@ type Props = {
   responsiveFullWidth?: boolean;
   collapse?: boolean;
   relativePositioning?: boolean;
+
+  className?: string;
 };
 
 type Column = React.FC<Props>;
@@ -32,7 +34,7 @@ export function makeColumn(width: number): Column {
   const C: React.FC<Props> = props => {
     return (
       <div
-        className={clsx(styles.column, `width-${width}`, {
+        className={clsx(props.className, styles.column, `width-${width}`, {
           [styles.responsiveFullWidth]: props.responsiveFullWidth,
           [styles.collapse]: props.collapse,
           [styles.relativePositioning]: props.relativePositioning
