@@ -1,5 +1,15 @@
-.backdrop {
+.container {
   display: block;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  will-change: transform;
+  contain: paint;
+}
+
+.backdrop {
   position: absolute;
   left: 50%;
   width: 1500px;
