@@ -1,6 +1,6 @@
 .markdown {
   color: white;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 .markdown > .header {
@@ -8,14 +8,21 @@
 
   font-weight: bold;
 
-  background: white;
-  color: #4704f7;
-  margin: 0.2em 0;
   padding: 0.25em 1em;
   margin-left: -1em;
   display: inline-block;
   border-radius: 16px;
   box-shadow: 0px 2px 17px #0000001c;
+
+  background: #ffffff1f;
+  color: white;
+
+  padding-bottom: 0.3em;
+  /*
+    alternate styling:
+    background: white;
+    color: #4704f7;
+  */
 }
 
 .readingTime {
@@ -53,8 +60,8 @@
 }
 
 .markdown :global(p) {
-  margin-block-start: 0.35em;
-  margin-block-end: 1.15em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
   font-size: 16px;
 }
 
