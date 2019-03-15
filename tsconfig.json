@@ -13,9 +13,12 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "skipLibCheck": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"]
+      "@data/*": ["src/data/*"],
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"]
     },
     "lib": ["dom", "es2015", "es2016"]
   },
