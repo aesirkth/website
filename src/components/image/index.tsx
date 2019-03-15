@@ -2,6 +2,7 @@ import React, { useMemo, useCallback } from "react";
 
 import { useSpring, animated, config } from "react-spring";
 import styles from "./style.css";
+import { useCursorRotation } from "@hooks/useCursorRotation";
 
 const trans = (x: number, y: number, s: number) =>
   `perspective(800px) rotateX(${-y}deg) rotateY(${x}deg) scale(${s})`;
@@ -13,37 +14,24 @@ export const Image: React.FC<{
   caption?: string;
 }> = props => {
   const maxSize = useMemo(() => {
-    const images = [...props.images];
+  const { transform, onMouseMove, onMouseLeave } = useCursorRotation(1);
     images.sort((a, b) => b.width - a.width);
     return images[0].path;
   }, [props.images]);
 
-  const [animatedProps, set] = useSpring(() => ({
-    xys: [0, 0, 1],
-    config: { ...config.wobbly }
-  }));
-
-  const onMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-      const { clientX: x, clientY: y, currentTarget: target } = e;
-      const rect = target.getBoundingClientRect();
-
-      const xValue = ((x - rect.left) / rect.width) * 2 - 1;
-      const yValue = ((y - rect.top) / rect.height) * 2 - 1;
-
-      const rate = 3;
-
-      set({ xys: [xValue * rate, yValue * rate, 1.01] });
-    },
-    [set]
-  );
-
-  const onMouseLeave = useCallback(
-    (_e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-      set({ xys: [0, 0, 1] });
-    },
-    [set]
-  );
+  const [loaded, setLoaded] = useState(false);
+  const [initiallyLoaded, setInitiallyLoaded] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
+  useLayoutEffect(() => {
+    if (imageRef.current == null) {
+      return;
+    }
+    if (imageRef.current.complete) {
+      setLoaded(true);
+      setInitiallyLoaded(true);
+      return;
+    }
+  }, []);
 
   return (
     <div className={styles.float}>
