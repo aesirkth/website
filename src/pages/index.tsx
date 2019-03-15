@@ -35,9 +35,11 @@ const ProjectsList: React.FC<{ projects: Project[] }> = props => (
               )}
           </h1>
           <Route />
-          <Link to={`/projects/${project.summary.slug}`}>
-            Read more about {project.summary.title}
-          </Link>
+          <p>
+            <Link to={`/projects/${project.summary.slug}`}>
+              Read more about {project.summary.title}
+            </Link>
+          </p>
         </div>
       );
     })}
