@@ -1,23 +1,29 @@
-import React, { useMemo, useCallback } from "react";
+import React, { useMemo, useState, useLayoutEffect, useRef } from "react";
 
-import { useSpring, animated, config } from "react-spring";
+import { animated } from "react-spring";
 import styles from "./style.css";
 import { useCursorRotation } from "@hooks/useCursorRotation";
+import clsx from "clsx";
 
-const trans = (x: number, y: number, s: number) =>
-  `perspective(800px) rotateX(${-y}deg) rotateY(${x}deg) scale(${s})`;
+function useMaxSize(images: { path: string; width: number; height: number }[]) {
+  return useMemo(() => {
+    const sortableImages = [...images];
+    sortableImages.sort((a, b) => b.width - a.width);
+    return sortableImages[0].path;
+  }, [images]);
+}
 
 export const Image: React.FC<{
+  width: number;
+  height: number;
+  placeholder: string;
   src: string;
   srcSet: string;
   images: { path: string; width: number; height: number }[];
   caption?: string;
 }> = props => {
-  const maxSize = useMemo(() => {
+  const maxSize = useMaxSize(props.images);
   const { transform, onMouseMove, onMouseLeave } = useCursorRotation(1);
-    images.sort((a, b) => b.width - a.width);
-    return images[0].path;
-  }, [props.images]);
 
   const [loaded, setLoaded] = useState(false);
   const [initiallyLoaded, setInitiallyLoaded] = useState(false);
@@ -39,14 +45,26 @@ export const Image: React.FC<{
         {...{ prefetch: "false" } as any}
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
-        style={{ transform: animatedProps.xys.interpolate(trans as any) }}
+        style={{ transform }}
         className={styles.opener}
         href={maxSize}
         rel="noopener noreferrer"
         target="_blank"
       >
+        <div
+          className={clsx(styles.placeholder, {
+            [styles.loaded]: loaded,
+            [styles.initiallyLoaded]: initiallyLoaded
+          })}
+          style={{
+            paddingBottom: ((props.height / props.width) * 100).toFixed(4) + "%",
+            backgroundImage: `url('${props.placeholder}')`
+          }}
+        />
         <img
+          ref={imageRef}
           data-react-img
+          onLoad={() => setLoaded(true)}
           className={styles.image}
           src={props.src}
           srcSet={props.srcSet}
