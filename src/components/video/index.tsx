@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 
 import styles from "./style.css";
 import clsx from "clsx";
+import { URL } from "url";
 
 export const Video: React.FC<{
   url: string;
