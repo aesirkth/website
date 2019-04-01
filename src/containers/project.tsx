@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouteData } from "react-static";
-import { Project } from "../types";
+import { Project } from "@src/types/data";
 import { Column } from "@components/column";
 import { MarkdownWrapper } from "@components/markdown";
 
