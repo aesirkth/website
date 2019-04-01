@@ -4,6 +4,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "test": "yarn lint",
+    "lint": "eslint -c .eslintrc ./src/**/*.{ts,tsx}",
     "start": "react-static start",
     "stage": "react-static build --staging",
     "build": "react-static build",
