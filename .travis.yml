@@ -7,4 +7,5 @@ install:
   - yarn
   - yarn build-ci
 script:
-  - yarn lint
+  - yarn check-lint
+  - yarn check-style

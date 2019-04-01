@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "test": "yarn lint",
-    "lint": "eslint -c .eslintrc ./src/**/*.{ts,tsx}",
+    "check-lint": "eslint -c .eslintrc ./src/**/*.{ts,tsx}",
+    "check-style": "prettier -c **/*.{ts,tsx}",
     "start": "react-static start",
     "build-ci": "react-static build --staging --debug",
     "build": "react-static build",
