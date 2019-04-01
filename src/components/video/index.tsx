@@ -2,7 +2,6 @@ import React, { useState, useMemo } from "react";
 
 import styles from "./style.css";
 import clsx from "clsx";
-import { URL } from "url";
 
 export const Video: React.FC<{
   url: string;
@@ -10,7 +9,8 @@ export const Video: React.FC<{
   const [visible, setVisible] = useState(false);
 
   const { iframeSrc, isYoutubeVideo } = useMemo(() => {
-    const url = new URL(props.url);
+    const url =
+      typeof window === "undefined" ? new (require("url")).URL(props.url) : new URL(props.url);
 
     if (!url.origin.endsWith(".youtube.com")) {
       return {
