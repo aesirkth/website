@@ -8,7 +8,7 @@
     "check-lint": "eslint -c .eslintrc ./src/**/*.{ts,tsx}",
     "check-style": "prettier -c **/*.{ts,tsx}",
     "start": "react-static start",
-    "build-ci": "react-static build --staging --debug",
+    "build-ci": "react-static build --staging",
     "build": "react-static build",
     "bundle": "react-static bundle",
     "export": "react-static export",
