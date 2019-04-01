@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./style.css";
-import "!style-loader!css-loader!prismjs/themes/prism-tomorrow.css";
+import "prismjs/themes/prism-tomorrow.css";
 import clsx from "clsx";
 
 const MarkdownHeader: React.FC<{
