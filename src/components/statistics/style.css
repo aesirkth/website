@@ -2,21 +2,55 @@
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 32px;
+  justify-content: space-between;
+
+  margin-left: -8px;
+  margin-right: -8px;
 }
 
 .statisticsEntry {
   text-align: center;
-  width: 220px;
-
+  min-width: 110px;
+  flex: 1;
   padding: 8px;
 }
 
 .statisticsEntry .value {
   font-weight: bold;
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .statisticsEntry .title {
   font-weight: 500;
   font-size: 22px;
+  text-transform: lowercase;
+}
+
+@media (max-width: 1000px) {
+  .statisticsEntry .value {
+    font-size: 22px;
+  }
+
+  .statisticsEntry .title {
+    font-size: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .statisticsEntry .value {
+    font-size: 20px;
+  }
+
+  .statisticsEntry .title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .statisticsEntry .value {
+    font-size: 18px;
+  }
+
+  .statisticsEntry .title {
+    font-size: 16px;
+  }
 }
