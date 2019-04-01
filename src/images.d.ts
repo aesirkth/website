@@ -1,3 +1,5 @@
+// These are types for imported media files
+
 module "*.svg" {
   declare const url: string;
   export default url;

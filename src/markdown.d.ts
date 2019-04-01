@@ -1,3 +1,5 @@
+// These are types for imported .mdx and .md files
+
 module "*.mdx" {
   import React from "react";
 
