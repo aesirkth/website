@@ -9,6 +9,7 @@ import imageminSvgo from "imagemin-svgo";
 
 export default pluginOptions => ({
   webpack(config, { defaultLoaders, stage }) {
+    console.log("stage is:", stage);
     config.resolve.alias = {
       ...config.resolve.alias,
       "@data": resolve(__dirname, "./src/data"),
