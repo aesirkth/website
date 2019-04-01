@@ -2,6 +2,8 @@ language: node_js
 node_js:
   - "8"
 install:
+  - npm i yarn@1.13.0 -g
+  - yarn config set cache-folder $HOME/.yarn-cache
   - yarn
   - yarn build
 script:
