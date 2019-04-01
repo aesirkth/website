@@ -3,6 +3,7 @@ import path from "path";
 import jdown from "jdown";
 
 export default {
+  siteRoot: process.env.DEPLOY_PRIME_URL || undefined,
   plugins: [
     "react-static-plugin-typescript",
     [
