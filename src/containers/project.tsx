@@ -3,6 +3,7 @@ import { withRouteData } from "react-static";
 import { Project } from "@src/types/data";
 import { Column } from "@components/column";
 import { MarkdownWrapper } from "@components/markdown";
+import { ReturnHomeLink } from "@components/returnHome";
 
 export default withRouteData(({ project }: { project: Project }) => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -21,6 +22,7 @@ export default withRouteData(({ project }: { project: Project }) => {
   }
   return (
     <Column>
+      <ReturnHomeLink />
       <MarkdownWrapper
         prefix="projects/"
         title={project.summary.title}
