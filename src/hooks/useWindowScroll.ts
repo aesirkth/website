@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 
+// A hook that provides the current window scroll in 'callback', if 'active' is true. The scroll value is clamped to the interval [min, max]
 export function useWindowScroll(
   active: boolean,
   callback: (scroll: number | null) => void,

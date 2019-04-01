@@ -1,7 +1,8 @@
 import { useCallback } from "react";
 import { useSpring, config } from "react-spring";
 
-export function useCursorRotation(rate: number) {
+// A hook for applying rotation to a DOM element based on mouse position, with a maximum angle 'maxAngle'
+export function useCursorRotation(maxAngle: number) {
   const [animatedProps, set] = useSpring(() => ({
     xys: [0, 0, 1],
     config: { ...config.wobbly }
@@ -15,7 +16,7 @@ export function useCursorRotation(rate: number) {
       const xValue = ((x - rect.left) / rect.width) * 2 - 1;
       const yValue = ((y - rect.top) / rect.height) * 2 - 1;
 
-      set({ xys: [xValue * rate, yValue * rate, 0.99] });
+      set({ xys: [xValue * maxAngle, yValue * maxAngle, 0.99] });
     },
     [set]
   );

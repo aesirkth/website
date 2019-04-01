@@ -18,7 +18,8 @@
     "paths": {
       "@data/*": ["src/data/*"],
       "@components/*": ["src/components/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@hooks/*": ["src/hooks/*"],
+      "@src/*": ["src/*"]
     },
     "lib": ["dom", "es2015", "es2016"]
   },

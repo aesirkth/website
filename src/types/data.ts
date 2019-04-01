@@ -1,3 +1,8 @@
+/*
+ * This file contains the types for various structured data passed to pages
+ *
+ */
+
 export type Project = {
   folder: string;
   details: {

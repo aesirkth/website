@@ -1,13 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-// Your top level component
 import App from "./app";
 
-// Export your top level component as JSX (for static rendering)
-export default App;
-
-// Render your app
+// Render the app in a browser environment
 if (typeof document !== "undefined") {
   const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate || ReactDOM.render;
 
@@ -15,11 +11,11 @@ if (typeof document !== "undefined") {
     renderMethod(<Comp />, document.getElementById("root"));
   };
 
-  // Render!
   render(App);
 
-  // Hot Module Replacement
   if (module.hot) {
     module.hot.accept("./app", () => render(require("./app").default));
   }
 }
+
+export default App; // Export App for SSR

@@ -5,6 +5,7 @@ import { VerticalCentering } from "@components/verticalCentering";
 import { MarkdownWrapper } from "@components/markdown";
 import { Link } from "@reach/router";
 
+// The default 404 page
 const NotFoundPage: React.FC = () => (
   <Column>
     <NavbarAntispace />

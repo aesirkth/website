@@ -11,7 +11,8 @@ import { MarkdownWrapper } from "@components/markdown";
 import { Column } from "@components/column";
 import { Link } from "@reach/router";
 import { QuickLinks } from "@components/quickLinks";
-import { Project } from "src/types";
+import { Project } from "@src/types/data";
+
 import { Statistics, StatisticsEntry } from "@components/statistics";
 
 const ProjectsList: React.FC<{ projects: Project[] }> = props => (
