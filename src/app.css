@@ -26,4 +26,5 @@ img {
 main {
   min-height: 1000px;
   min-height: 100vh;
+  padding-bottom: 32px;
 }

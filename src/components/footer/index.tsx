@@ -5,18 +5,9 @@ import { Link } from "@reach/router";
 
 export const Footer: React.FC = () => {
   return (
-    <Column>
-      <footer className={styles.footer}>
-        <div className={styles.flex}>
-          <section>
-            <header>Useful links</header>
-            <div>
-              <Link to="/">Home</Link>
-              <br />
-              <Link to="/about">About</Link>
-            </div>
-          </section>
-        </div>
+    <footer className={styles.footer}>
+      <Column>
+        <header className={styles.name}>Association of Engineering Students in Rocketry</header>
         <div className={styles.flex}>
           <section>
             <header>Organisation number</header>
@@ -33,7 +24,7 @@ export const Footer: React.FC = () => {
             </div>
           </section>
         </div>
-      </footer>
-    </Column>
+      </Column>
+    </footer>
   );
 };
