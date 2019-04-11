@@ -14,6 +14,7 @@ import { QuickLinks } from "@components/quickLinks";
 import { Project } from "@src/types/data";
 
 import { Statistics, StatisticsEntry } from "@components/statistics";
+import { RecruitmentForm } from "@components/forms/recruitmentForm";
 
 const ProjectsList: React.FC<{ projects: Project[] }> = props => (
   <>
@@ -113,6 +114,7 @@ export default withRouteData(
         </MarkdownWrapper>
         <MarkdownWrapper leftAlign id={lookingForData.slug} title={lookingForData.title}>
           <LookingFor />
+          <RecruitmentForm />
         </MarkdownWrapper>
       </Column>
     </>

@@ -1,0 +1,48 @@
+.formField {
+  flex: 1;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.labelContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 4px;
+}
+
+textarea.input {
+  padding-top: 8px;
+  min-height: 144px;
+  resize: vertical;
+}
+
+.input {
+  border: 2px solid white;
+  background: transparent;
+  border-radius: 0;
+  color: white;
+  outline: none;
+  padding: 0 8px;
+
+  height: 48px;
+
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.input:focus {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.input:disabled {
+  cursor: default;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.1);
+  user-select: none;
+}
