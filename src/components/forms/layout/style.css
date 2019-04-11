@@ -1,0 +1,22 @@
+.row {
+  display: flex;
+  margin: 0 -8px;
+  flex-wrap: wrap;
+}
+
+.item {
+  padding: 8px;
+  flex: 1;
+}
+
+.grid .children {
+  display: flex;
+  margin: -4px;
+  flex-wrap: wrap;
+}
+
+.grid .children > :global(*) {
+  min-height: 22px;
+  min-width: 110px;
+  padding: 4px;
+}

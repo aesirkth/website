@@ -1,17 +1,42 @@
 import React from "react";
+import * as Yup from "yup";
 import { NetlifyForm } from "./netlifyForm";
-import Radio from "./fields/radio";
+import { Formik } from "formik";
+import { Field } from "./fields/field";
+import { FormRow } from "./layout";
+import { Radio } from "./fields/radio";
 import Button from "./fields/button";
-import Field from "./fields/field";
 
-import style from "./style.css";
-import { useStatefulForm } from "@hooks/useStatefulForm";
+const levelOfStudyChoices = ["bachelor", "master", "civilingenjör", "other"];
 
-const KTHMailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@(?:[a-zA-Z0-9-]+\.)*(?:kth\.se)$/;
-
-const LevelOfStudyChoices = ["bachelor", "master", "civilingenjör", "other"];
+const validationSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("That's not an email")
+    .matches(
+      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@(?:[a-zA-Z0-9-]+\.)*(?:kth\.se)$/,
+      "Must be a valid KTH email (<name>@kth.se)"
+    )
+    .required("KTH email is required"),
+  name: Yup.string().required("Name is required"),
+  "describe yourself": Yup.string()
+    .required("Write something about yourself")
+    .min(35, function(v) {
+      return `Write at least 12.5% of a Tweet (${v.value.length}/35 letters) :)`;
+    }),
+  "years left at KTH": Yup.number()
+    .typeError("Enter an integer")
+    .integer("Enter an integer")
+    .required("Years left at KTH is required")
+    .min(0, "You're already an alumni ;)")
+    .max(10, "Max ${max} years"),
+  "program of study": Yup.string().required("Please enter your program of study"),
+  "level of study": Yup.string()
+    .required("Select level of study")
+    .oneOf(levelOfStudyChoices)
+});
 
 export const RecruitmentForm: React.FC<{}> = () => {
+  /*
   const [field, state, valid, validationMessage] = useStatefulForm<any>(
     () => ({}),
     state => {
@@ -47,100 +72,67 @@ export const RecruitmentForm: React.FC<{}> = () => {
 
       return true;
     }
-  );
+  );*/
 
   return (
-    <NetlifyForm
-      formAction="/thank-you"
-      potDefaultValue="go-for-launch"
-      potName="backend-id"
-      formName="contact-dev"
-      valid={valid}
-      id="recruitment"
+    <Formik
+      initialValues={{
+        email: "",
+        name: "",
+        "describe yourself": "",
+        "years left at KTH": "",
+        "program of study": "",
+        "level of study": ""
+      }}
+      validationSchema={validationSchema}
+      onSubmit={(values, { setSubmitting }) => {
+        setTimeout(() => {
+          alert(JSON.stringify(values, null, 2));
+          setSubmitting(false);
+        }, 400);
+      }}
     >
-      <pre>{JSON.stringify(state, null, "  ")}</pre>
-      <pre>{JSON.stringify({ valid }, null, "  ")}</pre>
-      <div className={style.container}>
-        <div className={style.row}>
-          <div className={style.flex}>
-            <Field lines="single" type="text" name="name" {...field("name")}>
-              Your name
-            </Field>
-          </div>
-          <div className={style.flex}>
+      {({ values, errors, dirty, isValid, isSubmitting }) => (
+        <NetlifyForm
+          formAction="/thank-you"
+          potDefaultValue="go-for-launch"
+          potName="backend-id"
+          formName="contact-dev"
+          id="recruitment"
+        >
+          <FormRow>
+            <Field label="Your name" type="text" name="name" />
+            <Field label="Your KTH email" type="email" name="email" />
+          </FormRow>
+
+          <FormRow />
+
+          <FormRow>
             <Field
-              lines="single"
-              type="email"
-              name="email"
-              pattern={KTHMailRegex.source}
-              {...field("mail")}
-            >
-              Your KTH email
-            </Field>
-          </div>
-        </div>
-        <div className={style.row}>
-          <div className={style.flex}>
-            <Field
-              lines="multiple"
+              label="Describe what you could help out with at ÆSIR"
               type="text"
               name="describe yourself"
-              {...field("describeYourself")}
-            >
-              Describe what you could help out with at ÆSIR
-            </Field>
-          </div>
-        </div>
-        <div className={style.row}>
-          <div className={style.flex}>
-            <Field
-              lines="single"
-              min={0}
-              max={10}
-              step={1}
-              type="number"
-              name="years left at KTH"
-              {...field("yearsLeft")}
-            >
-              Whole years left at KTH
-            </Field>
-          </div>
-          <div className={style.third}>
-            <Field lines="single" type="text" name="program of study" {...field("programOfStudy")}>
-              Program of study
-            </Field>
-          </div>
-          <div className={style.grid}>
-            <span className={style.gridLabel}>Level of study</span>
-            <div className={style.gridEntries}>
-              {LevelOfStudyChoices.map(choice => (
-                <Radio
-                  key={choice}
-                  name="level of study"
-                  value={choice}
-                  className={style.gridEntry}
-                  {...field("levelOfStudy", choice)}
-                >
-                  {choice}
-                </Radio>
-              ))}
-            </div>
-          </div>
-        </div>
-        {validationMessage && (
-          <div className={style.row}>
-            <div className={style.flex}>{validationMessage}</div>
-          </div>
-        )}
-        <div className={style.row}>
-          <div className={style.flex}>
-            <Button disabled={!valid} type="submit">
-              Submit
+              multiline
+            />
+          </FormRow>
+
+          <FormRow>
+            <Field label="Years left at KTH" type="number" name="years left at KTH" />
+            <Field flex={3} label="Program of study" type="number" name="program of study" />
+            <Radio label="Level of study" choices={levelOfStudyChoices} name="level of study" />
+          </FormRow>
+
+          <FormRow>
+            <Button type="submit" disabled={isSubmitting}>
+              Submit your application
             </Button>
-          </div>
-        </div>
-      </div>
-    </NetlifyForm>
+          </FormRow>
+          <FormRow>
+            <pre>{JSON.stringify({ values, errors, dirty, isValid }, null, "  ")}</pre>
+          </FormRow>
+        </NetlifyForm>
+      )}
+    </Formik>
   );
 };
 

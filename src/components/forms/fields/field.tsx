@@ -1,41 +1,53 @@
 import React from "react";
 
-import classnames from "clsx";
-
 import style from "./style.css";
+import { useField } from "formik";
+import { FormItem } from "../layout";
+import clsx from "clsx";
+import { useLastRealValue } from "@hooks/useLastRealValue";
 
-const Field: React.FC<React.InputHTMLAttributes<any> & { lines: "single" | "multiple" }> = ({
-  disabled,
-  className,
-  lines,
-  type,
-  name,
-  value,
-  pattern,
-  children,
-  ...props
-}) => {
-  let Component!: React.ReactType;
-  if (lines === "single") Component = "input";
-  else if (lines === "multiple") Component = "textarea";
+type FieldProps = {
+  label: string;
+  required?: true;
+  name: string;
+  type: string;
+  multiline?: true;
+
+  flex?: number;
+};
+
+export const Field: React.FC<FieldProps> = props => {
+  const [fieldProps, fieldMetaProps] = useField(props.name, props.type);
+
+  let Component!: React.ReactType<React.InputHTMLAttributes<any>>;
+  if (props.multiline) {
+    Component = "textarea";
+  } else {
+    Component = "input";
+  }
+
+  const [errorLabel, showErrorLabel] = useLastRealValue(
+    (fieldMetaProps.touched && fieldMetaProps.error) || undefined
+  );
 
   return (
-    <div className={classnames(className, style.formField)}>
-      <label className={style.labelContainer}>
-        <span className={style.label}>{children}</span>
-        <Component
-          disabled={disabled}
-          className={style.input}
-          name={name}
-          value={value}
-          type={type}
-          pattern={pattern}
-          required
-          autocomplete="off"
-          {...props}
-        />
-      </label>
-    </div>
+    <FormItem flex={props.flex}>
+      <div className={style.formField}>
+        <label className={style.labelContainer}>
+          <span className={clsx(style.label, { [style.show]: !showErrorLabel })}>
+            {props.label}
+          </span>
+          <span className={clsx(style.label, style.errorLabel, { [style.show]: showErrorLabel })}>
+            {errorLabel}
+          </span>
+          <Component
+            className={style.input}
+            required={props.required}
+            autoComplete="off"
+            {...fieldProps}
+          />
+        </label>
+      </div>
+    </FormItem>
   );
 };
-export default Field;
