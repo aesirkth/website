@@ -13,6 +13,8 @@ type FieldProps = {
   type: string;
   multiline?: true;
 
+  disabled: boolean;
+
   flex?: number;
 };
 
@@ -41,6 +43,7 @@ export const Field: React.FC<FieldProps> = props => {
             {errorLabel}
           </span>
           <Component
+            disabled={props.disabled}
             className={style.input}
             required={props.required}
             autoComplete="off"

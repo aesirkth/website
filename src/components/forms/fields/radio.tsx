@@ -11,6 +11,8 @@ type RadioProps = {
   required?: true;
   name: string;
 
+  disabled: boolean;
+
   choices: string[];
 
   flex?: number;
@@ -38,6 +40,7 @@ export const Radio: React.FC<RadioProps> = props => {
               <label className={style.radioLabel} key={choice}>
                 <input
                   type="radio"
+                  disabled={props.disabled}
                   className={style.radio}
                   required={props.required}
                   {...fieldProps}

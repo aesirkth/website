@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import * as Yup from "yup";
 import { NetlifyForm } from "./netlifyForm";
 import { Formik } from "formik";
@@ -9,7 +9,7 @@ import Button from "./fields/button";
 
 const levelOfStudyChoices = ["bachelor", "master", "civilingenjör", "other"];
 
-const validationSchema = Yup.object().shape({
+const validationSchema = Yup.object(); /*.shape({
   email: Yup.string()
     .email("That's not an email")
     .matches(
@@ -33,13 +33,47 @@ const validationSchema = Yup.object().shape({
   "level of study": Yup.string()
     .required("Select level of study")
     .oneOf(levelOfStudyChoices)
-});
+});*/
 
 const encode = (data: { [key: string]: any }) => {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&");
 };
+
+const wait = (time: number) => new Promise(resolve => setTimeout(resolve, time));
+
+async function submit(formName: string, formAction: string, values: any) {
+  try {
+    await fetch(formAction, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": formName, ...values })
+    });
+  } finally {
+    await wait(500);
+  }
+}
+
+function useRotatingIndex(interval: number, maxIndex: number) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const index = setInterval(() => {
+      setIndex(i => (i + 1) % maxIndex);
+    }, interval);
+    return () => clearInterval(index);
+  }, [interval]);
+
+  return index;
+}
+
+const dots = [".", "..", "..."];
+const SubmittingDots: React.FC<{ interval: number }> = props => {
+  const index = useRotatingIndex(props.interval, dots.length);
+  return <>{dots[index]}</>;
+};
+
 export const RecruitmentForm: React.FC<{}> = () => {
   const formName = "contact-dev";
   const formAction = "/thank-you";
@@ -56,70 +90,90 @@ export const RecruitmentForm: React.FC<{}> = () => {
       }}
       initialStatus="idle"
       validationSchema={validationSchema}
-      onSubmit={(values, { setStatus, setSubmitting }) => {
-        fetch(formAction, {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({ "form-name": formName, ...values })
-        })
+      onSubmit={async (values, { setStatus, setSubmitting }) => {
+        setSubmitting(true);
+        return submit(formAction, formName, values)
           .then(() => {
-            setTimeout(() => {
-              setStatus("submitted");
-              setSubmitting(false);
-            }, 500);
+            setStatus("submitted");
+            setSubmitting(false);
           })
           .catch(error => {
-            setTimeout(() => {
-              setStatus("error");
-              setSubmitting(false);
-            }, 500);
+            setStatus("error");
+            setSubmitting(false);
             throw error;
           });
       }}
     >
-      {({ isSubmitting, status }) => (
-        <NetlifyForm
-          formAction={formAction}
-          formName={formName}
-          potDefaultValue="go-for-launch"
-          potName="backend-id"
-          id="recruitment"
-        >
-          <FormRow>
-            <Field label="Your name" type="text" name="name" />
-            <Field label="Your KTH email" type="email" name="email" />
-          </FormRow>
+      {({ isSubmitting, status }) => {
+        const canEdit = !(isSubmitting || status === "submitted");
+        return (
+          <NetlifyForm
+            formAction={formAction}
+            formName={formName}
+            potDefaultValue="go-for-launch"
+            potName="backend-id"
+            id="recruitment"
+          >
+            <FormRow>
+              <Field disabled={!canEdit} label="Your name" type="text" name="name" />
+              <Field disabled={!canEdit} label="Your KTH email" type="email" name="email" />
+            </FormRow>
 
-          <FormRow />
+            <FormRow />
 
-          <FormRow>
-            <Field
-              label="Describe what you could help out with at ÆSIR"
-              type="text"
-              name="describe yourself"
-              multiline
-            />
-          </FormRow>
+            <FormRow>
+              <Field
+                disabled={!canEdit}
+                label="Describe what you could help out with at ÆSIR"
+                type="text"
+                name="describe yourself"
+                multiline
+              />
+            </FormRow>
 
-          <FormRow>
-            <Field label="Years left at KTH" type="number" name="years left at KTH" />
-            <Field flex={3} label="Program of study" type="number" name="program of study" />
-            <Radio label="Level of study" choices={levelOfStudyChoices} name="level of study" />
-          </FormRow>
+            <FormRow>
+              <Field
+                disabled={!canEdit}
+                label="Years left at KTH"
+                type="number"
+                name="years left at KTH"
+              />
+              <Field
+                disabled={!canEdit}
+                flex={3}
+                label="Program of study"
+                type="number"
+                name="program of study"
+              />
+              <Radio
+                disabled={!canEdit}
+                label="Level of study"
+                choices={levelOfStudyChoices}
+                name="level of study"
+              />
+            </FormRow>
 
-          <FormRow>
-            <Button type="submit" disabled={isSubmitting || status === "submitted"}>
-              {status === "submitted"
-                ? "Thanks! We'll get back to you soon"
-                : isSubmitting
-                ? "Working on it..."
-                : status === "error"
-                ? "Something bad happened. Retry?"
-                : "Submit your application"}
-            </Button>
-          </FormRow>
-        </NetlifyForm>
-      )}
+            <FormRow>
+              <Button type="submit" disabled={!canEdit}>
+                {status === "submitted" ? (
+                  "Thanks! We'll get back to you soon"
+                ) : isSubmitting ? (
+                  <>
+                    Working on it
+                    <span style={{ width: 50 }}>
+                      <SubmittingDots interval={150} />
+                    </span>
+                  </>
+                ) : status === "error" ? (
+                  "Something bad happened. Retry?"
+                ) : (
+                  "Submit your application"
+                )}
+              </Button>
+            </FormRow>
+          </NetlifyForm>
+        );
+      }}
     </Formik>
   );
 };
