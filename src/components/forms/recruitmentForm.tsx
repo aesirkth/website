@@ -35,44 +35,14 @@ const validationSchema = Yup.object().shape({
     .oneOf(levelOfStudyChoices)
 });
 
+const encode = (data: { [key: string]: any }) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
 export const RecruitmentForm: React.FC<{}> = () => {
-  /*
-  const [field, state, valid, validationMessage] = useStatefulForm<any>(
-    () => ({}),
-    state => {
-      if (typeof state.name !== "string" || state.name.length === 0) {
-        return "Name is required!";
-      }
-      if (typeof state.mail !== "string" || state.mail.length === 0) {
-        return "Mail is required!";
-      }
-      if (!KTHMailRegex.test(state.mail.trim())) {
-        return "Mail is required to be a KTH mail (<name>@kth.se)";
-      }
-      if (typeof state.describeYourself !== "string" || state.describeYourself.length === 0) {
-        return "Describe yourself is required!";
-      }
-      if (typeof state.programOfStudy !== "string" || state.programOfStudy.length === 0) {
-        return "Program of study is required!";
-      }
-      if (typeof state.levelOfStudy !== "string" || state.levelOfStudy.length === 0) {
-        return "Level of study is required!";
-      }
-
-      const yearsLeft = parseInt(state.yearsLeft, 10);
-      if (isNaN(yearsLeft)) {
-        return "Years left is required!";
-      }
-      if (yearsLeft < 0) {
-        return "If years left was negative, you're already an alumni ;)";
-      }
-      if (yearsLeft > 10) {
-        return "Years left shouldn't be this long ;)";
-      }
-
-      return true;
-    }
-  );*/
+  const formName = "contact-dev";
+  const formAction = "/thank-you";
 
   return (
     <Formik
@@ -86,18 +56,26 @@ export const RecruitmentForm: React.FC<{}> = () => {
       }}
       validationSchema={validationSchema}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+        fetch(formAction, {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({ "form-name": formName, ...values })
+        })
+          .then(() => {
+            setSubmitting(false);
+          })
+          .catch(error => {
+            setSubmitting(false);
+            throw error;
+          });
       }}
     >
       {({ values, errors, dirty, isValid, isSubmitting }) => (
         <NetlifyForm
-          formAction="/thank-you"
+          formAction={formAction}
+          formName={formName}
           potDefaultValue="go-for-launch"
           potName="backend-id"
-          formName="contact-dev"
           id="recruitment"
         >
           <FormRow>
@@ -124,7 +102,7 @@ export const RecruitmentForm: React.FC<{}> = () => {
 
           <FormRow>
             <Button type="submit" disabled={isSubmitting}>
-              Submit your application
+              {isSubmitting ? "Working on it..." : "Submit your application"}
             </Button>
           </FormRow>
           <FormRow>
