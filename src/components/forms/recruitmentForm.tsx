@@ -9,7 +9,7 @@ import Button from "./fields/button";
 
 const levelOfStudyChoices = ["bachelor", "master", "civilingenjör", "other"];
 
-const validationSchema = Yup.object(); /*.shape({
+const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("That's not an email")
     .matches(
@@ -33,7 +33,7 @@ const validationSchema = Yup.object(); /*.shape({
   "level of study": Yup.string()
     .required("Select level of study")
     .oneOf(levelOfStudyChoices)
-});*/
+});
 
 const encode = (data: { [key: string]: any }) => {
   return Object.keys(data)
