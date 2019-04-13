@@ -54,23 +54,30 @@ export const RecruitmentForm: React.FC<{}> = () => {
         "program of study": "",
         "level of study": ""
       }}
+      initialStatus="idle"
       validationSchema={validationSchema}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values, { setStatus, setSubmitting }) => {
         fetch(formAction, {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: encode({ "form-name": formName, ...values })
         })
           .then(() => {
-            setSubmitting(false);
+            setTimeout(() => {
+              setStatus("submitted");
+              setSubmitting(false);
+            }, 500);
           })
           .catch(error => {
-            setSubmitting(false);
+            setTimeout(() => {
+              setStatus("error");
+              setSubmitting(false);
+            }, 500);
             throw error;
           });
       }}
     >
-      {({ isSubmitting }) => (
+      {({ isSubmitting, status }) => (
         <NetlifyForm
           formAction={formAction}
           formName={formName}
@@ -101,8 +108,14 @@ export const RecruitmentForm: React.FC<{}> = () => {
           </FormRow>
 
           <FormRow>
-            <Button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Working on it..." : "Submit your application"}
+            <Button type="submit" disabled={isSubmitting || status === "submitted"}>
+              {status === "submitted"
+                ? "Thanks! We'll get back to you soon"
+                : isSubmitting
+                ? "Working on it..."
+                : status === "error"
+                ? "Something bad happened. Retry?"
+                : "Submit your application"}
             </Button>
           </FormRow>
         </NetlifyForm>
