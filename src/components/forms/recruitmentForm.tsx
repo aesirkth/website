@@ -43,7 +43,7 @@ const encode = (data: { [key: string]: any }) => {
 
 const wait = (time: number) => new Promise(resolve => setTimeout(resolve, time));
 
-async function submit(formName: string, formAction: string, values: any) {
+async function submit(formAction: string, formName: string, values: any) {
   try {
     await fetch(formAction, {
       method: "POST",
