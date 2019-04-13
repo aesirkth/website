@@ -9,6 +9,11 @@ export const App = () => {
   return (
     <Root>
       <Head>
+        <meta
+          name="description"
+          content="Association of Engineering Students in Rocketry, by students from KTH Royal Institute of Technology, in Stockholm, Sweden."
+        />
+        <title>Association of Engineering Students in Rocketry</title>
         <link
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700"
           rel="stylesheet"

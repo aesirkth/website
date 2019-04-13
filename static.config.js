@@ -5,6 +5,7 @@ import jdown from "jdown";
 export default {
   siteRoot: process.env.DEPLOY_PRIME_URL || undefined,
   plugins: [
+    ["react-static-plugin-favicons", { inputFile: path.resolve(__dirname, "icon.svg") }],
     "react-static-plugin-typescript",
     [
       "react-static-plugin-css-modules",

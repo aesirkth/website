@@ -70,7 +70,7 @@ export const RecruitmentForm: React.FC<{}> = () => {
           });
       }}
     >
-      {({ values, errors, dirty, isValid, isSubmitting }) => (
+      {({ isSubmitting }) => (
         <NetlifyForm
           formAction={formAction}
           formName={formName}
@@ -104,9 +104,6 @@ export const RecruitmentForm: React.FC<{}> = () => {
             <Button type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Working on it..." : "Submit your application"}
             </Button>
-          </FormRow>
-          <FormRow>
-            <pre>{JSON.stringify({ values, errors, dirty, isValid }, null, "  ")}</pre>
           </FormRow>
         </NetlifyForm>
       )}

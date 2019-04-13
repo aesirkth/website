@@ -4,10 +4,14 @@ import { NavbarAntispace } from "@components/navbar";
 import { VerticalCentering } from "@components/verticalCentering";
 import { MarkdownWrapper } from "@components/markdown";
 import { Link } from "@reach/router";
+import { Head } from "react-static";
 
 // The default 404 page
 const NotFoundPage: React.FC = () => (
   <Column>
+    <Head>
+      <title>Not found :(</title>
+    </Head>
     <NavbarAntispace />
     <VerticalCentering>
       <MarkdownWrapper>

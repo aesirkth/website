@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouteData } from "react-static";
+import { withRouteData, Head } from "react-static";
 import { Project } from "@src/types/data";
 import { Column } from "@components/column";
 import { MarkdownWrapper } from "@components/markdown";
@@ -22,6 +22,9 @@ export default withRouteData(({ project }: { project: Project }) => {
   }
   return (
     <Column>
+      <Head>
+        <title>ÆSIR - {project.summary.title}</title>
+      </Head>
       <ReturnHomeLink />
       <MarkdownWrapper
         prefix="projects/"
