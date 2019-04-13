@@ -18,6 +18,7 @@ export const App = () => {
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700"
           rel="stylesheet"
         />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113469156-1" />
       </Head>
       <main>
         <Location>{props => <Navbar location={props.location} />}</Location>

@@ -5,6 +5,8 @@ import App from "./app";
 
 // Render the app in a browser environment
 if (typeof document !== "undefined") {
+  require("./analytics");
+  require("./errors");
   const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate || ReactDOM.render;
 
   const render = (Comp: Function) => {

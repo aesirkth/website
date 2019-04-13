@@ -15,6 +15,8 @@
     "serve": "serve dist -p 3000 -s"
   },
   "dependencies": {
+    "autotrack": "^2.4.1",
+    "raven-js": "^3.27.0",
     "@reach/router": "1.2.1",
     "@types/yup": "^0.26.12",
     "clsx": "1.0.3",
