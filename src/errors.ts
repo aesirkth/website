@@ -1,2 +1,2 @@
 import Raven from "raven-js";
-Raven.config("https://e20ef790f5704cde9f95f731be7fd847@sentry.io/153019").install();
+Raven.config("https://eff2905b92df44048a68b7a60f396768@sentry.io/143694").install();
