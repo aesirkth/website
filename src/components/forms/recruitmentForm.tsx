@@ -6,6 +6,7 @@ import { Field } from "./fields/field";
 import { FormRow } from "./layout";
 import { Radio } from "./fields/radio";
 import Button from "./fields/button";
+import { FormSubmissionTerms } from "@components/formTerms";
 
 const levelOfStudyChoices = ["bachelor", "master", "civilingenjör", "other"];
 
@@ -152,7 +153,7 @@ export const RecruitmentForm: React.FC<{}> = () => {
                 name="level of study"
               />
             </FormRow>
-
+            <FormSubmissionTerms />
             <FormRow>
               <Button type="submit" disabled={!canEdit}>
                 {status === "submitted" ? (
