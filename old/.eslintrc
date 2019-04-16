@@ -1,9 +1,0 @@
-{
-  "extends": "eslint-config-synacor",
-  "rules": {
-    "quotes": ["warn", "double"],
-    "react/prefer-stateless-function": 0,
-    "react/jsx-indent-props": 0,
-    "indent": ["error", 2]
-  }
-}
