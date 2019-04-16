@@ -96,14 +96,9 @@ export default withRouteData(
           <OurMission />
         </MarkdownWrapper>
         <MarkdownWrapper leftAlign title="Ongoing projects">
-          <p>This is what we're working on right now!</p>
           <ProjectsList projects={currentProjects} />
         </MarkdownWrapper>
         <MarkdownWrapper leftAlign title="Past projects">
-          <p>
-            These are our accomplishments - it may not look like much, but it's a big accomplishment
-            for us.
-          </p>
           <ProjectsList projects={pastProjects} />
         </MarkdownWrapper>
         <MarkdownWrapper leftAlign id={supportUsData.slug} title={supportUsData.title}>
