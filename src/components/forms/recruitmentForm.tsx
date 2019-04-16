@@ -76,7 +76,7 @@ const SubmittingDots: React.FC<{ interval: number }> = props => {
 };
 
 export const RecruitmentForm: React.FC<{}> = () => {
-  const formName = "contact";
+  const formName = "contact-new";
   const formAction = "/thank-you";
 
   return (
