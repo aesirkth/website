@@ -36,6 +36,11 @@ const links = [
     title: "GitHub",
     link: "https://github.com/aesirkth/",
     icon: NavbarSocialIcons.GitHub
+  },
+  {
+    title: "LinkedIn",
+    link: "https://www.linkedin.com/company/association-of-engineering-students-in-rocketry/about/",
+    icon: NavbarSocialIcons.LinkedIn
   }
 ];
 
