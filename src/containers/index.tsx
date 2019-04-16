@@ -15,6 +15,7 @@ import { Project } from "@src/types/data";
 
 import { Statistics, StatisticsEntry } from "@components/statistics";
 import { RecruitmentForm } from "@components/forms/recruitmentForm";
+import { ActionLink } from "@components/actionLink";
 
 const ProjectsList: React.FC<{ projects: Project[] }> = props => (
   <>
@@ -38,11 +39,9 @@ const ProjectsList: React.FC<{ projects: Project[] }> = props => (
               )}
           </h1>
           <Route />
-          <p>
-            <Link to={`/projects/${project.summary.slug}`}>
-              Read more about {project.summary.title}
-            </Link>
-          </p>
+          <ActionLink to={`/projects/${project.summary.slug}`}>
+            Read more about {project.summary.title}
+          </ActionLink>
         </div>
       );
     })}
@@ -91,9 +90,7 @@ export default withRouteData(
 
         <MarkdownWrapper leftAlign id={whoWeAreData.slug} title={whoWeAreData.title}>
           <WhoWeAre />
-          <p>
-            <Link to="/about">Read more about us</Link>
-          </p>
+          <ActionLink to="/about">Read more about us</ActionLink>
         </MarkdownWrapper>
         <MarkdownWrapper leftAlign id={ourMissionData.slug} title={ourMissionData.title}>
           <OurMission />

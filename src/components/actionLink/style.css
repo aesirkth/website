@@ -1,0 +1,50 @@
+.link {
+  display: inline-block;
+  pointer-events: none;
+  color: white !important;
+}
+
+.action {
+  margin: 0 !important;
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  border: 4px solid white;
+  color: white !important;
+  min-height: 32px;
+  border-radius: 16px;
+
+  transition: background 200ms, box-shadow 200ms;
+  padding: 4px 16px;
+  line-height: 1em;
+}
+
+.action:hover {
+  background: #ffffff12;
+  box-shadow: 0 2px 8px #00000012;
+  color: white !important;
+}
+
+.action:active {
+  background: #ffffff24;
+  color: white !important;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  padding-left: 8px;
+  transition: transform 200ms;
+}
+
+.action:hover .icon {
+  transform: translate3d(2px, 0, 0);
+}
+
+.action:active .icon {
+  transform: translate3d(4px, 0, 0);
+}
