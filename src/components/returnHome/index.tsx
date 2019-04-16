@@ -5,7 +5,10 @@ import { Link } from "@reach/router";
 import { Logo } from "@components/logo";
 
 export const ReturnHomeLink: React.FC = () => {
-  const isReturnHomeLink = window.history.state && window.history.state.returnHome === true;
+  const isReturnHomeLink =
+    typeof window !== "undefined" &&
+    window.history.state &&
+    window.history.state.returnHome === true;
 
   return (
     <div className={styles.returnHome}>
