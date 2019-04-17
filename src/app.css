@@ -1,0 +1,30 @@
+body {
+  font-family: Source Sans Pro, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html {
+  background: linear-gradient(to bottom, #37109f, #37109f 100vh, hsla(256, 100%, 25%, 1));
+  color: white;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+a {
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+}
+
+main {
+  min-height: 1000px;
+  min-height: 100vh;
+  padding-bottom: 32px;
+}

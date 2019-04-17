@@ -1,0 +1,138 @@
+.masthead {
+  max-height: 90vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  background: radial-gradient(
+    ellipse at 50% 180%,
+    hsla(241, 65%, 65%, 1) 0%,
+    hsla(231, 55%, 40%, 1) 100%
+  );
+
+  height: 45vh;
+  min-height: 340px;
+  max-height: 600px;
+}
+
+@media (max-width: 1200px) {
+  .masthead {
+    max-height: 500px;
+  }
+}
+@media (max-width: 1000px) {
+  .masthead {
+    max-height: 480px;
+  }
+}
+@media (max-width: 800px) {
+  .masthead {
+    max-height: 455px;
+  }
+}
+@media (max-width: 600px) {
+  .masthead {
+    max-height: 420px;
+  }
+}
+@media (max-width: 500px) {
+  .masthead {
+    max-height: 380px;
+  }
+}
+@media (max-width: 400px) {
+  .masthead {
+    max-height: 340px;
+  }
+}
+
+.punchline {
+  margin: 0;
+  margin-top: 1em;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.punchline p {
+  margin: 0;
+}
+
+.punchline p + p {
+  margin-top: 0.4em;
+}
+
+@media (max-width: 1400px) {
+  .punchline {
+    font-size: 28px;
+  }
+}
+@media (max-width: 1000px) {
+  .punchline {
+    font-size: 24px;
+  }
+}
+@media (max-width: 800px) {
+  .punchline {
+    font-size: 22px;
+  }
+}
+@media (max-width: 600px) {
+  .punchline {
+    font-size: 20px;
+  }
+}
+@media (max-width: 500px) {
+  .punchline {
+    font-size: 18px;
+  }
+}
+@media (max-width: 400px) {
+  .punchline {
+    font-size: 16px;
+  }
+}
+
+.bottom {
+  padding-top: 164px;
+  margin-top: -100px;
+
+  position: relative;
+  height: 60px;
+  contain: strict;
+}
+
+@media (max-width: 1000px) {
+  .bottom {
+    padding-top: 148px;
+    height: 60px;
+  }
+}
+@media (max-width: 800px) {
+  .bottom {
+    padding-top: 132px;
+    height: 60px;
+  }
+}
+@media (max-width: 600px) {
+  .bottom {
+    padding-top: 116px;
+    height: 60px;
+  }
+}
+@media (max-width: 500px) {
+  .bottom {
+    padding-top: 108px;
+    height: 60px;
+  }
+}
+@media (max-width: 400px) {
+  .bottom {
+    padding-top: 100px;
+    height: 60px;
+  }
+}

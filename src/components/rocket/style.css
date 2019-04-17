@@ -1,0 +1,23 @@
+.rocket {
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  left: 40%;
+  top: 49%;
+
+  height: 140px;
+  width: 140px;
+  border-radius: 70px;
+
+  box-sizing: border-box;
+
+  border: 8px solid white;
+
+  transform: translate(-50%, -50%);
+
+  filter: drop-shadow(0px 0px 16px #00000056);
+
+  pointer-events: none;
+}

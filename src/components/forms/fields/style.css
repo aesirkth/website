@@ -1,0 +1,122 @@
+.formField {
+  flex: 1;
+  flex-shrink: 0;
+
+  position: relative;
+
+  display: flex;
+  padding-top: 24px;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  min-width: 240px;
+}
+
+.labelContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  transition: opacity 200ms, transform 200ms;
+}
+
+.label:not(.show) {
+  transform: translate3d(-8px, 0, 0);
+  opacity: 0;
+}
+
+.errorLabel {
+  color: #ffc377;
+  font-weight: bold;
+}
+
+.label.show {
+  transform: none;
+  opacity: 1;
+}
+
+textarea.input {
+  padding-top: 8px;
+  min-height: 144px;
+  resize: vertical;
+}
+
+.input {
+  border: 2px solid white;
+  box-shadow: 0px 4px 10px #0000003d;
+  background: #ffffff0a;
+  border-radius: 8px;
+  color: white;
+  outline: none;
+  padding: 0 8px;
+  cursor: text;
+
+  height: 48px;
+
+  font-size: 16px;
+  font-family: inherit;
+
+  transition: background 200ms;
+}
+
+.input:focus {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.input:disabled {
+  cursor: default;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.1);
+  user-select: none;
+}
+
+.input:global([data-touched]):invalid {
+  background: #ff00000f;
+  border-color: #ff9a9a;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radioLabel input {
+  display: none;
+  line-height: 16px;
+}
+
+.radioLabel .checkbox {
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+
+  border-radius: 10px;
+  margin-top: 2px;
+  margin-right: 4px;
+
+  border: 2px solid white;
+  transition: background;
+}
+.radioLabel:hover .checkbox {
+  background: #ffffff3d;
+}
+
+.radioLabel .checkbox.checked {
+  background: white;
+}
+
+.button {
+  width: 100%;
+  cursor: pointer;
+}
+
+.button[disabled] {
+  cursor: default;
+}

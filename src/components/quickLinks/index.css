@@ -1,0 +1,20 @@
+.quickLinks .header {
+  padding-right: 12px;
+  font-size: 0.9em;
+}
+
+.quickLinks .separator {
+  padding: 0 4px;
+}
+
+.quickLinks {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 24px;
+}
+
+@media (max-width: 600px) {
+  .quickLinks .header {
+    font-size: 1em;
+  }
+}

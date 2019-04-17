@@ -1,44 +1,74 @@
 {
-  "name": "cli",
+  "name": "@aesirkth/website",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "lint": "eslint src",
-    "test": "npm run lint && npm run build",
-    "start": "preact serve",
-    "precommit": "npm run lint -- --cache",
-    "build": "preact build --prerenderUrls src/prerender-urls.json --template src/template.html",
-    "dev": "preact watch --template src/template.html"
-  },
-  "keywords": [],
-  "author": "",
+  "private": true,
   "license": "MIT",
-  "eslintConfig": {
-    "extends": "eslint-config-synacor"
+  "scripts": {
+    "test": "yarn lint",
+    "check-lint": "eslint -c .eslintrc ./src/**/*.{ts,tsx}",
+    "check-style": "prettier -c **/*.{ts,tsx}",
+    "start": "react-static start",
+    "build-ci": "react-static build --staging",
+    "build": "react-static build",
+    "bundle": "react-static bundle",
+    "export": "react-static export",
+    "serve": "serve dist -p 3000 -s"
   },
-  "devDependencies": {
-    "eslint": "^4.16.0",
-    "eslint-config-synacor": "^2.1.0",
-    "if-env": "^1.0.4",
-    "node-sass": "^4.7.2",
-    "postcss": "^6.0.17",
-    "pre-commit": "^1.2.2",
-    "preact-cli": "^2.1.1",
-    "sass-loader": "^6.0.6"
-  },
-  "pre-commit": [
-    "precommit"
-  ],
   "dependencies": {
     "autotrack": "^2.4.1",
-    "classnames": "^2.2.5",
-    "linkstate": "^1.1.1",
-    "marked": "^0.3.12",
-    "preact": "^8.2.7",
-    "preact-compat": "^3.18.0",
-    "preact-markdown": "^0.4.0",
-    "preact-router": "^2.6.0",
-    "raven-js": "^3.22.1"
+    "raven-js": "^3.27.0",
+    "@reach/router": "1.2.1",
+    "@types/yup": "^0.26.12",
+    "clsx": "1.0.3",
+    "formik": "^2.0.1-alpha.2",
+    "imagemin-gifsicle": "6.0.1",
+    "imagemin-mozjpeg": "8.0.0",
+    "imagemin-pngquant": "7.0.0",
+    "imagemin-svgo": "7.0.0",
+    "imagemin-webpack": "4.1.0",
+    "jdown": "1.0.1",
+    "mdx-loader": "2.2.1",
+    "react": "16.8.4",
+    "react-dom": "16.8.4",
+    "react-hot-loader": "4.8.0",
+    "react-spring": "8.0.14",
+    "react-static": "6.3.6",
+    "react-static-plugin-css-modules": "6.3.0",
+    "react-static-plugin-typescript": "3.1.1",
+    "react-static-plugin-favicons": "1.0.0",
+    "react-with-gesture": "4.0.6",
+    "responsive-loader": "1.2.0",
+    "sharp": "0.21.3",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "@types/node": "11.11.1",
+    "@types/reach__router": "1.2.3",
+    "@types/react": "16.8.7",
+    "@types/react-dom": "16.8.2",
+    "@types/react-helmet": "5.0.8",
+    "@types/react-hot-loader": "4.1.0",
+    "@types/webpack-env": "1.13.9",
+    "@typescript-eslint/eslint-plugin": "1.4.2",
+    "@typescript-eslint/parser": "1.4.2",
+    "eslint": "5.15.1",
+    "eslint-config-prettier": "4.1.0",
+    "eslint-plugin-react": "7.12.4",
+    "eslint-plugin-react-hooks": "1.5.0",
+    "husky": "1.3.1",
+    "lint-staged": "8.1.5",
+    "prettier": "1.16.4",
+    "serve": "10.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint",
+      "prettier"
+    ]
   }
 }
