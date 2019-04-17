@@ -3,7 +3,7 @@ import path from "path";
 import jdown from "jdown";
 
 export default {
-  // siteRoot: process.env.DEPLOY_PRIME_URL || undefined,
+  siteRoot: process.env.CONTEXT === "production" ? process.env.URL : undefined,
   plugins: [
     ["react-static-plugin-favicons", { inputFile: path.resolve(__dirname, "icon.svg") }],
     "react-static-plugin-typescript",
