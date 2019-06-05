@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
         <div className={styles.flex}>
           <section>
             <header>Organisation number</header>
-            <div>802506-0568</div>
+            <div>802508-0568</div>
           </section>
           <section>
             <header>Location</header>
